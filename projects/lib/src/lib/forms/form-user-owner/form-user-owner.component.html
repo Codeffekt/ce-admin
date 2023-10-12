@@ -1,0 +1,12 @@
+<ce-list>
+    <ce-list-header label="Créateur"></ce-list-header>    
+        <ce-list-item *ngIf="(formOwner$ | async) as form">
+            <ce-list-item-factory [type]="form.core.root" [item]="form">
+            </ce-list-item-factory>
+            <ce-list-item-actions>
+                <button mat-menu-item (click)="changeOwner()">
+                    <span>Changer le créateur</span>
+                </button>
+            </ce-list-item-actions>
+        </ce-list-item>    
+</ce-list>

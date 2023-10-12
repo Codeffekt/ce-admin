@@ -1,0 +1,26 @@
+<ce-section>
+    <ce-section-title>Projets partagés</ce-section-title>
+    <ce-section-actions>
+        <button mat-flat-button color="primary" class="ms-auto"
+                (click)="openProjectsSelectionDialog()">+
+            Ajouter</button>
+    </ce-section-actions>
+    <ce-section-content>
+        <ce-formquery-wrapper [paginationEnabled]="true" [searchEnabled]="true">
+            <ce-list>
+                <ce-list-item *ngFor="let formSharing of formsSharing$ | async">
+                    <ce-list-item-content>
+                        <ce-list-item-content>{{formSharing.core|valueForKey:'form.name'}}</ce-list-item-content>
+                    </ce-list-item-content>
+                    <ce-list-item-actions>
+                        <button mat-menu-item (ngReallyClick)="removeFormSharing(formSharing)"
+                                ngReallyTitle="Confirmation requise"
+                                ngReallyMessage="Voulez-vous vraiment supprimer le partage de ce projet ?">
+                            <span>Supprimer</span>
+                        </button>
+                    </ce-list-item-actions>
+                </ce-list-item>
+            </ce-list>
+        </ce-formquery-wrapper>
+    </ce-section-content>
+</ce-section>

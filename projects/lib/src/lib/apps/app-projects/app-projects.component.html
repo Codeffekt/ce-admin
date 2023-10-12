@@ -1,0 +1,14 @@
+<ce-nav-layout>
+    <ce-navbar>
+        <ce-navbar-item (click)="goToApps()">Applications</ce-navbar-item>
+        <ce-navbar-item>{{currentApp.props.name}}</ce-navbar-item>
+    </ce-navbar>
+
+    <ce-list [searchBox]="true" [paginator]="true">
+        <ce-list-header label="Mes projets"></ce-list-header>
+        <ce-list-item *ngFor="let project of projects$ | async" (click)="onSelected(project)">
+            <ce-list-item-factory type="project" [item]="project"></ce-list-item-factory>
+        </ce-list-item>
+    </ce-list>
+   
+</ce-nav-layout>

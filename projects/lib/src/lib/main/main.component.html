@@ -1,0 +1,41 @@
+<mat-drawer-container class="h-100">
+    <mat-drawer [mode]="mobileQuery.matches ? 'over' : 'side'" [opened]="mobileQuery.matches ? false : true"
+        style="width:256px">
+        <ce-side-menu title="{{appConfig.title}}">
+            <ce-side-menu-content>
+                <ce-side-menu-list>
+                    <!-- <ce-side-menu-item routerLinkActive="active" [routerLink]="['dashboards']" icon="assignment" label="Dashboards">
+                    </ce-side-menu-item>    -->
+                    <ng-container *ngFor="let menuEntry of menuEntries ">
+                        <ce-side-menu-item routerLinkActive="active" [routerLink]="[menuEntry.route.path]"
+                            [icon]="menuEntry.icon" [label]="menuEntry.label" *ngIf="menuEntry.icon">
+                        </ce-side-menu-item>
+                        <ce-side-menu-item routerLinkActive="active" [routerLink]="[menuEntry.route.path]"
+                            *ngIf="menuEntry.fontIcon" [fontIcon]="menuEntry.fontIcon" [label]="menuEntry.label">
+                        </ce-side-menu-item>
+                    </ng-container>
+                    <!-- <ce-side-menu-item routerLinkActive="active" [routerLink]="['events']" icon="assignment" label="Monitoring">
+                    </ce-side-menu-item>  
+                    <ce-side-menu-item routerLinkActive="active" [routerLink]="['apis']" icon="assignment" label="API">
+                    </ce-side-menu-item> 
+                    <ce-side-menu-item routerLinkActive="active" [routerLink]="['exchanges']" icon="assignment" label="I/O">
+                    </ce-side-menu-item>        -->
+                    <ce-side-menu-item routerLinkActive="active" [routerLink]="['logout']" icon="logout"
+                        label="Déconnexion">
+                    </ce-side-menu-item>
+                </ce-side-menu-list>
+            </ce-side-menu-content>
+            <ce-side-menu-footer>
+                <div class="mat-caption text-light text-center">{{appConfig.version}}</div>
+            </ce-side-menu-footer>
+        </ce-side-menu>
+    </mat-drawer>
+    <mat-drawer-content>
+        <ce-grid class="h-100" templateRows="auto 1fr">
+            <div overflow-x-auto [cdkPortalOutlet]="navBarPortal$ | async"></div>
+            <div overflow-auto>
+                <router-outlet></router-outlet>
+            </div>
+        </ce-grid>
+    </mat-drawer-content>
+</mat-drawer-container>

@@ -1,0 +1,18 @@
+<ce-list>
+    <ce-list-header label="Liste des partages utilisateur" class="py-2">
+        <button mat-flat-button color="primary" class="ms-auto" (click)="openUsersSelectionDialog()">+
+            Ajouter</button>
+    </ce-list-header>
+    <ce-list-item *ngFor="let formSharing of formsSharing$ | async">
+        <ce-list-item-content>
+            <ce-list-item-content>{{formSharing.props.login}}</ce-list-item-content>
+        </ce-list-item-content>
+        <ce-list-item-actions>
+            <button mat-menu-item (ngReallyClick)="removeFormSharing(formSharing)"
+                ngReallyTitle="Confirmation requise"
+                ngReallyMessage="Voulez-vous vraiment supprimer le partage du formulaire pour cet utilisateur ?">
+                <span>Supprimer</span>
+            </button>
+        </ce-list-item-actions>
+    </ce-list-item>
+</ce-list>

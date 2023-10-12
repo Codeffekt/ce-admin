@@ -1,0 +1,21 @@
+<mat-drawer-container class="h-100">
+    <mat-drawer mode="side" position="end" style="width:256px" [opened]="true">
+        <ce-side-menu>
+            <ce-side-menu-content>
+                <button mat-flat-button class="d-flex m-auto" routerLink="/apps"><mat-icon>list</mat-icon>{{currentApp.props.name}}</button>
+                <ce-side-menu-list> 
+                    <ce-side-menu-item routerLinkActive="active" icon="assignment" label="Projets" routerLink="projects"></ce-side-menu-item>                    
+                    <ce-side-menu-item routerLinkActive="active" icon="assignment" label="Masques" routerLink="masks"></ce-side-menu-item>
+                    <ce-side-menu-item routerLinkActive="active" icon="assignment" label="Paramètres" routerLink="settings"></ce-side-menu-item>
+                </ce-side-menu-list>
+            </ce-side-menu-content>
+            <ce-side-menu-footer>
+                <div class="mat-caption text-light text-center"></div>
+            </ce-side-menu-footer>
+        </ce-side-menu>
+    </mat-drawer>
+    <mat-drawer-content> 
+        <router-outlet></router-outlet>       
+    </mat-drawer-content>
+</mat-drawer-container>
+

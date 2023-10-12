@@ -1,0 +1,34 @@
+<ce-row gap="12px" alignItems="center">
+    <ce-edit-time [mTime]="form.mtime ?? form.ctime"></ce-edit-time>
+    <span ceMarginStart="auto"></span>
+    <ce-row gap="4px">
+        <button mat-icon-button
+                class="text-muted"
+                matTooltip="Partager"
+                (click)="addSharing()">
+            <mat-icon>person_add</mat-icon>
+        </button>
+        <button mat-icon-button
+                class="text-muted"
+                matTooltip="Supprimer"
+                (ngReallyClick)="remove()"
+                ngReallyTitle="Confirmation requise"
+                ngReallyMessage="Voulez-vous vraiment supprimer ce formulaire ?">
+            <mat-icon>delete</mat-icon>
+        </button>
+        <button mat-icon-button
+                class="text-muted"
+                matTooltip="Synchroniser"
+                (ngReallyClick)="upgradeForm()"
+                ngReallyTitle="Confirmation requise"
+                ngReallyMessage="Voulez-vous vraiment mettre à niveau ce formulaire ?">
+            <mat-icon>sync</mat-icon>
+        </button>
+        <button mat-icon-button
+                class="text-muted"
+                matTooltip="Détails"
+                (click)="toggleDetailsPanel()">
+            <mat-icon>info</mat-icon>
+        </button>
+    </ce-row>
+</ce-row>

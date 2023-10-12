@@ -1,0 +1,21 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+
+:host {
+    .form-editor-content {
+        display: grid;
+        grid-gap: 24px;
+        grid-template-columns: 1fr;
+
+        
+        .form-editor-actions {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            display:flex;
+            flex-direction: row;
+            gap:24px;
+        }
+    }
+}

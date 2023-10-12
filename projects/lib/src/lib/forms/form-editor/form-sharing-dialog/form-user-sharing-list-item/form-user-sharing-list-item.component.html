@@ -1,0 +1,15 @@
+<ce-row justifyContent="space-between">
+    <ce-list-item-content>
+        <ng-container *ngIf="account">
+            <ce-list-item-label *ngIf="account | identityLabel as identity">{{identity}}</ce-list-item-label>
+            <ce-list-item-label size="small">{{account.login}}</ce-list-item-label>
+        </ng-container>
+    </ce-list-item-content>
+    <ce-list-item-actions>
+        <button mat-menu-item mat-menu-item (ngReallyClick)="onDelete()"
+                ngReallyTitle="Confirmation requise"
+                ngReallyMessage="Révoquer l'accès">
+            <span>Révoquer l'accès</span>
+        </button>
+    </ce-list-item-actions>
+</ce-row>

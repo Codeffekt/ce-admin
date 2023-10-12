@@ -1,0 +1,18 @@
+<form [formGroup]="formGroup">
+    <h1 mat-dialog-title>Création d'un nouveau formulaire</h1>
+    <div mat-dialog-content class="d-flex flex-column">      
+      <mat-form-field appearance="outline">
+        <mat-label>Utiliser un modèle</mat-label>
+        <mat-select formControlName="template">
+          <mat-option [value]="templateOption" *ngFor="let templateOption of templateOptions">
+            {{templateOption.name}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="formGroup.get('type')?.hasError('required')">Champ requis</mat-error>
+      </mat-form-field>
+    </div>
+    <div mat-dialog-actions class="d-flex flex-row justify-content-between">
+      <button mat-button (click)="dismiss()">Annuler</button>      
+      <button mat-button color="accent" [disabled]="!formGroup.valid" (click)="createFromSelectedTemplate()">Créer</button>
+    </div>
+  </form>

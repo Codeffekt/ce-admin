@@ -1,0 +1,18 @@
+<ce-row justifyContent="space-between" alignItems="center">
+    <ce-column ceAlignItems="start">
+        <span *ngIf="label">{{label}}</span>
+        <span *ngIf="value" class="text-muted">{{value}}</span>
+    </ce-column>
+    <button *ngIf="editable || removable" mat-icon-button
+            [matMenuTriggerFor]="menu"><mat-icon>more_vert</mat-icon></button>
+</ce-row>
+
+<mat-menu #menu="matMenu">
+    <button mat-menu-item
+            *ngIf="editable"
+            (click)="onEdit()">Modifier</button>
+    <button mat-menu-item
+            *ngIf="removable"
+            (ngReallyClick)="onDelete()"
+            ngReallyMessage="Voulez-vous supprimer cet élément?">Supprimer</button>
+</mat-menu>

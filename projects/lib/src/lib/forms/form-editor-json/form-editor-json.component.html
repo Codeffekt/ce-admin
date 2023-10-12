@@ -1,0 +1,13 @@
+<div overflow-auto>
+    <ce-code-editor [code]="data.form | json" title="Éditeur de formulaire" [expanded]="true"
+                    (codeChanges)="onCodeChanges($event)"
+                    (save)="save()" [config]="{showSave:true}"
+                    [config]="{showSave:false}">
+    </ce-code-editor>
+</div>
+
+<mat-dialog-actions>
+    <button mat-button (click)="dismiss()">Fermer</button>
+    <button mat-raised-button class="ms-auto" (click)="save()"
+            [disabled]="!canSave" color="accent">Valider</button>
+</mat-dialog-actions>

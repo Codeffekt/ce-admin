@@ -1,0 +1,10 @@
+:host {
+    overflow: auto;
+    .form-editor-panel {
+        & > button {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+        }
+    }
+}

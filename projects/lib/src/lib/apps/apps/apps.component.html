@@ -1,0 +1,26 @@
+<ce-nav-layout>
+    <ce-navbar ceNavBar>
+        <ce-navbar-content>
+            <ce-navbar-item>Applications</ce-navbar-item>
+            <ce-navbar-actions>
+                <button mat-stroked-button color="accent" matTooltip="Ajouter une application"
+                    (click)="createApplication()">
+                    <mat-icon>add</mat-icon>Ajouter
+                </button>
+            </ce-navbar-actions>
+        </ce-navbar-content>        
+    </ce-navbar>
+
+    <ce-list [searchBox]="true" [paginator]="true">
+        <ce-list-header label="Mes applications"></ce-list-header>
+        <ce-list-item *ngFor="let app of apps$ | async" (click)="onSelected(app)">
+            <ce-list-item-factory type="app" [item]="app"></ce-list-item-factory>
+            <ce-list-item-actions>
+                <button mat-menu-item (ngReallyClick)="delete(app)" ngReallyTitle="Confirmation requise"
+                    ngReallyMessage="Voulez-vous vraiment supprimer cette application ?">
+                    <span>Supprimer</span>
+                </button>
+            </ce-list-item-actions>
+        </ce-list-item>
+    </ce-list>
+</ce-nav-layout>

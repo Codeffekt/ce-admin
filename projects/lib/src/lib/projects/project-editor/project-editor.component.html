@@ -1,0 +1,28 @@
+<ce-nav-layout>
+  <ce-navbar ceNavBar>
+    <ce-navbar-content>
+      <ce-navbar-item [routerLink]="['/projects']">Projets</ce-navbar-item>
+      <ce-navbar-item>{{project.props.name | uppercase}}</ce-navbar-item>
+      <ce-navbar-actions>
+        <button mat-raised-button [disabled]="!canSave" color="warn" (click)="save()">Sauvegarder</button>
+      </ce-navbar-actions>
+    </ce-navbar-content>
+  </ce-navbar>
+
+  <mat-tab-group [animationDuration]="0" [selectedIndex]="0">
+    <mat-tab label="Infos. Générales">
+      <div class="d-flex flex-column">
+        <ce-form [rebuildOnChanges]="true" [formWrapper]="project" (formChanges)="formChanges($event)">
+        </ce-form>
+      </div>
+    </mat-tab>
+    <mat-tab label="Utilisateurs">
+      <!-- <ce-admin-project-accounts [project]="project"></ce-admin-project-accounts> -->
+    </mat-tab>
+    <mat-tab label="JSON" *hasAllResource="'projects.json'">
+      <ce-code-editor class="mt-4" isExpanded="true" [code]="projectStr" title="" (save)="saveCode($event)">
+      </ce-code-editor>
+    </mat-tab>
+  </mat-tab-group>
+
+</ce-nav-layout>

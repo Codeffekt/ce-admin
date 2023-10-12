@@ -1,0 +1,19 @@
+<mat-drawer-container class="h-100">
+    <mat-drawer mode="side" position="end" style="width:256px" [opened]="true">
+        <ce-side-menu>
+            <ce-side-menu-content>
+                <button mat-flat-button class="d-flex m-auto" routerLink="/apps/{{currentApp.core.id}}/edit/projects"><mat-icon>list</mat-icon>{{project.props.name}}</button>
+                <ce-side-menu-list> 
+                    <ce-side-menu-item *ngFor="let item of menuEntries" routerLinkActive="active" [icon]="item.icon" [label]="item.label" [routerLink]="[item.routerLink]"></ce-side-menu-item>
+                </ce-side-menu-list>
+            </ce-side-menu-content>
+            <ce-side-menu-footer>
+                <div class="mat-caption text-light text-center"></div>
+            </ce-side-menu-footer>
+        </ce-side-menu>
+    </mat-drawer>
+    <mat-drawer-content> 
+        <router-outlet></router-outlet>       
+    </mat-drawer-content>
+</mat-drawer-container>
+

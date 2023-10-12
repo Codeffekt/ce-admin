@@ -1,0 +1,20 @@
+<ce-nav-layout>
+
+  <ce-navbar>
+    <ce-navbar-item [routerLink]="['/formsroot']">Formulaires Racines</ce-navbar-item>
+    <ce-navbar-item>{{formWrapper?.core?.id | uppercase}}</ce-navbar-item>
+  </ce-navbar>
+
+  <div class="form-editor-content" *ngIf="formWrapper">
+    <!-- <ce-code-editor [expanded]="true" class="d-flex" [code]="formWrapper.core | json"
+      title="Formulaire {{formWrapper.core?.id}}" (save)="save($event)">
+    </ce-code-editor> -->
+    <ce-form [rebuildOnChanges]="true"  [formWrapper]="formWrapper" [formMask]="formMaskWrapper" (formChanges)="formChanges($event)">
+    </ce-form>
+    <div class="form-editor-actions">
+      <button mat-fab (click)="openJSONEditor()"><mat-icon>code</mat-icon></button>
+      <button mat-fab (click)="openEditor()"><mat-icon>edit</mat-icon></button>
+    </div>
+  </div>
+
+</ce-nav-layout>

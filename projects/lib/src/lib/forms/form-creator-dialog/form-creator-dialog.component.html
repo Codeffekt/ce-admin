@@ -1,0 +1,18 @@
+<form [formGroup]="formGroup">
+    <h1 mat-dialog-title>Nouvelle instance formulaire</h1>
+    <div mat-dialog-content class="d-flex flex-column">      
+      <mat-form-field appearance="outline">
+        <mat-label>Type de formulaire</mat-label>
+        <mat-select formControlName="root">
+          <mat-option [value]="rootType.id" *ngFor="let rootType of rootTypes">
+            {{rootType.title}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="formGroup.get('root')?.hasError('required')">Champ requis</mat-error>
+      </mat-form-field>
+    </div>
+    <div mat-dialog-actions class="d-flex flex-row justify-content-between">
+      <button mat-button (click)="dismiss()">Annuler</button>
+      <button mat-button color="accent" [disabled]="!formGroup.valid" [mat-dialog-close]="formConfig">Créer</button>
+    </div>
+  </form>

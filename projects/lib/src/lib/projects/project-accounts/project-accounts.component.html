@@ -1,0 +1,23 @@
+<mat-card>
+    <mat-card-title class="quiet d-flex flex-row">
+        <span class="mr-auto">Liste des utilisateurs</span>
+        <button mat-raised-button [disabled]="!canSave" color="warn" (click)="save()">Enregistrer</button>
+    </mat-card-title>
+    <div class="d-flex flex-column">
+        <mat-form-field>
+            <input (focus)="filterAccounts()" #newAccountInput type="text" placeholder="Ajouter un nouvel utilisateur"
+            matInput [formControl]="newAccountFormControl" [matAutocomplete]="auto">
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete"
+                (optionSelected)="addAccount($event.option.value)">
+                <mat-option *ngFor="let account of filteredAccounts" [value]="account">
+                    {{account.login}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+        <mat-chip-list #chipList>
+            <mat-chip *ngFor="let item of projectAccountsList" removable="true" (removed)="removeAccount(item)">                
+                {{item | accountLogin:allAccounts }}<mat-icon matChipRemove>cancel</mat-icon>
+            </mat-chip>
+        </mat-chip-list>
+    </div>
+</mat-card>

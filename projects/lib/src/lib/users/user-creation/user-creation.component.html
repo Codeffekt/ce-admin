@@ -1,0 +1,9 @@
+<ce-nav-layout>
+  <ce-navbar ceNavBar>
+    <ce-navbar-content>
+      <ce-nav-breadcrumb-items></ce-nav-breadcrumb-items>
+    </ce-navbar-content>
+  </ce-navbar>
+  <ce-user-creation-info (succeed)="onUserCreated($event)" (failed)="onUserCreationFailed($event)"></ce-user-creation-info>
+</ce-nav-layout>
+  

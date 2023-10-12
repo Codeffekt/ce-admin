@@ -1,0 +1,19 @@
+<ng-container *ngIf="formsSharing$ | async as formsSharing">
+    <ce-column gap="2px">
+        <div *ngFor="let formSharing of formsSharing">
+            {{formSharing.props.login | accountFromLogin | identityLabel}}
+        </div>
+        <!-- <mat-chip-list *ngFor="let formSharing of formsSharing">
+        <mat-chip ceMargin="12px"
+                  color="primary">
+            {{formSharing.props.login}}
+        </mat-chip>
+    </mat-chip-list> -->
+    </ce-column>
+    <span *ngIf="!formsSharing.length">Aucun partage</span>
+    <button
+            mat-stroked-button
+            ceAlignSelf="center"
+            ceMarginTop="18px"
+            (click)="onAddSharing()">Gérer</button>
+</ng-container>

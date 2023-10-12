@@ -1,0 +1,21 @@
+<ce-nav-layout>
+    <ce-navbar ceNavBar>
+      <ce-navbar-content>
+        <ce-navbar-item (click)="back()">Formulaires</ce-navbar-item>
+        <ce-navbar-item>{{form?.id | uppercase}}</ce-navbar-item>
+        <ce-navbar-actions *ngIf="form?.id">
+          <button mat-stroked-button [disabled]="!$any(form).version.prev" (click)="prevVersion()">Version précédente          
+          </button>
+          <button mat-stroked-button [disabled]="!$any(form).version.next" (click)="nextVersion()">Version suivante          
+          </button>
+        </ce-navbar-actions>
+      </ce-navbar-content>     
+    </ce-navbar>
+  
+    <ng-container *ngIf="formWrapper">
+      <div class="form-editor-content">                
+        <ce-form [rebuildOnChanges]="true" [formWrapper]="formWrapper">
+        </ce-form>
+      </div>
+    </ng-container>
+  </ce-nav-layout>

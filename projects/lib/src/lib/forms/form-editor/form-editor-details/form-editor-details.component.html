@@ -1,0 +1,21 @@
+<ce-details-section title="Détails du formulaire">
+    <ce-column gap="12px">
+        <ng-container *ngIf="formOwner$ | async as formOwner">
+            <ce-details-prop
+                             label="Créateur"
+                             [value]="formOwner.props.login"
+                             [editable]="true"
+                             (edit)="onEditUserOwner()"></ce-details-prop>
+        </ng-container>
+        <ce-details-prop label="Date de modification"
+                         [value]="form.mtime ? (form.mtime | calendarDate) ?? '-' : '-'">
+        </ce-details-prop>
+        <ce-details-prop label="Date de création"
+                         [value]="(form.ctime | calendarDate) ?? '-'">
+        </ce-details-prop>
+    </ce-column>
+</ce-details-section>
+
+<ce-details-section title="Qui a accès">
+    <ce-form-user-sharings [form]="form"></ce-form-user-sharings>
+</ce-details-section>

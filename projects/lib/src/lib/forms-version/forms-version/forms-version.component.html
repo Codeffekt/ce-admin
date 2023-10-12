@@ -1,0 +1,17 @@
+<ce-nav-layout>
+    <ce-navbar ceNavBar>
+        <ce-navbar-content>
+            <ce-navbar-item>Versionnement</ce-navbar-item>
+        </ce-navbar-content>                
+    </ce-navbar>
+    
+    <ce-formquery-wrapper [paginationEnabled]="true" [searchEnabled]="true">
+        <ce-list>
+            <ce-list-item *ngFor="let form of forms$ | async" (click)="onSelected(form)">
+                <ce-list-item-factory type="version" [item]="form">
+                </ce-list-item-factory>                
+            </ce-list-item>            
+        </ce-list>
+    </ce-formquery-wrapper>
+
+</ce-nav-layout>

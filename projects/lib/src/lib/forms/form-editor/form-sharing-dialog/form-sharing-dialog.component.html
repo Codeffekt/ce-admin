@@ -1,0 +1,24 @@
+<span mat-dialog-title>Partager "{{(config.form | valueForKey:"name") ?? config.form.title}}"</span>
+
+<ce-column>
+    <ce-form-input-autocomplete
+                                label="Ajouter des personnes"
+                                [datasource]="userDatasource"
+                                [queryBuilder]="userQueryBuilder"
+                                (form)="addUser($event)">
+    </ce-form-input-autocomplete>
+
+    <ce-formquery-wrapper [paginationEnabled]="true" [pageSize]="5">
+        <ce-list>
+            <ce-list-header label="Utilisateurs avec accès"></ce-list-header>
+            <ce-list-item *ngFor="let form of formsSharing$ | async">
+                <ce-list-item-factory [type]="form.core.root" [item]="form" (itemChangedEvent)="removeUser(form)">
+                </ce-list-item-factory>
+            </ce-list-item>
+        </ce-list>
+    </ce-formquery-wrapper>
+</ce-column>
+
+<ce-row justifyContent="space-between">
+    <button mat-raised-button class="ms-auto" color="primary" (click)="submit()">Ok</button>
+</ce-row>

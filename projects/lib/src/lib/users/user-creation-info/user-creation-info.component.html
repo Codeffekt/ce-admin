@@ -1,0 +1,72 @@
+<form [formGroup]="accountForm">
+
+  <ce-column gap="24px">
+
+    <!-- General infos -->
+    <ce-section>
+      <ce-section-title>Informations générales</ce-section-title>
+      <ce-section-content>
+        <ce-grid gap="12px 24px" templateColumns="1fr 1fr"> 
+          <mat-form-field>
+            <input matInput placeholder="Prénom" formControlName="firstName" autocomplete="firstName">
+            <mat-icon class="primary" matPrefix>account_box</mat-icon>
+            <mat-error *ngIf="accountForm.controls.firstName?.errors?.required">*Champ requis</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Nom" formControlName="lastName" autocomplete="lastName">
+            <mat-icon class="primary" matPrefix>account_box</mat-icon>
+            <mat-error *ngIf="accountForm.controls.lastName?.errors?.required">Champ requis</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Login" formControlName="login" autocomplete="login">
+            <mat-icon class="primary" matPrefix>account_circle</mat-icon>
+            <mat-error *ngIf="accountForm.controls.login?.errors?.required">Champ requis</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Adresse e-mail" formControlName="email" autocomplete="email">
+            <mat-icon class="primary" matPrefix>email</mat-icon>
+            <mat-error *ngIf="accountForm.controls.email?.errors?.required">Champ requis</mat-error>
+            <mat-error *ngIf="accountForm.controls.email?.errors?.email">Adresse email invalide</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Mot de passe" formControlName="passwd" autocomplete="passwd" type="password">
+            <mat-icon class="primary" matPrefix>lock</mat-icon>
+            <mat-error *ngIf="accountForm.controls.passwd?.errors?.required">Champ requis</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Confirmation mot de passe" formControlName="confirmPassword" autocomplete="confirmPassword" type="password">
+            <mat-icon class="primary" matPrefix>lock</mat-icon>
+            <mat-error *ngIf="accountForm.controls.confirmPassword?.errors?.required">Champ requis</mat-error>
+            <mat-error *ngIf="accountForm.controls.confirmPassword?.errors?.MisMatchPassword">
+                <span>Les mots de passe sont différents</span></mat-error>
+          </mat-form-field>
+        </ce-grid>
+      </ce-section-content>
+    </ce-section>
+
+    <!-- Advanced settings -->
+    <ce-section>
+      <ce-section-title class="quiet">Paramétrages avancés</ce-section-title>
+      <ce-section-content>
+        <ce-grid gap="24px" templateColumns="1fr 1fr">
+          <mat-form-field>
+            <mat-select [(value)]="accountForm.value.role" placeholder="Rôle" formControlName="role">
+              <mat-option value="admin">Administrateur</mat-option>
+              <mat-option value="viewer">Lecture seule</mat-option>
+              <mat-option value="create">Lecture / Écriture</mat-option>
+            </mat-select>
+            <mat-icon class="primary" matPrefix>perm_identity</mat-icon>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-select [(value)]="accountForm.value.lang" placeholder="lang" formControlName="lang">
+              <mat-option value="fr">Français</mat-option>
+            </mat-select>
+            <mat-icon class="primary" matPrefix>language</mat-icon>
+          </mat-form-field>
+        </ce-grid>
+      </ce-section-content>
+    </ce-section>
+  </ce-column>
+</form>
+
+<button mat-flat-button class="ms-auto mt-4" [disabled]="!accountForm.valid" color="warn" (click)="save()">Ajouter</button>
