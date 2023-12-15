@@ -6,6 +6,8 @@ import { CeAdminModuleConfig, CE_ADMIN_CONFIG, EMPTY_CE_ADMIN_CONFIG } from './c
 import { CeAdminDefaultRouteResolver } from './ce-admin-default-route.resolver';
 import { CE_ADMIN_ROUTE_RESOLVER } from './ce-admin-route.resolver';
 import { CeAdminMainModule } from './main/main.module';
+import { NgxsModule } from '@ngxs/store';
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 
 const appConfig: CeAppConfig = {
   projectType: "*",
@@ -15,6 +17,8 @@ const appConfig: CeAppConfig = {
 };
 @NgModule({
   imports: [
+    NgxsModule.forRoot([]),
+    NgxsReduxDevtoolsPluginModule.forRoot(),
     CeAdminMainModule
   ],
   exports: [

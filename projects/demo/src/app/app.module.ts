@@ -6,8 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CeAdminMenuEntry, CeAdminModule } from '@codeffekt/ce-admin';
 import { CommonModule } from '@angular/common';
-import { NgxsModule } from '@ngxs/store';
-import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 
 const appConfig: CeAppConfig = {
   projectType: "*",
@@ -53,9 +51,7 @@ const menuEntries: CeAdminMenuEntry[] = [
     CeAdminModule.forRoot({
       menuEntries,
       defaultRoutePath: 'projects'
-    }),
-    NgxsModule.forRoot([]),
-    NgxsReduxDevtoolsPluginModule.forRoot(),
+    }),    
   ],
   providers: [
     {
