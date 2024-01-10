@@ -80,7 +80,7 @@ export class ProjectCreatorDialogComponent implements OnInit {
 
     this.formGroup.valueChanges
       .pipe(untilDestroyed(this))
-      .subscribe(selection => this.selectedTemplate = selection);
+      .subscribe(selection => this.selectedTemplate = selection.template);
   }
 
   private async initProjectTypes() {
