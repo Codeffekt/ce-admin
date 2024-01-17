@@ -26,6 +26,7 @@ import { UserProjectsOwnedComponent } from './user-projects-owned/user-projects-
 import { UserPasswordComponent } from "./user-password/user-password.component";
 import { UserCreationComponent } from "./user-creation/user-creation.component";
 import { UserCreationInfoComponent } from "./user-creation-info/user-creation-info.component";
+import { UserApiKeyComponent } from './user-api-key/user-api-key.component';
 
 @NgModule({
     declarations: [
@@ -38,7 +39,8 @@ import { UserCreationInfoComponent } from "./user-creation-info/user-creation-in
         UserProjectsOwnedComponent,
         UserPasswordComponent,
         UserCreationComponent,
-        UserCreationInfoComponent
+        UserCreationInfoComponent,
+        UserApiKeyComponent
     ],
     imports: [
         CeLayoutModule,

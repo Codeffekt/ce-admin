@@ -1,0 +1,15 @@
+<form [formGroup]="form">
+    <h1 mat-dialog-title>Clef API</h1>
+    <div mat-dialog-content class="d-flex flex-column">   
+        <mat-form-field>
+            <mat-select [(value)]="form.value.duration" placeholder="Durée" formControlName="duration">                
+                <mat-option *ngFor="let item of durationOptions" [value]="item">{{item.label}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <button mat-button (click)="generateApiKey()">Générer une clef API</button>
+        <p>{{apiKey}}</p>
+    </div>
+    <div mat-dialog-actions class="d-flex flex-row justify-content-between">
+        <button mat-button (click)="dismiss()">Fermer</button>        
+      </div>
+</form>

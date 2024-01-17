@@ -23,6 +23,11 @@ import { CeFormCreatorModule } from '@codeffekt/ce-form-creator';
 import { FormEditorDialogWrapperComponent } from "./form-editor-dialog-wrapper/form-editor-dialog-wrapper.component";
 import { FormRootCollectionComponent } from './form-root-collection/form-root-collection.component';
 import { FormDataService } from "../services/form-data.service";
+import { FormRootCreatorDialogComponent } from './form-root-creator-dialog/form-root-creator-dialog.component';
+import { ReactiveFormsModule } from "@angular/forms";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatDialogModule } from "@angular/material/dialog";
+import { MatInputModule } from "@angular/material/input";
 
 @NgModule({
   declarations: [
@@ -30,11 +35,13 @@ import { FormDataService } from "../services/form-data.service";
     FormRootEditorComponent,
     ListItemFormRootComponent,
     FormEditorDialogWrapperComponent,
-    FormRootCollectionComponent
+    FormRootCollectionComponent,
+    FormRootCreatorDialogComponent
   ],
   imports: [
     CommonModule,
     FormsRootRoutingModule,
+    ReactiveFormsModule,
     CeCodeEditorModule,
     CeFormsModule,
     CeNavigationModule,
@@ -45,12 +52,16 @@ import { FormDataService } from "../services/form-data.service";
     MatMenuModule,
     MatIconModule,
     MatButtonModule,
+    MatFormFieldModule,
+    MatDialogModule,
+    MatInputModule,
     CeFormCreatorModule,
     CeLayoutModule
   ],
   exports: [
     FormsRootComponent,
     FormRootEditorComponent,
+    FormRootCreatorDialogComponent,
   ],
   providers: [
     {

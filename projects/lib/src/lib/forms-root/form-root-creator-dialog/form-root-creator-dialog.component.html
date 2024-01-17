@@ -1,0 +1,13 @@
+<form [formGroup]="formGroup">
+    <h1 mat-dialog-title>Création formulaire root</h1>
+    <div mat-dialog-content class="d-flex flex-column">      
+      <mat-form-field appearance="outline">       
+        <input matInput placeHolder="Identifiant" formControlName="root">                  
+        <mat-error *ngIf="formGroup.get('root')?.hasError('required')">Champ requis</mat-error>
+      </mat-form-field>
+    </div>
+    <div mat-dialog-actions class="d-flex flex-row justify-content-between">
+      <button mat-button (click)="dismiss()">Annuler</button>
+      <button mat-button color="accent" [disabled]="!formGroup.valid" [mat-dialog-close]="formConfig">Créer</button>
+    </div>
+  </form>

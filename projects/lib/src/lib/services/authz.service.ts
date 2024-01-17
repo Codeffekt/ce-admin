@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CeCoreService } from '@codeffekt/ce-core';
-import { AccountAppActions, AccountAuthZ, AccountSettings } from '@codeffekt/ce-core-data';
+import { AccountAppActions, AccountAuthZ, AccountSettings, FormInstance, IndexType } from '@codeffekt/ce-core-data';
 
 @Injectable({providedIn: 'root'})
 export class AuthZService {
@@ -31,6 +31,12 @@ export class AuthZService {
 
         const permitted = actions.some(action => accountAuthZ.actions.includes(action));
         return permitted;
+    }
+
+    generateToken(account: IndexType, expirationTime: number) {
+        return this.diagApiService.call<FormInstance>(
+            "PublicFormsApiToken", 
+            "generateToken", account, expirationTime)
     }
 
     private getParentResourceAuthZ(resource: string, account: AccountSettings): AccountAuthZ|undefined {

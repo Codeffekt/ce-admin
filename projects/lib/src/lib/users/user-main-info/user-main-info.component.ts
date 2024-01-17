@@ -8,6 +8,7 @@ import { Observable, Subscription, debounceTime, filter, startWith, tap } from '
 import { AccountEditorService } from '../../services/account-editor.service';
 import { UserPasswordComponent } from '../user-password/user-password.component';
 import { UserValidators } from '../user-validators';
+import { UserApiKeyComponent } from '../user-api-key/user-api-key.component';
 
 @UntilDestroy()
 @Component({
@@ -70,6 +71,13 @@ export class UserMainInfoComponent implements OnInit {
         this.account.passwd = newPassword;
         this.save();
       });
+  }
+
+  createAPIKey() {
+    this.dialog
+      .open(UserApiKeyComponent, UserApiKeyComponent.createDialog({
+        account: this.account.id
+      }));      
   }
 
   private listenAccountValidity() {

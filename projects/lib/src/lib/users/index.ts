@@ -6,6 +6,7 @@ export * from './user-json/user-json.component';
 export * from './user-main-info/user-main-info.component';
 export * from './user-projects-shared/user-projects-shared.component';
 export * from './user-projects-owned/user-projects-owned.component';
+export * from './user-api-key/user-api-key.component';
 export * from './users.module';
 export * from './ce-admin-users-widget.module';
 export * from './user-creation/user-creation.component';

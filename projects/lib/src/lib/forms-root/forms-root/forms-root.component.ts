@@ -2,11 +2,11 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { CeFormQueryService, CeFormsService, FormsFormQueryBuilder, LayoutService } from '@codeffekt/ce-core';
-import { FormRoot } from '@codeffekt/ce-core-data';
-import { Observable, filter } from 'rxjs';
+import { FormRoot, IndexType } from '@codeffekt/ce-core-data';
+import { Observable, firstValueFrom } from 'rxjs';
 import { CE_ADMIN_ROUTE_RESOLVER, CeAdminRouteResolver } from '../../ce-admin-route.resolver';
-import { FormEditorDialogWrapperComponent } from '../form-editor-dialog-wrapper/form-editor-dialog-wrapper.component';
 import { FormsRootDataSource } from './forms-root-datasource';
+import { FormRootCreatorDialogComponent } from '../form-root-creator-dialog/form-root-creator-dialog.component';
 
 @Component({
   selector: 'ce-admin-forms-root',
@@ -39,21 +39,18 @@ export class FormsRootComponent implements OnInit {
   }
 
   create() {
-    // this.router.navigate(['/formsroot/new']);
 
     const ref = this.dialog.open(
-      FormEditorDialogWrapperComponent,
-      FormEditorDialogWrapperComponent.createDialog()
+      FormRootCreatorDialogComponent,
+      FormRootCreatorDialogComponent.createDialog()
     );
 
     ref.afterClosed()
-      .pipe(
-        filter(forms => !!forms && forms.length)
-      )
-      .subscribe(forms =>
-        // TODO: Should save all forms
-        this.saveNewForm(forms[0])
-      );
+      .subscribe(formConfig => {
+        if (formConfig?.root?.length) {
+          this.createNewRoot(formConfig?.root);
+        }
+      });
   }
 
   onSelected(form: FormRoot) {
@@ -82,6 +79,20 @@ export class FormsRootComponent implements OnInit {
     this.queryService.setQueryBuilder(this.formQueryBuilder);
     this.forms$ = this.queryService.connect();
     this.queryService.load();
+  }
+
+  private async createNewRoot(root: IndexType) {
+    const existingRoot = await firstValueFrom(this.apiService.getFormRoot(root));
+    if (existingRoot?.id) {
+      this.layout.showErrorMessage(`Root ${root} id already exists.`);
+      return;
+    }
+    await this.saveNewForm({
+      id: root,
+      ctime: Date.now(),
+      title: root,
+      content: {}
+    } as FormRoot)
   }
 
   async saveNewForm(formRoot: FormRoot) {
