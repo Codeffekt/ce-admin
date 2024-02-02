@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { IListItemContent } from '@codeffekt/ce-core';
 import { FormAccountWrapper } from '@codeffekt/ce-core-data';
 
 @Component({
@@ -6,7 +7,7 @@ import { FormAccountWrapper } from '@codeffekt/ce-core-data';
   templateUrl: './list-item-account.component.html',
   styleUrls: ['./list-item-account.component.scss']
 })
-export class ListItemAccountComponent implements OnInit {
+export class ListItemAccountComponent implements OnInit, IListItemContent {
 
   @Input() item!: FormAccountWrapper;
 

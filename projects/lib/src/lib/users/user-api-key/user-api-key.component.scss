@@ -1,0 +1,15 @@
+.ro-text-area {
+
+    position: relative;
+
+    textarea {        
+        position: relative;
+        width: 100%;
+    }
+
+    button {
+        position: absolute;
+        right: 0;
+        bottom: 5px;
+    }
+}

@@ -87,7 +87,9 @@ export class FormsRootModule {
   constructor(listItemStore: ListItemStoreService) {
 
     listItemStore.setComponents({
-      ["root"]: ListItemFormRootComponent
+      ["root"]: {
+        useClass: ListItemFormRootComponent
+      }
     });
 
   }

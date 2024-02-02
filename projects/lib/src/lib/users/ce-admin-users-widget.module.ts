@@ -13,6 +13,7 @@ import { MatMenuModule } from "@angular/material/menu";
 import { MatSelectModule } from "@angular/material/select";
 import { MatTableModule } from "@angular/material/table";
 import { MatTabsModule } from "@angular/material/tabs";
+import {ClipboardModule} from '@angular/cdk/clipboard';
 import { CeCodeEditorModule } from "@codeffekt/ce-code-editor";
 import { CeFormQueryWrapperModule, CeFormsPipesModule, CeLayoutModule, CeListModule, CeNavigationModule, CeNgReallyModule, CePipesModule, CeTableModule, CeSectionModule } from "@codeffekt/ce-core";
 import { CeAdminAuthZModule } from "../authz/authz.module";
@@ -60,6 +61,7 @@ import { UserApiKeyComponent } from './user-api-key/user-api-key.component';
         MatDialogModule,
         MatButtonModule,
         MatMenuModule,
+        ClipboardModule,
         CeListModule,
         CePipesModule,
         CeFormsPipesModule,

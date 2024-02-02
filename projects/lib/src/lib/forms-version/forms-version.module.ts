@@ -42,7 +42,9 @@ export class FormsVersionModule {
     constructor(listItemStore: ListItemStoreService) {
 
         listItemStore.setComponents({
-          'version': ListItemFormVersionComponent,
+          'version': {
+            useClass: ListItemFormVersionComponent,
+          }
         });
     
       }

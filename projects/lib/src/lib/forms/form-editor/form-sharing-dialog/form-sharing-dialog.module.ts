@@ -50,7 +50,9 @@ export class CeFormSharingDialogModule {
     });
 
     listItemStore.setComponents({
-      'forms-sharing': FormUserSharingListItemComponent
+      'forms-sharing': {
+        useClass: FormUserSharingListItemComponent
+      }
     });
   }
 }

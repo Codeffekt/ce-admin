@@ -11,7 +11,8 @@ import {
   CeFormsModule, CeListModule, CeNavigationModule,
   CeNgReallyModule,
   CePipesModule,
-  ListItemStoreService} from '@codeffekt/ce-core';
+  ListItemStoreService
+} from '@codeffekt/ce-core';
 import { FormDataService } from '../services/form-data.service';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
@@ -83,9 +84,11 @@ export class ProjectsModule {
   constructor(listItemStore: ListItemStoreService) {
 
     listItemStore.setComponents({
-      [FormProject.ROOT]: ListItemProjectComponent,
+      [FormProject.ROOT]: {
+        useClass: ListItemProjectComponent,
+      }
     });
 
   }
 
- }
+}

@@ -12,11 +12,11 @@
 
     <ce-formquery-wrapper [paginationEnabled]="true" [searchEnabled]="true">
         <ce-list>
-          <ce-list-item *ngFor="let form of forms$ | async" (click)="onSelected(form)">
+          <ce-list-item *ngFor="let form of forms$ | async" (click)="edit(form)">
             <ce-list-item-factory type="root" [item]="form">
             </ce-list-item-factory>
               <ce-list-item-actions>
-                <button mat-menu-item (click)="edit(form)">Edit</button>
+                <button mat-menu-item (click)="collection(form)">Collection</button>
                 <button mat-menu-item (ngReallyClick)="delete(form)"
                     ngReallyTitle="Confirmation requise"
                     ngReallyMessage="Voulez-vous vraiment supprimer le formulaire template {{form.id}} ?">

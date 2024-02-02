@@ -1,9 +1,10 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
-import { AuthZService } from '../../services';
+import { AuthZService } from '../../services/authz.service';
 import { firstValueFrom } from 'rxjs';
 import { FormWrapper, IndexType } from '@codeffekt/ce-core-data';
+import { LayoutService } from '@codeffekt/ce-core';
 
 export interface UserApiKeyComponentConfig {
   account: IndexType;
@@ -12,7 +13,7 @@ export interface UserApiKeyComponentConfig {
 @Component({
   selector: 'lib-user-api-key',
   templateUrl: './user-api-key.component.html',
-  styleUrls: ['./user-api-key.component.css']
+  styleUrls: ['./user-api-key.component.scss']
 })
 export class UserApiKeyComponent implements OnInit {
 
@@ -54,6 +55,7 @@ export class UserApiKeyComponent implements OnInit {
     private formBuilder: FormBuilder,
     private dialogRef: MatDialogRef<UserApiKeyComponent>,
     @Inject(MAT_DIALOG_DATA) private config: UserApiKeyComponentConfig,
+    private layout: LayoutService,
     private authService: AuthZService) {
     this.createForm();
   }
@@ -75,6 +77,10 @@ export class UserApiKeyComponent implements OnInit {
       this.form.value.duration.durationS
     ));
     this.apiKey = FormWrapper.getFormValue("token", formToken);
+  }
+
+  copyApiKeyToClipboard() {
+    this.layout.showSingleMessage(`API key copied to clipboard`);
   }
 
   private createForm() {

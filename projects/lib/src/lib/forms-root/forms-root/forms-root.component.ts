@@ -53,12 +53,12 @@ export class FormsRootComponent implements OnInit {
       });
   }
 
-  onSelected(form: FormRoot) {
+  collection(form: FormRoot) {
     this.router.navigate(['formsroot', 'collection', form.id]);
   }
 
   edit(form: FormRoot) {
-    this.router.navigate(['formsroot', 'edit', form.id]);
+    this.router.navigate(['formsroot', 'edit', form.id]);        
   }
 
   reloadForms() {

@@ -35,7 +35,9 @@ export class UsersModule {
     })
 
     listItemStore.setComponents({
-      [FormAccount.ROOT]: ListItemAccountComponent,
+      [FormAccount.ROOT]: {
+        useClass: ListItemAccountComponent,
+      }
     });
 
   }

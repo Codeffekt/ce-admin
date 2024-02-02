@@ -4,12 +4,12 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
 import { MatTooltipModule } from "@angular/material/tooltip";
-import { 
-  CeFormsModule, CeFormsPipesModule, CeListModule, 
-  CeNavigationModule, 
-  CePipesModule, 
+import {
+  CeFormsModule, CeFormsPipesModule, CeListModule,
+  CeNavigationModule,
+  CePipesModule,
   CeSideMenuModule,
-  ListItemStoreService,    
+  ListItemStoreService,
 } from "@codeffekt/ce-core";
 import { AppEditorComponent } from './app-editor/app-editor.component';
 import { AppsRoutingModule } from "./apps-routing.module";
@@ -54,10 +54,10 @@ import { ListItemProjectComponent } from "../list-item-project/list-item-project
     MatButtonModule,
     MatInputModule,
     MatIconModule,
-    MatTooltipModule,  
-    MatMenuModule,  
+    MatTooltipModule,
+    MatMenuModule,
     MatSidenavModule,
-    CeSideMenuModule,    
+    CeSideMenuModule,
     CeFormsModule,
     CeNavigationModule,
     CeListModule,
@@ -73,8 +73,12 @@ export class AppsModule {
   constructor(listItemStore: ListItemStoreService) {
 
     listItemStore.setComponents({
-      "project": ListItemProjectComponent,
-      "app": AppListItemComponent,
+      "project": {
+        useClass: ListItemProjectComponent,
+      },
+      "app": {
+        useClass: AppListItemComponent,
+      }
     });
 
   }
