@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AccountSettings } from '@codeffekt/ce-core-data';
 import { Observable } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
-import { AccountEditorService } from '../../services/account-editor.service';
+import { map } from 'rxjs/operators';
 import { LayoutService } from '@codeffekt/ce-core';
 
 @Component({
@@ -11,35 +10,23 @@ import { LayoutService } from '@codeffekt/ce-core';
   templateUrl: './user-editor.component.html',
   styleUrls: ['./user-editor.component.scss']
 })
-export class UserEditorComponent implements OnInit {
+export class UserEditorComponent {
 
-  account$!: Observable<AccountSettings>;
-  error$!: Observable<boolean>;
-
+  account$!: Observable<AccountSettings>;  
   accountValid!: boolean;
   accountValidity$!: Observable<boolean>;
 
   constructor(
     private route: ActivatedRoute,
-    private layout: LayoutService,
-    private accountEditorService: AccountEditorService
-  ) { }
-
-  ngOnInit() {
+    private layout: LayoutService  ) {
     this.listenAccount();
-  }
+  }  
 
   private listenAccount() {
-    this.account$ = this.route.paramMap
+    this.account$ = this.route.data
       .pipe(
-        map(params => params.get("account")),
-        switchMap(accountId => this.accountEditorService.fetchAccount(accountId))
-      );
-
-    this.error$ = this.account$.pipe(
-      // TODO: PublicAccount getAccount should return error instead of {}
-      map(account => Object.keys(account).length === 0)
-    );
+        map(resolves => resolves.account),
+      );    
   }
 
   onSuccessEditing(account: AccountSettings) {

@@ -8,7 +8,7 @@ import { ProjectEditorComponent } from './project-editor/project-editor.componen
 import { ProjectAccountsComponent } from './project-accounts/project-accounts.component';
 import {
   CeFormDataService, CeFormQueryWrapperModule,
-  CeFormsModule, CeListModule, CeNavigationModule,
+  CeFormsModule, CeFormsPipesModule, CeListModule, CeNavigationModule,
   CeNgReallyModule,
   CePipesModule,
   ListItemStoreService
@@ -32,6 +32,7 @@ import { CeAdminAuthZModule } from '../authz/authz.module';
 import { MatMenuModule } from '@angular/material/menu';
 import { ListItemProjectComponent } from '../list-item-project/list-item-project/list-item-project.component';
 import { FormProject } from '@codeffekt/ce-core-data';
+import { FormRouteResolver } from '../services/form-route.resolver';
 @NgModule({
   declarations: [
     ProjectsComponent,
@@ -46,6 +47,7 @@ import { FormProject } from '@codeffekt/ce-core-data';
     ReactiveFormsModule,
     CeNavigationModule,
     CeFormQueryWrapperModule,
+    CeFormsPipesModule,
     CeNgReallyModule,
     CeListModule,
     CePipesModule,
@@ -76,7 +78,7 @@ import { FormProject } from '@codeffekt/ce-core-data';
     {
       provide: CeFormDataService,
       useClass: FormDataService
-    }
+    },    
   ]
 })
 export class ProjectsModule {

@@ -5,7 +5,7 @@ import { FormsRoutingModule } from './forms-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormCreatorDialogComponent } from './form-creator-dialog/form-creator-dialog.component';
 import {
-  CeFormDataService, CeFormQueryWrapperModule, CeFormsModule,
+  CeFormDataService, CeFormQueryWrapperModule, CeFormRouteResolver, CeFormsModule,
   CeFormsPipesModule,
   CeLayoutModule,
   CeListModule,
@@ -33,6 +33,7 @@ import { FormEditorModule } from './form-editor';
 import { FormUserOwnerModule } from './form-user-owner';
 import { FormUsersSharedModule } from './form-users-shared/form-users-shared.module';
 import { CeFormSharingDialogModule } from './form-editor/form-sharing-dialog/form-sharing-dialog.module';
+import { FormRouteResolver } from '../services/form-route.resolver';
 
 @NgModule({
   declarations: [
@@ -77,6 +78,10 @@ import { CeFormSharingDialogModule } from './form-editor/form-sharing-dialog/for
     {
       provide: CeFormDataService,
       useClass: FormDataService
+    },
+    {
+      provide: CeFormRouteResolver,
+      useClass: FormRouteResolver,
     }
   ]
 })

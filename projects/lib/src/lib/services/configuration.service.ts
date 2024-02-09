@@ -1,6 +1,7 @@
 import { Inject, Injectable } from '@angular/core';
 import { CeAppConfig, CeFormsService, CE_APP_CONFIG } from '@codeffekt/ce-core';
 import {
+  FormInstanceBase,
   FormProject, FormTemplate,
   FormTemplateWrapper, FormWrapper,
   IndexType,
@@ -22,27 +23,21 @@ export class ConfigurationService {
     return this.config.projectTypes.find(elt => elt.projectType === projectType)?.label;
   }
 
-  async getProjectTypes(root: IndexType): Promise<FormTemplateWrapper[]> {
-    const res = await firstValueFrom(this.formsService.getRawFormsQuery({
+  async getProjectTypes(root: IndexType): Promise<FormInstanceBase[]> {
+    const res = await firstValueFrom(this.formsService.getRawFormsRootQuery({
       queryFields: [{
-        field: "root",
+        field: "type",
         op: "=",
-        value: FormTemplate.ROOT,
+        value: root,
         onMeta: true
-      }, {
-        field: "root",
-        op: "=",
-        value: root
-      }, {
-        field: "form",
-        op: "!="
       }],
       sortFields: [{
-        field: "name",
-        order: "asc"
+        field: "title",
+        order: "asc",
+        onMeta: true
       }]
     }));
-    return res.elts.map(form => FormWrapper.fromForm(form));
+    return res.elts;
   }
 
   getConfig(): CeAppConfig {

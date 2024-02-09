@@ -1,7 +1,7 @@
 import { Component, Inject, Injectable, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
-import { CeFormEditorService, CeFormRouteParams, FormInfo, ICeFormRouteResolver } from '@codeffekt/ce-core';
+import { CeFormEditorService, CeFormRouteParams, CeFormRouteResolver, FormInfo, ICeFormRouteResolver } from '@codeffekt/ce-core';
 import { FormInstance, FormInstanceMaskWrapper, FormWrapper, IndexType } from '@codeffekt/ce-core-data';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { Observable, filter, map, merge } from 'rxjs';
@@ -24,12 +24,12 @@ class FormEditorFormRouteResolver implements ICeFormRouteResolver {
   styleUrls: ['./form-editor.component.scss'],
   providers: [
     FormEditorLayoutService,
-    FormEditorOperationsService
-    /*
-        {
-        provide: CeFormRouteResolver,
-        useClass: FormEditorFormRouteResolver
-      }*/
+    FormEditorOperationsService,
+
+    {
+      provide: CeFormRouteResolver,
+      useClass: FormEditorFormRouteResolver
+    }
   ]
 })
 export class FormEditorComponent implements OnInit {

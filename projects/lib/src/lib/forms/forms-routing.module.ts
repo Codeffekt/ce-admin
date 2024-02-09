@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { FormEditorComponent } from './form-editor/form-editor.component';
 import { FormsComponent } from './forms/forms.component';
-import { FormProjectResolverService, MembersResolverService } from '@codeffekt/ce-core';
+import { FormEditorResolverService, FormProjectResolverService, MembersResolverService } from '@codeffekt/ce-core';
 
 const routes: Routes = [
   {
@@ -15,10 +15,10 @@ const routes: Routes = [
         component: FormsComponent
       },
       {
-        path: 'edit/:project',
+        path: 'edit/:form',
         data: { routeId: 'title' },
         resolve: {
-          form: FormProjectResolverService,
+          form: FormEditorResolverService,
           members: MembersResolverService
         },
         component: FormEditorComponent

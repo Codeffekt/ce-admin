@@ -8,7 +8,7 @@ import { ConfigurationService } from '../../services/configuration.service';
 @Injectable()
 class FormProjectEditorFormRouteResolver implements ICeFormRouteResolver {
   resolve(formField: string, formId: IndexType, formInstance: FormInstance): CeFormRouteParams {
-      return { route: ['/forms/edit', formId] };
+    return { route: [formId], isRelativeRoute: true };
   }
 }
 

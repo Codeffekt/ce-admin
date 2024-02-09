@@ -1,27 +1,13 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { IndexType } from '@codeffekt/ce-core-data';
+import { FormInstanceBase, IndexType } from '@codeffekt/ce-core-data';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { ConfigurationService } from '../../services/configuration.service';
-
-export interface FormTemplateOption {
-  name: string;
-  id?: IndexType;
-}
 
 export interface FormTemplateCreatorConfig {
   root: IndexType;
   forceTemplateChoice?: boolean;
-}
-
-export interface FormTemplateRes {
-  selectedTemplate?: FormTemplateOption;
-}
-
-const FORM_TEMPLATE_EMPTY: FormTemplateOption = {
-  name: "Modèle vide",
-  id: undefined
 }
 
 @UntilDestroy()
@@ -32,13 +18,13 @@ const FORM_TEMPLATE_EMPTY: FormTemplateOption = {
 })
 export class ProjectCreatorDialogComponent implements OnInit {
 
-  selectedTemplate?: FormTemplateOption;
+  selectedTemplate?: FormInstanceBase;
 
-  templateOptions: FormTemplateOption[] = [FORM_TEMPLATE_EMPTY];  
+  templateOptions: FormInstanceBase[] = [];  
 
   formGroup!: FormGroup;
 
-  static createDialog(dialog: MatDialog, data: FormTemplateCreatorConfig): MatDialogRef<ProjectCreatorDialogComponent, FormTemplateRes> {
+  static createDialog(dialog: MatDialog, data: FormTemplateCreatorConfig): MatDialogRef<ProjectCreatorDialogComponent, FormInstanceBase> {
     return dialog.open(ProjectCreatorDialogComponent, {
       width: '300px',
       data
@@ -63,9 +49,7 @@ export class ProjectCreatorDialogComponent implements OnInit {
   }
 
   createFromSelectedTemplate() {
-    this.dialogRef.close({
-      selectedTemplate: this.selectedTemplate
-    });
+    this.dialogRef.close(this.selectedTemplate);
   }
 
   createFromEmpty() {
@@ -74,7 +58,7 @@ export class ProjectCreatorDialogComponent implements OnInit {
 
   private createForm() {
     this.formGroup = this.fb.group({      
-      template: [FORM_TEMPLATE_EMPTY, Validators.required]
+      template: [null, Validators.required]
     });
 
 
@@ -85,9 +69,6 @@ export class ProjectCreatorDialogComponent implements OnInit {
 
   private async initProjectTypes() {
     const formTemplates = await this.configService.getProjectTypes(this.config.root);
-    this.templateOptions = [
-      FORM_TEMPLATE_EMPTY,
-      ...formTemplates.map(form => ({ id: form.core.id, name: form.props.name }))
-    ];
+    this.templateOptions = formTemplates;
   }
 }

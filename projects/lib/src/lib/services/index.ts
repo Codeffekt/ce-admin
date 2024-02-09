@@ -6,3 +6,4 @@ export * from './form-root-data.service';
 export * from './form-data.service';
 export * from './menu.service';
 export * from './app-runner.service';
+export * from './form-route.resolver';

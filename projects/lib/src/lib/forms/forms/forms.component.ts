@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { CeFormQueryService, CeFormsService, FormWrappersDataSource, LayoutService } from '@codeffekt/ce-core';
+import { CeBreadcrumbsService, CeFormQueryService, CeFormsService, FormWrappersDataSource, LayoutService } from '@codeffekt/ce-core';
 import { FormWrapper } from '@codeffekt/ce-core-data';
 import { Observable } from 'rxjs';
 import { FormCreatorDialogComponent } from '../form-creator-dialog/form-creator-dialog.component';
@@ -27,8 +27,10 @@ export class FormsComponent implements OnInit {
     private router: Router,
     private dialog: MatDialog,
     private layout: LayoutService,
-    private formsService: CeFormsService
+    private formsService: CeFormsService,
+    private bcService: CeBreadcrumbsService,
   ) { 
+    this.bcService.setItems([]);
     this.formsDataSource = new FormWrappersDataSource(this.formsService); 
     this.queryService.setDatasource(this.formsDataSource);    
   }

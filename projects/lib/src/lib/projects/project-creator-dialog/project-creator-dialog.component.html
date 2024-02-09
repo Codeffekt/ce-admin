@@ -5,7 +5,7 @@
         <mat-label>Utiliser un modèle</mat-label>
         <mat-select formControlName="template">
           <mat-option [value]="templateOption" *ngFor="let templateOption of templateOptions">
-            {{templateOption.name}}
+            {{templateOption|formInstanceTitle}}
           </mat-option>
         </mat-select>
         <mat-error *ngIf="formGroup.get('type')?.hasError('required')">Champ requis</mat-error>

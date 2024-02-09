@@ -4,6 +4,7 @@ import { UserEditorComponent } from './user-editor/user-editor.component';
 
 import { UsersComponent } from './users.component';
 import { UserCreationComponent } from './user-creation/user-creation.component';
+import { AccountResolverService } from '@codeffekt/ce-core';
 
 const routes: Routes = [
   {
@@ -18,7 +19,10 @@ const routes: Routes = [
       {
         path: 'edit/:account',
         data: { routeId: null },
-        component: UserEditorComponent
+        component: UserEditorComponent,
+        resolve: {
+          account: AccountResolverService,
+        }
       },
       {
         path: 'new',

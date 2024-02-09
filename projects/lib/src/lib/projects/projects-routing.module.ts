@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ProjectResolverService } from '@codeffekt/ce-core';
+import { CeFormEditorComponent, FormEditorResolverService, ProjectResolverService } from '@codeffekt/ce-core';
 import { ProjectEditorComponent } from './project-editor/project-editor.component';
 
 import { ProjectsComponent } from './projects.component';
@@ -14,14 +14,15 @@ const routes: Routes = [
         path: '',
         data: { routeId: null },
         component: ProjectsComponent
-      },      
+      },
       {
-        path: ':project',
+        path: ':form',
+        data: { routeId: null },
         resolve: {
-          project: ProjectResolverService
+          form: ProjectResolverService,
         },
-        component: ProjectEditorComponent
-      },     
+        loadChildren: () => import('./project-form/project-form.module').then(m => m.ProjectFormModule)
+      }
     ]
   }];
 

@@ -50,8 +50,8 @@ export class FormRootCollectionComponent implements OnInit {
     if (dialogRes) {
       try {
 
-        const newForm = dialogRes.selectedTemplate?.id ?
-          await this.formsService.createFormFromTemplate(dialogRes.selectedTemplate.id) :
+        const newForm = dialogRes?.id ?
+          await this.formsService.createForm(dialogRes.id) :
           await this.formsService.createForm(this.formRoot.id);
         this.layout.showSingleMessage(`Le formulaire à été créé.`);
         this.router.navigate([newForm.id], { relativeTo: this.route });
