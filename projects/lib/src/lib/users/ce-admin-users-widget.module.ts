@@ -15,7 +15,12 @@ import { MatTableModule } from "@angular/material/table";
 import { MatTabsModule } from "@angular/material/tabs";
 import {ClipboardModule} from '@angular/cdk/clipboard';
 import { CeCodeEditorModule } from "@codeffekt/ce-code-editor";
-import { CeFormQueryWrapperModule, CeFormsPipesModule, CeLayoutModule, CeListModule, CeNavigationModule, CeNgReallyModule, CePipesModule, CeTableModule, CeSectionModule } from "@codeffekt/ce-core";
+import { 
+    CeFormQueryWrapperModule, CeFormsPipesModule, 
+    CeLayoutModule, CeListModule, 
+    CeNavigationModule, CeNgReallyModule, 
+    CePipesModule, CeTableModule, 
+    CeSectionModule, CeFormStoreService } from "@codeffekt/ce-core";
 import { CeAdminAuthZModule } from "../authz/authz.module";
 import { UserActionsComponent } from "./user-actions/user-actions.component";
 import { UserEditorComponent } from "./user-editor/user-editor.component";
@@ -28,6 +33,7 @@ import { UserPasswordComponent } from "./user-password/user-password.component";
 import { UserCreationComponent } from "./user-creation/user-creation.component";
 import { UserCreationInfoComponent } from "./user-creation-info/user-creation-info.component";
 import { UserApiKeyComponent } from './user-api-key/user-api-key.component';
+import { FormAccount } from "@codeffekt/ce-core-data";
 
 @NgModule({
     declarations: [
@@ -85,5 +91,13 @@ import { UserApiKeyComponent } from './user-api-key/user-api-key.component';
     ]
 })
 export class CeAdminUsersWidgetModule {
+
+    constructor(
+        formStore: CeFormStoreService,
+    ) {
+        /* formStore.setComponents({
+            [FormAccount.ROOT]: UserEditorComponent
+        }); */
+    }
 
 }
