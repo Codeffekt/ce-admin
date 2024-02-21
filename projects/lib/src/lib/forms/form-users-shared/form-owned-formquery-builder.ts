@@ -1,21 +1,21 @@
 import { FormQueryBuilder } from "@codeffekt/ce-core";
-import { AccountSettings, IndexType } from "@codeffekt/ce-core-data";
+import { FormAccountWrapper, IndexType } from "@codeffekt/ce-core-data";
 
 export class FormOwnedFormQueryBuilder extends FormQueryBuilder {
 
-    static forRoot(user: AccountSettings, root: IndexType) {
+    static forRoot(user: FormAccountWrapper, root: IndexType) {
         const builder = new FormOwnedFormQueryBuilder(user);
         builder.withRoot(root);        
         return builder;
     }    
 
-    private constructor(user: AccountSettings) {
+    private constructor(user: FormAccountWrapper) {
         super();
 
         this.setQueryRootField({
             field: "author",
             op: "=",
-            value: user.id,
+            value: user.core.id,
             onMeta: true
         });
     }

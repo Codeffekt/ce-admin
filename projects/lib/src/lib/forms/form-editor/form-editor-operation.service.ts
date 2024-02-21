@@ -1,11 +1,10 @@
 import { Inject, Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { CeFormEditorService, CeFormsService, LayoutService } from '@codeffekt/ce-core';
+import { CeFormEditorService, FormActionService, LayoutService } from '@codeffekt/ce-core';
 import { FormInstance } from '@codeffekt/ce-core-data';
 import { Observable, Subject } from 'rxjs';
 import { CE_ADMIN_ROUTE_RESOLVER, CeAdminRouteResolver } from '../../ce-admin-route.resolver';
-import { FormSharingService } from '../../services/form-sharing.service';
 import { FormSharingDialogComponent } from './form-sharing-dialog/form-sharing-dialog.component';
 
 @Injectable()
@@ -18,15 +17,14 @@ export class FormEditorOperationsService {
         private router: Router,
         private dialog: MatDialog,
         private layoutService: LayoutService,
-        private formsService: CeFormsService,
+        private formActionService: FormActionService,
         private formEditorService: CeFormEditorService,
-        private formSharingService: FormSharingService,
         @Inject(CE_ADMIN_ROUTE_RESOLVER) private routeResolver: CeAdminRouteResolver) { }
 
 
     async removeForm(form: FormInstance) {
         try {
-            await this.formsService.deleteForm(form.id);
+            await this.formActionService.getActionFromForm(form).delete(form);
             this.layoutService.showSingleMessage(`Suppression du formulaire effectuée`);
             this.router.navigate(this.routeResolver.resolve("forms").route);
         } catch (err) {
@@ -36,7 +34,7 @@ export class FormEditorOperationsService {
 
     async upgradeForm(form: FormInstance) {
         try {
-            await this.formsService.formUpgrade(form.root, [form.id]);
+            await this.formActionService.getActionFromForm(form).upgrade(form);
             this.layoutService.showSingleMessage(`Mise à niveau du formulaire effectuée`);
             this.formEditorService.getForm(form.id, { forceReload: true });
         } catch (err) {

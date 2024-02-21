@@ -23,13 +23,6 @@ export const DEFAULT_CE_ADMIN_CONFIG: CeAdminModuleConfig = {
             loadChildren: () => import('./users/users.module').then(m => m.UsersModule)
         }
     }, {
-        label: "Applications",
-        icon: "assignment",
-        route: {
-            path: 'apps',
-            loadChildren: () => import('./apps/apps.module').then(m => m.AppsModule)
-        }
-    }, {
         label: "Projets",
         icon: "assignment",
         route: {
@@ -49,13 +42,6 @@ export const DEFAULT_CE_ADMIN_CONFIG: CeAdminModuleConfig = {
         route: {
             path: 'forms',
             loadChildren: () => import('./forms/forms.module').then(m => m.FormsModule)
-        }
-    }, {
-        label: "Historique",
-        icon: "assignment",
-        route: {
-            path: 'formsversion',
-            loadChildren: () => import('./forms-version/forms-version.module').then(m => m.FormsVersionModule)
         }
     }, {
         label: "Media",

@@ -7,6 +7,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { FormAccount } from '@codeffekt/ce-core-data';
 import { ListItemAccountComponent } from '../list-item-account/list-item-account/list-item-account.component';
+import { FormRootCollectionModule } from '../forms-root/form-root-collection/form-root-collection.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ListItemAccountComponent } from '../list-item-account/list-item-account
     MatDialogModule,
     CeListModule,
     CeNgReallyModule,
+    FormRootCollectionModule,
     MatButtonModule,
     MatMenuModule,
     UsersRoutingModule,

@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { CeAccountService, CeCoreService } from "@codeffekt/ce-core";
-import { IndexType, AccountSettings, ROLE_VIEW } from "@codeffekt/ce-core-data";
+import { IndexType, AccountSettings, ROLE_VIEW, FormAccountWrapper } from "@codeffekt/ce-core-data";
 import { firstValueFrom, Observable, Subject } from "rxjs";
 
 @Injectable({ providedIn: 'root' })
@@ -47,12 +47,16 @@ export class AccountEditorService {
         return firstValueFrom(this.accountsService.createAccount(account, account.passwd as any));
     }
 
-    async updateAccount(account: AccountSettings): Promise<AccountSettings> {
+    async updateAccount(account: FormAccountWrapper): Promise<FormAccountWrapper> {
         // An id has been found retrieved so we update the account
-        const updatedAccount = await this.accountsService.update(account).toPromise();
-        if (account.passwd?.length) {
-            await this.accountsService.updatePassword(account.id, account.passwd).toPromise();
-        }
-        return updatedAccount;
+        const updatedAccount = await firstValueFrom(this.accountsService.update(
+            account.getPropsWithId() as AccountSettings
+        ));       
+        account.updateProps(updatedAccount);
+        return account;
+    }
+
+    async updateAccountPassword(id: IndexType, newPassword: string) {
+        await firstValueFrom(this.accountsService.updatePassword(id, newPassword));
     }
 }

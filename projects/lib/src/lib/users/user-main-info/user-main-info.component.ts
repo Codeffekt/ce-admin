@@ -1,8 +1,7 @@
-import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
-import { AccountSettings } from '@codeffekt/ce-core-data';
+import { FormAccountWrapper } from '@codeffekt/ce-core-data';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { Observable, Subscription, debounceTime, filter, startWith, tap } from 'rxjs';
 import { AccountEditorService } from '../../services/account-editor.service';
@@ -18,11 +17,11 @@ import { UserApiKeyComponent } from '../user-api-key/user-api-key.component';
 })
 export class UserMainInfoComponent implements OnInit {
 
-  @Input() account!: AccountSettings;
-  @Output() accountChanges = new EventEmitter<AccountSettings>();
+  @Input() account!: FormAccountWrapper;
+  @Output() accountChanges = new EventEmitter<FormAccountWrapper>();
   @Output() formValidityChanges = new EventEmitter<boolean>();
-  @Output() succeed = new EventEmitter<AccountSettings>();
-  @Output() failed = new EventEmitter<AccountSettings>();
+  @Output() succeed = new EventEmitter<FormAccountWrapper>();
+  @Output() failed = new EventEmitter<FormAccountWrapper>();
 
   accountForm!: FormGroup;
   canSave$!: Observable<boolean>;
@@ -31,20 +30,20 @@ export class UserMainInfoComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private router: Router,
     private dialog: MatDialog,
     private accountEditorService: AccountEditorService) {
   }
 
-  ngOnInit() {
+  ngOnInit() {    
+    this.createForm(this.account);
     this.listenAccountValidity();
   }
 
-  ngOnChanges(changes: SimpleChanges) {
+  /* ngOnChanges(changes: SimpleChanges) {
     if (changes.account) {
       this.createForm(this.account);
     }
-  }
+  } */
 
   async save() {
     try {
@@ -56,9 +55,9 @@ export class UserMainInfoComponent implements OnInit {
     }
   }
 
-  onJSONAccountChanged(account: AccountSettings) {
+  /* onJSONAccountChanged(account: AccountSettings) {
     this.account = account;
-  }
+  } */
 
   editPassword() {
     this.dialog
@@ -68,16 +67,24 @@ export class UserMainInfoComponent implements OnInit {
         filter(newPassword => !!newPassword)
       )
       .subscribe(newPassword => {
-        this.account.passwd = newPassword;
-        this.save();
+        this.updatePassword(newPassword);
       });
   }
 
   createAPIKey() {
     this.dialog
       .open(UserApiKeyComponent, UserApiKeyComponent.createDialog({
-        account: this.account.id
+        account: this.account.core.id
       }));      
+  }
+
+  private async updatePassword(newPassword: string) {
+    try {
+      await this.accountEditorService.updateAccountPassword(this.account.core.id, newPassword);
+      this.notifyUserCreationSuccess(this.account);
+    } catch(err) {
+      this.notifyUserEditingFailed(this.account);
+    }
   }
 
   private listenAccountValidity() {
@@ -86,15 +93,15 @@ export class UserMainInfoComponent implements OnInit {
     );
   }
 
-  private createForm(account: AccountSettings) {
+  private createForm(account: FormAccountWrapper) {
 
     this.accountForm = this.fb.group({
-      firstName: [account.firstName, [Validators.required]],
-      lastName: [account.lastName, [Validators.required]],
-      login: [account.login, [Validators.required]],
-      email: [account.email, [Validators.required, Validators.email]],
-      role: [account.role, [Validators.required]],
-      lang: account.lang,
+      firstName: [account.props.firstName, [Validators.required]],
+      lastName: [account.props.lastName, [Validators.required]],
+      login: [account.props.login, [Validators.required]],
+      email: [account.props.email, [Validators.required, Validators.email]],
+      role: [account.props.role, [Validators.required]],
+      lang: account.props.lang,
       suggestions: '',
     }, {
       validator: [UserValidators.MatchPassword]
@@ -120,13 +127,13 @@ export class UserMainInfoComponent implements OnInit {
   }
 
   private onFormUpdated() {
-    this.account.firstName = this.accountForm.value.firstName;
-    this.account.lastName = this.accountForm.value.lastName;
-    this.account.login = this.accountForm.value.login;
-    this.account.email = this.accountForm.value.email;
-    this.account.role = this.accountForm.value.role;
-    this.account.lang = this.accountForm.value.lang;
-
+    this.account.props.firstName = this.accountForm.value.firstName;
+    this.account.props.lastName = this.accountForm.value.lastName;
+    this.account.props.login = this.accountForm.value.login;
+    this.account.props.email = this.accountForm.value.email;
+    this.account.props.role = this.accountForm.value.role;
+    this.account.props.lang = this.accountForm.value.lang;
+    this.account.fill();
     this.notifyAccountChanges();
     this.notifyMainInfoValidityChanges();
   }
@@ -139,11 +146,11 @@ export class UserMainInfoComponent implements OnInit {
     this.accountEditorService.updateValidity(this.accountForm.valid);
   }
 
-  private notifyUserCreationSuccess(account: AccountSettings) {
+  private notifyUserCreationSuccess(account: FormAccountWrapper) {
     this.succeed.next(account);
   }
 
-  private notifyUserEditingFailed(account: AccountSettings) {
+  private notifyUserEditingFailed(account: FormAccountWrapper) {
     this.failed.next(account);
   }
 }

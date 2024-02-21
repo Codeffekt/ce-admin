@@ -18,7 +18,7 @@ import { FormsFormQueryBuilder } from './forms-formquery-builder';
 export class FormsComponent implements OnInit {
 
   formsDataSource!: FormWrappersDataSource;
-  forms$!: Observable<readonly FormWrapper[]>;  
+  forms$!: Observable<readonly FormWrapper[]>;
 
   formQueryBuilder: FormsFormQueryBuilder = new FormsFormQueryBuilder();
 
@@ -29,13 +29,13 @@ export class FormsComponent implements OnInit {
     private layout: LayoutService,
     private formsService: CeFormsService,
     private bcService: CeBreadcrumbsService,
-  ) { 
+  ) {
     this.bcService.setItems([]);
-    this.formsDataSource = new FormWrappersDataSource(this.formsService); 
-    this.queryService.setDatasource(this.formsDataSource);    
+    this.formsDataSource = new FormWrappersDataSource(this.formsService);
+    this.queryService.setDatasource(this.formsDataSource);
   }
 
-  ngOnInit() {    
+  ngOnInit() {
     this.prepareQueryService();
   }
 
@@ -51,9 +51,7 @@ export class FormsComponent implements OnInit {
     dialogRef.afterClosed().subscribe(async (formConfig) => {
       if (formConfig) {
         try {
-          const newForm = await this.formsService.createForm(formConfig.root);
-          this.layout.showSingleMessage(`Le formulaire de type ${newForm.root} à été créé.`);
-          this.router.navigate(['forms', 'edit', newForm.id]);
+          this.router.navigate(['formsroot', 'new', formConfig.root]);
         } catch (err) {
           this.layout.showErrorMessage(`Erreur lors de la création d'un nouveau formulaire`);
         }
@@ -61,7 +59,7 @@ export class FormsComponent implements OnInit {
     });
   }
 
-  async copy(form: FormWrapper) {
+  /* async copy(form: FormWrapper) {
     try {
       const newForm = await this.formsService.copyForm(form.core.id);
       this.layout.showSingleMessage(`Le copie du formulaire de type ${newForm.root} à été créé.`);
@@ -69,13 +67,13 @@ export class FormsComponent implements OnInit {
     } catch (err) {
       this.layout.showErrorMessage(`Erreur lors de la copie d'un formulaire`);
     }
-  }
+  } */
 
   onSelected(form: FormWrapper) {
     this.router.navigate(['forms', 'edit', form.core.id]);
   }
 
-  async delete(form: FormWrapper) {
+  /* async delete(form: FormWrapper) {
     try {
       await this.formsService.deleteForm(form.core.id);
       this.layout.showSingleMessage(`Formulaire supprimé avec succès`);
@@ -83,7 +81,7 @@ export class FormsComponent implements OnInit {
     } catch (err) {
       this.layout.showErrorMessage(`Erreur lors de la suppression du formulaire`);
     }
-  }
+  } */
 
   private async prepareQueryService() {
     this.queryService.setQueryBuilder(this.formQueryBuilder);

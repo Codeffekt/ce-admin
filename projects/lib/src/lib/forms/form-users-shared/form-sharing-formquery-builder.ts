@@ -1,5 +1,5 @@
 import { FormQueryBuilder } from "@codeffekt/ce-core";
-import { AccountSettings, FormInstance, FormSharing, IndexType } from "@codeffekt/ce-core-data";
+import { FormAccountWrapper, FormInstance, FormSharing, IndexType } from "@codeffekt/ce-core-data";
 
 export class FormSharingFormQueryBuilder extends FormQueryBuilder {
 
@@ -10,11 +10,11 @@ export class FormSharingFormQueryBuilder extends FormQueryBuilder {
         return builder;
     }
 
-    static fromUser(account: AccountSettings, root: IndexType) {
+    static fromUser(account: FormAccountWrapper, root: IndexType) {
         const builder = new FormSharingFormQueryBuilder();
-        builder.setGroup(account.account);
+        builder.setGroup(account.props.account);
         builder.setRoot(root);
-        builder.setLogin(account.login);
+        builder.setLogin(account.props.login);
         return builder;
     }
 

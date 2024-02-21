@@ -16,6 +16,7 @@
             <ce-list-item-factory type="root" [item]="form">
             </ce-list-item-factory>
               <ce-list-item-actions>
+                <button mat-menu-item (click)="createInstance(form)">Ajouter</button>
                 <button mat-menu-item (click)="collection(form)">Collection</button>
                 <button mat-menu-item (ngReallyClick)="delete(form)"
                     ngReallyTitle="Confirmation requise"

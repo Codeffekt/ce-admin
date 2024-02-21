@@ -4,6 +4,7 @@ import { FormRootEditorComponent } from './form-root-editor/form-root-editor.com
 import { FormsRootComponent } from './forms-root/forms-root.component';
 import { FormRootResolverService } from './form-root-resolver.service';
 import { FormRootCollectionComponent } from './form-root-collection/form-root-collection.component';
+import { FormRootNewComponent } from './form-root-new/form-root-new.component';
 
 const routes: Routes = [
   {
@@ -16,9 +17,12 @@ const routes: Routes = [
         component: FormsRootComponent
       },
       {
-        path: 'new',
+        path: 'new/:form',
         data: { routeId: null },
-        component: FormRootEditorComponent
+        resolve: {
+          form: FormRootResolverService,
+        },
+        component: FormRootNewComponent,
       },
       {
         path: 'collection/:form',

@@ -1,6 +1,6 @@
 export * from './users.component';
 export * from './users-query.builder';
-export * from './user-editor/user-editor.component';
+export * from './user-editor';
 export * from './user-actions/user-actions.component';
 export * from './user-json/user-json.component';
 export * from './user-main-info/user-main-info.component';

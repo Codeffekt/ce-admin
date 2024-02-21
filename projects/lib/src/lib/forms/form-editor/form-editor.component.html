@@ -28,9 +28,11 @@
 
   <ce-row gap="12px">
     <div class="form-editor-panel" rowFill>
-      <ce-form [rebuildOnChanges]="true" [formWrapper]="formWrapper" [formMask]="formMask"
+      <!-- <ce-form [rebuildOnChanges]="true" [formWrapper]="formWrapper" [formMask]="formMask"
                (formChanges)="formChanges($event)">
-      </ce-form>
+      </ce-form> -->
+      <ce-form-factory [rebuildOnChanges]="true" [formWrapper]="formWrapper" [formMask]="formMask"
+            (formChanges)="formChanges($event)"></ce-form-factory>
       <button mat-fab (click)="openJSONEditor()"><mat-icon>code</mat-icon></button>
     </div>
     <ce-form-editor-details [form]="form" *ngIf="(formEditorLayout$ | async)!.showDetails">

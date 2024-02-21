@@ -5,9 +5,9 @@ import {
   CeFormsService,
   LayoutService
 } from '@codeffekt/ce-core';
-import { AccountSettings, FormWrapper, FormSharingWrapper, FormProject } from '@codeffekt/ce-core-data';
+import { FormWrapper, FormSharingWrapper, FormProject, FormAccountWrapper } from '@codeffekt/ce-core-data';
 import { filter, Observable } from 'rxjs';
-import { FormShareableFormQueryBuilder } from '../../forms';
+import { FormShareableFormQueryBuilder } from '../../forms/form-users-shared/form-shareable-formquery-builder';
 import { FormSharingDatasource } from '../../forms/form-users-shared/form-sharing-datasource';
 import { FormSelectionDialogComponent } from '../../forms/form-selection-dialog/form-selection-dialog.component';
 import { FormSharingService } from '../../services/form-sharing.service';
@@ -20,7 +20,7 @@ import { FormSharingService } from '../../services/form-sharing.service';
 })
 export class UserProjectsSharedComponent implements OnInit {
 
-  @Input() account!: AccountSettings;
+  @Input() account!: FormAccountWrapper;
 
   formsSharing$!: Observable<readonly FormSharingWrapper[]>;
 
@@ -55,7 +55,7 @@ export class UserProjectsSharedComponent implements OnInit {
 
   private async addProject(project: FormWrapper) {
     try {
-      await this.formSharingService.addFormSharing(this.account.login, project.core);
+      await this.formSharingService.addFormSharing(this.account.props.login, project.core);
       this.layout.showSingleMessage(`${project.props.name} ajouté au partage`);
       this.reloadData();
     } catch (err) {

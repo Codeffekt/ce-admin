@@ -1,26 +1,15 @@
-<ce-nav-layout>
+<ng-container *ngIf="formWrapper as account">
 
-  <ng-container *ngIf="(account$ | async) as account">
+  <ce-column gap="24px">
+    <ce-admin-user-main-info [account]="account" (succeed)="onSuccessEditing($event)"
+      (failed)="onFailedEditing($event)">
+    </ce-admin-user-main-info>
+    <ng-container *ngIf="account.core.id">
+      <ce-grid gap="24px" templateColumns="repeat(auto-fit, minmax(500px,1fr))">
+        <ce-admin-user-projects-owned [account]="account"></ce-admin-user-projects-owned>
+        <ce-admin-user-projects-shared [account]="account"></ce-admin-user-projects-shared>
+      </ce-grid>
+    </ng-container>
+  </ce-column>
 
-    <ce-navbar ceNavBar>
-      <ce-navbar-content>
-        <ce-navbar-item [routerLink]="['/users']">Users</ce-navbar-item>
-        <ce-navbar-item>{{account.id | uppercase}}</ce-navbar-item>
-      </ce-navbar-content>
-    </ce-navbar>   
-
-    <ce-column gap="24px">
-      <ce-admin-user-main-info [account]="account" (succeed)="onSuccessEditing($event)"
-        (failed)="onFailedEditing($event)">
-      </ce-admin-user-main-info>
-      <ng-container *ngIf="account.id">
-        <ce-grid gap="24px" templateColumns="repeat(auto-fit, minmax(500px,1fr))">
-          <ce-admin-user-projects-owned [account]="account"></ce-admin-user-projects-owned>
-          <ce-admin-user-projects-shared [account]="account"></ce-admin-user-projects-shared>
-        </ce-grid>
-      </ng-container>
-    </ce-column>
-
-  </ng-container>
-
-</ce-nav-layout>
+</ng-container>

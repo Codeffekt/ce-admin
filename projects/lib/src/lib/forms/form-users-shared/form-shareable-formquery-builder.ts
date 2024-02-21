@@ -1,14 +1,14 @@
 import { FormQueryBuilder } from "@codeffekt/ce-core";
-import { AccountSettings, IndexType } from "@codeffekt/ce-core-data";
+import { FormAccountWrapper, IndexType } from "@codeffekt/ce-core-data";
 
 export class FormShareableFormQueryBuilder extends FormQueryBuilder {
 
-    private constructor(user: AccountSettings) {
+    private constructor(user: FormAccountWrapper) {
         super();
         this.setQueryRootField({
             field: 'author',
             op: '!=',
-            value: user.id,
+            value: user.core.id,
             onMeta: true
         });
 
@@ -24,7 +24,7 @@ export class FormShareableFormQueryBuilder extends FormQueryBuilder {
                     }, {
                         field: "login",
                         op: "=",
-                        value: user.login
+                        value: user.props.login
                     }, {
                         field: "form",
                         op: "=",
@@ -39,7 +39,7 @@ export class FormShareableFormQueryBuilder extends FormQueryBuilder {
         ]);
     }
 
-    static forRoot(user: AccountSettings, root: IndexType) {
+    static forRoot(user: FormAccountWrapper, root: IndexType) {
         const builder = new FormShareableFormQueryBuilder(user);
         builder.withRoot(root);
         return builder;

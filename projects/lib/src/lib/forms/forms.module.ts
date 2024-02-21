@@ -34,6 +34,7 @@ import { FormUserOwnerModule } from './form-user-owner';
 import { FormUsersSharedModule } from './form-users-shared/form-users-shared.module';
 import { CeFormSharingDialogModule } from './form-editor/form-sharing-dialog/form-sharing-dialog.module';
 import { FormRouteResolver } from '../services/form-route.resolver';
+import { UserEditorModule } from '../users/user-editor/user-editor.module';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { FormRouteResolver } from '../services/form-route.resolver';
     FormUserOwnerModule,
     FormUsersSharedModule,
     CeLayoutModule,
-    CeFormSharingDialogModule
+    CeFormSharingDialogModule,
+    UserEditorModule,
   ],
   exports: [
     FormsComponent,    

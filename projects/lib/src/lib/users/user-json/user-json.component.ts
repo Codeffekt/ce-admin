@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { AccountSettings } from '@codeffekt/ce-core-data';
+import { AccountSettings, FormAccountWrapper, FormInstance } from '@codeffekt/ce-core-data';
 import { AccountEditorService } from '../../services/account-editor.service';
 
 @Component({
@@ -10,8 +10,8 @@ import { AccountEditorService } from '../../services/account-editor.service';
 })
 export class UserJsonComponent implements OnInit {
 
-  @Input() account!: AccountSettings;
-  @Output() accountChanges = new EventEmitter<AccountSettings>();
+  @Input() account!: FormAccountWrapper;
+  @Output() accountChanges = new EventEmitter<FormAccountWrapper>();
 
   code!: string;
 
@@ -20,15 +20,15 @@ export class UserJsonComponent implements OnInit {
     private snackBar: MatSnackBar) { }
 
   ngOnInit() {
-    this.code = JSON.stringify(this.account, null, 2);
+    this.code = JSON.stringify(this.account.core, null, 2);
   }
 
-  doSave(account: AccountSettings) {
+  doSave(account: FormInstance) {
     this.save(account).then(_ => this.notifySuccess());
   }
 
-  async save(accountSettings: AccountSettings) {
-    if (!this.account.id) {
+  async save(accountSettings: FormInstance) {
+    /* if (!this.account.core.id) {
       const newAccount = await this.accountEditorService.createAccount(this.account);
       this.accountChanges.emit(newAccount);
       return newAccount;
@@ -36,7 +36,8 @@ export class UserJsonComponent implements OnInit {
       const account = await this.accountEditorService.updateAccount(accountSettings);
       this.accountChanges.emit(account);
       return account;
-    }
+    } */
+    // this.account.update(accountSettings);
   }
 
   private notifySuccess() {

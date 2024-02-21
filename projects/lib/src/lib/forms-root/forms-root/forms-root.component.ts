@@ -53,6 +53,10 @@ export class FormsRootComponent implements OnInit {
       });
   }
 
+  createInstance(form: FormRoot) {
+    this.router.navigate(['formsroot', 'new', form.id]);
+  }
+
   collection(form: FormRoot) {
     this.router.navigate(['formsroot', 'collection', form.id]);
   }
