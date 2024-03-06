@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Router, CanActivate } from '@angular/router';
+import { Router } from '@angular/router';
 import { CeCoreService } from '@codeffekt/ce-core';
 // import { }
 
 // must be authenticated first
 @Injectable({ providedIn: 'root' })
-export class AdminGuard implements CanActivate {
+export class AdminGuard  {
   constructor(private router: Router,
     private apiService: CeCoreService) { }
 

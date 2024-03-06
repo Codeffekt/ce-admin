@@ -1,5 +1,5 @@
 import { Injectable, NgModule } from '@angular/core';
-import { Routes, RouterModule, Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { Routes, RouterModule, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { CeFormsService } from '@codeffekt/ce-core';
 import { FormRoot } from '@codeffekt/ce-core-data';
 import { firstValueFrom } from 'rxjs';
@@ -8,7 +8,7 @@ import { FormRootCollectionComponent } from '../forms-root';
 @Injectable({
   providedIn: 'root'
 })
-export class FormsAccountResolverService implements Resolve<FormRoot> {
+export class FormsAccountResolverService  {
 
   constructor(private formsService: CeFormsService) { }
 
