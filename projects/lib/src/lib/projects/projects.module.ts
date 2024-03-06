@@ -14,25 +14,25 @@ import {
   ListItemStoreService
 } from '@codeffekt/ce-core';
 import { FormDataService } from '../services/form-data.service';
-import { MatLegacyTableModule as MatTableModule } from '@angular/material/legacy-table';
 import { MatIconModule } from '@angular/material/icon';
-import { MatLegacySnackBarModule as MatSnackBarModule } from '@angular/material/legacy-snack-bar';
-import { MatLegacyCardModule as MatCardModule } from '@angular/material/legacy-card';
-import { MatLegacyFormFieldModule as MatFormFieldModule } from '@angular/material/legacy-form-field';
-import { MatLegacyChipsModule as MatChipsModule } from '@angular/material/legacy-chips';
-import { MatLegacySelectModule as MatSelectModule } from '@angular/material/legacy-select';
-import { MatLegacyAutocompleteModule as MatAutocompleteModule } from '@angular/material/legacy-autocomplete';
-import { MatLegacyDialogModule as MatDialogModule } from '@angular/material/legacy-dialog';
-import { MatLegacyTabsModule as MatTabsModule } from '@angular/material/legacy-tabs';
 import { CeCodeEditorModule } from '@codeffekt/ce-code-editor';
-import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
 import { ProjectNewComponent } from './project-new/project-new.component';
-import { MatLegacyInputModule as MatInputModule } from '@angular/material/legacy-input';
 import { CeAdminAuthZModule } from '../authz/authz.module';
-import { MatLegacyMenuModule as MatMenuModule } from '@angular/material/legacy-menu';
 import { ListItemProjectComponent } from '../list-item-project/list-item-project/list-item-project.component';
 import { FormProject } from '@codeffekt/ce-core-data';
 import { FormRouteResolver } from '../services/form-route.resolver';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTableModule } from '@angular/material/table';
+import { MatTabsModule } from '@angular/material/tabs';
 @NgModule({
   declarations: [
     ProjectsComponent,

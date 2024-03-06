@@ -1,9 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { ReactiveFormsModule } from "@angular/forms";
-import { MatLegacyButtonModule as MatButtonModule } from "@angular/material/legacy-button";
-import { MatIconModule } from "@angular/material/icon";
-import { MatLegacyTooltipModule as MatTooltipModule } from "@angular/material/legacy-tooltip";
+import { MatButtonModule } from "@angular/material/button"
 import {
   CeFormsModule, CeFormsPipesModule, CeListModule,
   CeNavigationModule,
@@ -16,10 +14,7 @@ import { AppsRoutingModule } from "./apps-routing.module";
 import { AppsComponent } from "./apps/apps.component";
 import { AppListItemComponent } from './app-list-item/app-list-item.component';
 import { AppCreatorComponent } from './app-creator/app-creator.component';
-import { MatLegacyInputModule as MatInputModule } from "@angular/material/legacy-input";
-import { MatLegacyMenuModule as MatMenuModule } from "@angular/material/legacy-menu";
 import { AppRunnerComponent } from './app-runner/app-runner.component';
-import { MatSidenavModule } from "@angular/material/sidenav";
 import { AppProjectsComponent } from './app-projects/app-projects.component';
 import { AppProjectListItemComponent } from './app-project-list-item/app-project-list-item.component';
 import { AppProjectComponent } from './app-project/app-project.component';
@@ -30,6 +25,11 @@ import { AppMasksComponent } from './app-editor/app-masks/app-masks.component';
 import { AppSettingsComponent } from './app-editor/app-settings/app-settings.component';
 import { ListItemProjectModule } from "../list-item-project/list-item-project.module";
 import { ListItemProjectComponent } from "../list-item-project/list-item-project/list-item-project.component";
+import { MatIconModule } from "@angular/material/icon";
+import { MatInputModule } from "@angular/material/input";
+import { MatMenuModule } from "@angular/material/menu";
+import { MatSidenavModule } from "@angular/material/sidenav";
+import { MatTooltipModule } from "@angular/material/tooltip";
 
 @NgModule({
   declarations: [

@@ -14,14 +14,14 @@ import { UserPasswordComponent } from "../user-password/user-password.component"
 import { UserApiKeyComponent } from "../user-api-key/user-api-key.component";
 import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { MatLegacyFormFieldModule as MatFormFieldModule } from "@angular/material/legacy-form-field";
-import { MatIconModule } from "@angular/material/icon";
-import { MatLegacyInputModule as MatInputModule } from "@angular/material/legacy-input";
-import { MatLegacyButtonModule as MatButtonModule } from "@angular/material/legacy-button";
-import { MatLegacySelectModule as MatSelectModule } from "@angular/material/legacy-select";
-import { MatLegacyDialogModule as MatDialogModule } from "@angular/material/legacy-dialog";
 import { ClipboardModule } from "@angular/cdk/clipboard";
 import { UserCreationComponent } from "../user-creation/user-creation.component";
+import { MatButtonModule } from "@angular/material/button";
+import { MatDialogModule } from "@angular/material/dialog";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatIconModule } from "@angular/material/icon";
+import { MatInputModule } from "@angular/material/input";
+import { MatSelectModule } from "@angular/material/select";
 
 @NgModule({
     declarations: [

@@ -1,5 +1,5 @@
 import { Component, Inject, Injectable, OnInit } from '@angular/core';
-import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { CeFormEditorService, CeFormRouteParams, CeFormRouteResolver, FormInfo, ICeFormRouteResolver } from '@codeffekt/ce-core';
 import { FormInstance, FormInstanceMaskWrapper, FormWrapper, IndexType } from '@codeffekt/ce-core-data';

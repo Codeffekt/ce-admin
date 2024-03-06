@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { CeFormsService, LayoutService } from '@codeffekt/ce-core';
 import { FormAccountWrapper, FormInstance, IndexType } from '@codeffekt/ce-core-data';
 import { filter, map, Observable, startWith, Subject, switchMap } from 'rxjs';

@@ -5,7 +5,7 @@ import { FormRoot, FormWrapper } from '@codeffekt/ce-core-data';
 import { Observable, firstValueFrom, map } from 'rxjs';
 import { FormRootCollectionQueryBuilder } from './form-root-collection-query-builder';
 import { ProjectCreatorDialogComponent } from '../../projects/project-creator-dialog/project-creator-dialog.component';
-import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'lib-form-root-collection',

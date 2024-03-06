@@ -1,10 +1,10 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
-import { MAT_LEGACY_DIALOG_DATA as MAT_DIALOG_DATA, MatLegacyDialogConfig as MatDialogConfig, MatLegacyDialogRef as MatDialogRef } from '@angular/material/legacy-dialog';
 import { AuthZService } from '../../services/authz.service';
 import { firstValueFrom } from 'rxjs';
 import { FormWrapper, IndexType } from '@codeffekt/ce-core-data';
 import { LayoutService } from '@codeffekt/ce-core';
+import { MatDialogConfig, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 export interface UserApiKeyComponentConfig {
   account: IndexType;

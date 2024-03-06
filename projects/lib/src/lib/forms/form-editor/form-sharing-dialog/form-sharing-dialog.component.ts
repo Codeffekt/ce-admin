@@ -1,10 +1,10 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_LEGACY_DIALOG_DATA as MAT_DIALOG_DATA, MatLegacyDialogConfig as MatDialogConfig, MatLegacyDialogRef as MatDialogRef } from '@angular/material/legacy-dialog';
 import { CeFormQueryService, CeFormsService, FormQueryBuilder, FormQueryDatasource, FormWrappersDataSource } from '@codeffekt/ce-core';
 import { FormAccountWrapper, FormInstance, FormSharingWrapper, IndexType } from '@codeffekt/ce-core-data';
 import { Observable } from 'rxjs';
 import { UserShareableFormQueryBuilder } from '../../form-users-shared';
 import { FormEditorSharingService } from '../form-editor-sharing.service';
+import { MatDialogConfig, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 export interface FormSharingsDialogConfig {
   filterForms: IndexType[];

@@ -7,9 +7,9 @@ import {
     CeFormQueryWrapperModule,
     CeFormsModule, CeListModule, CeNavigationModule, CeNgReallyModule, CePipesModule, CeTableModule, ListItemStoreService, 
 } from "@codeffekt/ce-core";
-import { MatLegacyTableModule as MatTableModule } from "@angular/material/legacy-table";
-import { MatLegacyButtonModule as MatButtonModule } from "@angular/material/legacy-button";
 import { ListItemFormVersionComponent } from './list-item-form-version/list-item-form-version.component';
+import { MatTableModule } from "@angular/material/table";
+import { MatButtonModule } from "@angular/material/button";
 
 @NgModule({
     declarations: [

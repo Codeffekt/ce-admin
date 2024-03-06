@@ -4,7 +4,7 @@ import { CeFormRouteParams, CeFormRouteResolver, CeFormsService, ICeFormRouteRes
 import { FormInstance, FormInstanceBase, FormInstanceMaskWrapper, FormRoot, FormWrapper, IndexType, Utils } from '@codeffekt/ce-core-data';
 import { Subscription, filter } from 'rxjs';
 import { CeAdminRouteResolver, CE_ADMIN_ROUTE_RESOLVER } from '../../ce-admin-route.resolver';
-import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { FormEditorDialogWrapperComponent } from '../form-editor-dialog-wrapper/form-editor-dialog-wrapper.component';
 import { FormEditorJsonDialogComponent } from '../../forms/form-editor-json/form-editor-json.component';
 

@@ -1,11 +1,11 @@
 import { Inject, Injectable } from '@angular/core';
-import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 import { Router } from '@angular/router';
 import { CeFormEditorService, FormActionService, LayoutService } from '@codeffekt/ce-core';
 import { FormInstance } from '@codeffekt/ce-core-data';
 import { Observable, Subject } from 'rxjs';
 import { CE_ADMIN_ROUTE_RESOLVER, CeAdminRouteResolver } from '../../ce-admin-route.resolver';
 import { FormSharingDialogComponent } from './form-sharing-dialog/form-sharing-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Injectable()
 export class FormEditorOperationsService {

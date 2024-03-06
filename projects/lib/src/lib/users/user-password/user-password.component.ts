@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
-import { MatLegacyDialogConfig as MatDialogConfig, MatLegacyDialogRef as MatDialogRef } from '@angular/material/legacy-dialog';
 import { UserValidators } from '../user-validators';
+import { MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'ce-user-password',
