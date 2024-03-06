@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { FormInstanceBase, IndexType } from '@codeffekt/ce-core-data';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
@@ -22,7 +22,7 @@ export class ProjectCreatorDialogComponent implements OnInit {
 
   templateOptions: FormInstanceBase[] = [];  
 
-  formGroup!: FormGroup;
+  formGroup!: UntypedFormGroup;
 
   static createDialog(dialog: MatDialog, data: FormTemplateCreatorConfig): MatDialogRef<ProjectCreatorDialogComponent, FormInstanceBase> {
     return dialog.open(ProjectCreatorDialogComponent, {
@@ -32,7 +32,7 @@ export class ProjectCreatorDialogComponent implements OnInit {
   }
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private dialogRef: MatDialogRef<ProjectCreatorDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public config: FormTemplateCreatorConfig,
     private configService: ConfigurationService

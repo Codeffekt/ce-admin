@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
 import { UserValidators } from '../user-validators';
 
@@ -10,7 +10,7 @@ import { UserValidators } from '../user-validators';
 })
 export class UserPasswordComponent {
 
-  form!: FormGroup;
+  form!: UntypedFormGroup;
 
   static createDialog(): MatDialogConfig {
     return {
@@ -19,7 +19,7 @@ export class UserPasswordComponent {
   }
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private dialogRef: MatDialogRef<UserPasswordComponent>,) {
     this.createForm();
   }

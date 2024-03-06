@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 
@@ -19,7 +19,7 @@ export class FormRootCreatorDialogComponent implements OnInit {
     root: undefined
   };
 
-  formGroup!: FormGroup;  
+  formGroup!: UntypedFormGroup;  
 
   static createDialog(): MatDialogConfig {   
     
@@ -29,7 +29,7 @@ export class FormRootCreatorDialogComponent implements OnInit {
   }
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private dialogRef: MatDialogRef<FormRootCreatorDialogComponent>,
   ) { }
 

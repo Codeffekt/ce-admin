@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { AccountSettings } from '@codeffekt/ce-core-data';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { debounceTime, tap } from 'rxjs';
@@ -17,11 +17,11 @@ export class UserCreationInfoComponent implements OnInit {
   @Output() succeed = new EventEmitter<AccountSettings>();
   @Output() failed = new EventEmitter<AccountSettings>();
 
-  accountForm!: FormGroup;
+  accountForm!: UntypedFormGroup;
   account!: AccountSettings;
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private accountEditorService: AccountEditorService) {
     this.account = this.accountEditorService.createEmptyAccount();
   }

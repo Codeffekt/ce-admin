@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { FormAccountWrapper } from '@codeffekt/ce-core-data';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
@@ -23,13 +23,13 @@ export class UserMainInfoComponent implements OnInit {
   @Output() succeed = new EventEmitter<FormAccountWrapper>();
   @Output() failed = new EventEmitter<FormAccountWrapper>();
 
-  accountForm!: FormGroup;
+  accountForm!: UntypedFormGroup;
   canSave$!: Observable<boolean>;
 
   private subscription!: Subscription;
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private dialog: MatDialog,
     private accountEditorService: AccountEditorService) {
   }

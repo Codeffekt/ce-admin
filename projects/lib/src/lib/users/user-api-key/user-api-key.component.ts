@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
 import { AuthZService } from '../../services/authz.service';
 import { firstValueFrom } from 'rxjs';
@@ -17,7 +17,7 @@ export interface UserApiKeyComponentConfig {
 })
 export class UserApiKeyComponent implements OnInit {
 
-  form!: FormGroup;
+  form!: UntypedFormGroup;
 
   durationOptions: {label: string, durationS: number }[] = [
     {
@@ -52,7 +52,7 @@ export class UserApiKeyComponent implements OnInit {
   }
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private dialogRef: MatDialogRef<UserApiKeyComponent>,
     @Inject(MAT_DIALOG_DATA) private config: UserApiKeyComponentConfig,
     private layout: LayoutService,

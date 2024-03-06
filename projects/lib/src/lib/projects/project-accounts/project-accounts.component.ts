@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CeAccountService } from '@codeffekt/ce-core';
 import { AccountSettings, IndexType } from '@codeffekt/ce-core-data';
@@ -20,7 +20,7 @@ export class ProjectAccountsComponent implements OnInit {
 
   projectAccountsList: IndexType[] = [];
   filteredAccounts!: AccountSettings[];
-  newAccountFormControl = new FormControl();
+  newAccountFormControl = new UntypedFormControl();
 
   canSave = false;
 

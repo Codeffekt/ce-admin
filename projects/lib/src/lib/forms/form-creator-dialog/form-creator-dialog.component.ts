@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CeFormsService, PaginatorFilterDatasource } from '@codeffekt/ce-core';
 import { DbArrayRes, FormInstanceBase, FormRoot } from '@codeffekt/ce-core-data';
@@ -30,10 +30,10 @@ export class FormCreatorDialogComponent implements OnInit {
 
   rootTypes: FormInstanceBase[] = [];
 
-  formGroup!: FormGroup;  
+  formGroup!: UntypedFormGroup;  
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private dialogRef: MatDialogRef<FormCreatorDialogComponent>,
     private formsService: CeFormsService,
     @Inject(MAT_DIALOG_DATA) private config: FormCreatorDialogConfig,
