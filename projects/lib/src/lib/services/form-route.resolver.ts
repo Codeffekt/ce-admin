@@ -7,6 +7,6 @@ import { FormInstance, IndexType } from "@codeffekt/ce-core-data";
 })
 export class FormRouteResolver implements ICeFormRouteResolver {
     resolve(formField: string, formId: IndexType, formInstance: FormInstance): CeFormRouteParams {
-        return { route: [formId], isRelativeRoute: true };
+        return { route: ['/forms/edit', formId], isRelativeRoute: false };
     }
 }

@@ -92,6 +92,10 @@ export class ProjectsComponent implements OnInit {
     }
   }
 
+  openCodeScanner() {
+    throw new Error('Method not implemented.');
+  }
+
   private async prepareQueryService() {
     const currentUser = this.coreService.getCurrentUser();
     this.queryService.setQueryBuilder(
