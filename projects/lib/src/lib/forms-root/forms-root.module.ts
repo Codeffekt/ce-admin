@@ -1,8 +1,8 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
-import { MatButtonModule } from "@angular/material/button";
+import { MatLegacyButtonModule as MatButtonModule } from "@angular/material/legacy-button";
 import { MatIconModule } from "@angular/material/icon";
-import { MatMenuModule } from "@angular/material/menu";
+import { MatLegacyMenuModule as MatMenuModule } from "@angular/material/legacy-menu";
 import { CeCodeEditorModule } from "@codeffekt/ce-code-editor";
 import {
   CeFormDataService, CeFormQueryWrapperModule, CeFormRouteResolver,
@@ -24,9 +24,9 @@ import { FormEditorDialogWrapperComponent } from "./form-editor-dialog-wrapper/f
 import { FormDataService } from "../services/form-data.service";
 import { FormRootCreatorDialogComponent } from './form-root-creator-dialog/form-root-creator-dialog.component';
 import { ReactiveFormsModule } from "@angular/forms";
-import { MatFormFieldModule } from "@angular/material/form-field";
-import { MatDialogModule } from "@angular/material/dialog";
-import { MatInputModule } from "@angular/material/input";
+import { MatLegacyFormFieldModule as MatFormFieldModule } from "@angular/material/legacy-form-field";
+import { MatLegacyDialogModule as MatDialogModule } from "@angular/material/legacy-dialog";
+import { MatLegacyInputModule as MatInputModule } from "@angular/material/legacy-input";
 import { FormRootCollectionModule } from "./form-root-collection/form-root-collection.module";
 import { FormRootNewModule } from "./form-root-new";
 import { UserEditorModule } from "../users/user-editor/user-editor.module";

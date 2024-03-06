@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 import { Router } from '@angular/router';
 import { CeFormEditorService, FormActionService, LayoutService } from '@codeffekt/ce-core';
 import { FormInstance } from '@codeffekt/ce-core-data';

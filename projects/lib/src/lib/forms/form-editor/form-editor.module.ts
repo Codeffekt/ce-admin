@@ -3,18 +3,18 @@ import { FormEditorComponent } from "./form-editor.component";
 import { CommonModule } from "@angular/common";
 import { CeEditTimeModule, CeFeatureBarModule, CeFormModule, CeLayoutModule, CeNavigationModule, CeNgReallyModule, CePipesModule } from "@codeffekt/ce-core";
 import { MatIconModule } from "@angular/material/icon";
-import { MatTabsModule } from "@angular/material/tabs";
-import { MatButtonModule } from "@angular/material/button";
+import { MatLegacyTabsModule as MatTabsModule } from "@angular/material/legacy-tabs";
+import { MatLegacyButtonModule as MatButtonModule } from "@angular/material/legacy-button";
 import { FormUserOwnerModule } from "../form-user-owner";
 import { FormUsersSharedModule } from "../form-users-shared/form-users-shared.module";
 import { FormEditorRoutingModule } from "./form-editor-routing.module";
-import { MatMenuModule } from "@angular/material/menu";
+import { MatLegacyMenuModule as MatMenuModule } from "@angular/material/legacy-menu";
 import { FormEditorDetailsComponent } from './form-editor-details/form-editor-details.component';
 import { DetailsPropComponent } from './form-editor-details/details-prop/details-prop.component';
 import { DetailsSectionComponent } from './form-editor-details/details-section/details-section.component';
-import { MatChipsModule } from "@angular/material/chips";
+import { MatLegacyChipsModule as MatChipsModule } from "@angular/material/legacy-chips";
 import { FormEditorToolbarComponent } from './form-editor-toolbar/form-editor-toolbar.component';
-import { MatTooltipModule } from "@angular/material/tooltip";
+import { MatLegacyTooltipModule as MatTooltipModule } from "@angular/material/legacy-tooltip";
 import { FormUserSharingsComponent } from './form-sharings/form-user-sharings.component';
 
 @NgModule({

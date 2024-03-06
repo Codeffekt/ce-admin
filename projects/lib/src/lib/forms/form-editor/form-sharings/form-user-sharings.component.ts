@@ -1,5 +1,5 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 import { FormInstance, FormSharingWrapper } from '@codeffekt/ce-core-data';
 import { UntilDestroy } from '@ngneat/until-destroy';
 import { Observable } from 'rxjs';

@@ -17,12 +17,12 @@ import {
 import { FormDataService } from '../services/form-data.service';
 import { MatIconModule } from '@angular/material/icon';
 import { CeCodeEditorModule } from '@codeffekt/ce-code-editor';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatSelectModule } from '@angular/material/select';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatButtonModule } from '@angular/material/button';
-import { MatTabsModule } from '@angular/material/tabs';
-import { MatMenuModule } from '@angular/material/menu';
+import { MatLegacyFormFieldModule as MatFormFieldModule } from '@angular/material/legacy-form-field';
+import { MatLegacySelectModule as MatSelectModule } from '@angular/material/legacy-select';
+import { MatLegacyDialogModule as MatDialogModule } from '@angular/material/legacy-dialog';
+import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
+import { MatLegacyTabsModule as MatTabsModule } from '@angular/material/legacy-tabs';
+import { MatLegacyMenuModule as MatMenuModule } from '@angular/material/legacy-menu';
 import { FormSelectionDialogComponent } from './form-selection-dialog/form-selection-dialog.component';
 import { ListItemProjectModule } from '../list-item-project/list-item-project.module';
 import { ListItemProjectComponent } from '../list-item-project/list-item-project/list-item-project.component';

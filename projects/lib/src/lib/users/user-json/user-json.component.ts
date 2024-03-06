@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
 import { AccountSettings, FormAccountWrapper, FormInstance } from '@codeffekt/ce-core-data';
 import { AccountEditorService } from '../../services/account-editor.service';
 

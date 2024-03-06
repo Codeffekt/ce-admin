@@ -1,5 +1,5 @@
 import { Component, Injectable, OnInit } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { CeFormRouteParams, CeFormRouteResolver, CeProjectsService, ICeFormRouteResolver } from '@codeffekt/ce-core';
 import { FormInstance, IndexType, FormProjectWrapper, FormWrapper } from '@codeffekt/ce-core-data';
