@@ -33,7 +33,10 @@
       </ce-form> -->
       <ce-form-factory [rebuildOnChanges]="true" [formWrapper]="formWrapper" [formMask]="formMask"
             (formChanges)="formChanges($event)"></ce-form-factory>
-      <button mat-fab (click)="openJSONEditor()"><mat-icon>code</mat-icon></button>
+          <div>
+            <button mat-fab (click)="openJSONEditor()"><mat-icon>code</mat-icon></button>
+            <button mat-fab (click)="openBarcodeViewer()"><mat-icon>qr_code</mat-icon></button>
+          </div>    
     </div>
     <ce-form-editor-details [form]="form" *ngIf="(formEditorLayout$ | async)!.showDetails">
     </ce-form-editor-details>

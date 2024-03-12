@@ -16,6 +16,7 @@ import { MatMenuModule } from "@angular/material/menu";
 import { MatTabsModule } from "@angular/material/tabs";
 import { MatTooltipModule } from "@angular/material/tooltip";
 import { MatChipsModule } from '@angular/material/chips';
+import { CeBarcodeModule } from "@codeffekt/ce-barcode";
 
 @NgModule({
     declarations: [
@@ -43,7 +44,8 @@ import { MatChipsModule } from '@angular/material/chips';
         CeEditTimeModule,
         CeFeatureBarModule,
         MatTooltipModule,
-        CePipesModule
+        CePipesModule,
+        CeBarcodeModule,
     ],
     providers: [],
     exports: [

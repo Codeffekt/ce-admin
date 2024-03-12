@@ -35,6 +35,8 @@
     "@ngxs/store": "^3.8.2",
     "@nrwl/angular": "14.1.11",
     "@popperjs/core": "^2.10.2",
+    "@zxing/browser": "^0.1.4",
+    "@zxing/library": "^0.20.0",
     "angular-split": "^16.2.1",
     "angular-svg-icon": "^16.1.0",
     "bootstrap": "^5.3.3",

@@ -9,6 +9,7 @@ import { CE_ADMIN_ROUTE_RESOLVER, CeAdminRouteResolver } from '../../ce-admin-ro
 import { FormEditorJsonDialogComponent } from '../form-editor-json/form-editor-json.component';
 import { FormEditorLayoutConfig, FormEditorLayoutService } from './form-editor-layout.service';
 import { FormEditorOperationsService } from './form-editor-operation.service';
+import { FormsQrcodeDialogComponent } from '@codeffekt/ce-barcode';
 
 @Injectable()
 class FormEditorFormRouteResolver implements ICeFormRouteResolver {
@@ -81,6 +82,15 @@ export class FormEditorComponent implements OnInit {
         filter(form => !!form)
       )
       .subscribe(form => this.save(form));
+  }
+
+  openBarcodeViewer() {
+    FormsQrcodeDialogComponent.open(this.dialog,
+      {
+        formIds: [
+          this.form.id
+        ]
+      });  
   }
 
   private updateFormInfo(formInfo: FormInfo) {

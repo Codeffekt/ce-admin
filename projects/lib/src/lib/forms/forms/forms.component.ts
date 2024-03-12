@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { CeBreadcrumbsService, CeFormQueryService, CeFormsService, FormWrappersDataSource, LayoutService } from '@codeffekt/ce-core';
-import { FormWrapper } from '@codeffekt/ce-core-data';
+import { BarCode, FormWrapper } from '@codeffekt/ce-core-data';
 import { Observable } from 'rxjs';
 import { FormCreatorDialogComponent } from '../form-creator-dialog/form-creator-dialog.component';
 import { FormsFormQueryBuilder } from './forms-formquery-builder';
+import { BarcodeScannerComponent } from '@codeffekt/ce-barcode';
 
 @Component({
   selector: 'ce-admin-forms',
@@ -71,6 +72,16 @@ export class FormsComponent implements OnInit {
 
   onSelected(form: FormWrapper) {
     this.router.navigate(['forms', 'edit', form.core.id]);
+  }
+
+  open_qr_scanner() {
+    const dialogRef = BarcodeScannerComponent.openDialog(this.dialog);
+
+    dialogRef.afterClosed().subscribe((barcode: Pick<BarCode, "text" | "type">) => {
+      if (barcode && barcode.text.length) {
+        this.router.navigate(['forms', 'edit', barcode.text]);
+      }
+    });
   }
 
   /* async delete(form: FormWrapper) {
