@@ -19,7 +19,7 @@ const appConfig: CeAppConfig = {
   imports: [
     NgxsModule.forRoot([]),
     NgxsReduxDevtoolsPluginModule.forRoot(),
-    CeAdminMainModule
+    // CeAdminMainModule
   ],
   exports: [
   ],
@@ -36,12 +36,12 @@ const appConfig: CeAppConfig = {
       provide: CE_APP_CONFIG,
       useValue: appConfig
     },
-    {
+    /* {
       provide: APP_INITIALIZER,
       useFactory: CeAdminMenuService.init,
       multi: true,
       deps: [Router, CeAdminMenuService]
-    },    
+    },    */ 
   ],
 })
 export class CeAdminModule {

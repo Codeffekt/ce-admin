@@ -1,12 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { CeBreadcrumbsService, CeFormQueryService, CeFormsService, FormWrappersDataSource, LayoutService } from '@codeffekt/ce-core';
-import { BarCode, FormWrapper } from '@codeffekt/ce-core-data';
+import { CeBreadcrumbsService, CeFormQueryService, CeFormsService, FormWrappersDataSource } from '@codeffekt/ce-core';
+import { FormWrapper } from '@codeffekt/ce-core-data';
 import { Observable } from 'rxjs';
-import { FormCreatorDialogComponent } from '../form-creator-dialog/form-creator-dialog.component';
 import { FormsFormQueryBuilder } from './forms-formquery-builder';
-import { BarcodeScannerComponent } from '@codeffekt/ce-barcode';
 
 @Component({
   selector: 'ce-admin-forms',
@@ -18,6 +15,9 @@ import { BarcodeScannerComponent } from '@codeffekt/ce-barcode';
 })
 export class FormsComponent implements OnInit {
 
+  @Input() formWrapper!: FormWrapper;
+  @Output() formChanges = new EventEmitter<FormWrapper>();
+
   formsDataSource!: FormWrappersDataSource;
   forms$!: Observable<readonly FormWrapper[]>;
 
@@ -26,8 +26,6 @@ export class FormsComponent implements OnInit {
   constructor(
     private readonly queryService: CeFormQueryService<FormWrapper>,
     private router: Router,
-    private dialog: MatDialog,
-    private layout: LayoutService,
     private formsService: CeFormsService,
     private bcService: CeBreadcrumbsService,
   ) {
@@ -42,23 +40,7 @@ export class FormsComponent implements OnInit {
 
   reloadForms() {
     this.queryService.load();
-  }
-
-  create() {
-    const dialogRef = this.dialog.open(FormCreatorDialogComponent, {
-      width: '300px'
-    });
-
-    dialogRef.afterClosed().subscribe(async (formConfig) => {
-      if (formConfig) {
-        try {
-          this.router.navigate(['formsroot', 'new', formConfig.root]);
-        } catch (err) {
-          this.layout.showErrorMessage(`Erreur lors de la création d'un nouveau formulaire`);
-        }
-      }
-    });
-  }
+  }  
 
   /* async copy(form: FormWrapper) {
     try {
@@ -71,18 +53,8 @@ export class FormsComponent implements OnInit {
   } */
 
   onSelected(form: FormWrapper) {
-    this.router.navigate(['forms', 'edit', form.core.id]);
-  }
-
-  open_qr_scanner() {
-    const dialogRef = BarcodeScannerComponent.openDialog(this.dialog);
-
-    dialogRef.afterClosed().subscribe((barcode: Pick<BarCode, "text" | "type">) => {
-      if (barcode && barcode.text.length) {
-        this.router.navigate(['forms', 'edit', barcode.text]);
-      }
-    });
-  }
+    this.router.navigate(['main', 'forms', form.core.id]);
+  }  
 
   /* async delete(form: FormWrapper) {
     try {

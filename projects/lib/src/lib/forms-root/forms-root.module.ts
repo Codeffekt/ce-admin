@@ -30,6 +30,7 @@ import { MatDialogModule } from "@angular/material/dialog";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { MatMenuModule } from "@angular/material/menu";
+import { FormRootTopbarComponent } from './form-root-topbar/form-root-topbar.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { MatMenuModule } from "@angular/material/menu";
     FormRootEditorComponent,
     ListItemFormRootComponent,
     FormEditorDialogWrapperComponent,    
-    FormRootCreatorDialogComponent
+    FormRootCreatorDialogComponent, 
+    FormRootTopbarComponent,
   ],
   imports: [
     CommonModule,
@@ -66,6 +68,7 @@ import { MatMenuModule } from "@angular/material/menu";
     FormsRootComponent,
     FormRootEditorComponent,
     FormRootCreatorDialogComponent,
+    FormRootTopbarComponent,
   ],
   providers: [
     {

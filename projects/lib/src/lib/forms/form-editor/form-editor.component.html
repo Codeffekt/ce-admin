@@ -27,10 +27,7 @@
   <ce-form-editor-toolbar [form]="form"></ce-form-editor-toolbar>
 
   <ce-row gap="12px">
-    <div class="form-editor-panel" rowFill>
-      <!-- <ce-form [rebuildOnChanges]="true" [formWrapper]="formWrapper" [formMask]="formMask"
-               (formChanges)="formChanges($event)">
-      </ce-form> -->
+    <div class="form-editor-panel" rowFill>      
       <ce-form-factory [rebuildOnChanges]="true" [formWrapper]="formWrapper" [formMask]="formMask"
             (formChanges)="formChanges($event)"></ce-form-factory>
           <div>

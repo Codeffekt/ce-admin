@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { FormEditorComponent } from "./form-editor.component";
 import { CommonModule } from "@angular/common";
-import { CeEditTimeModule, CeFeatureBarModule, CeFormModule, CeLayoutModule, CeNavigationModule, CeNgReallyModule, CePipesModule } from "@codeffekt/ce-core";
+import { CeEditTimeModule, CeFeatureBarModule, CeFormEditorModule, CeFormModule, CeLayoutModule, CeNavigationModule, CeNgReallyModule, CePipesModule } from "@codeffekt/ce-core";
 import { MatIconModule } from "@angular/material/icon";
 import { FormUserOwnerModule } from "../form-user-owner";
 import { FormUsersSharedModule } from "../form-users-shared/form-users-shared.module";
@@ -40,6 +40,7 @@ import { CeBarcodeModule } from "@codeffekt/ce-barcode";
         FormUserOwnerModule,
         FormUsersSharedModule,
         CeLayoutModule,
+        CeFormEditorModule,
         MatChipsModule,
         CeEditTimeModule,
         CeFeatureBarModule,

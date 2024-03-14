@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CeAccountService, CeCoreService, CeFormQueryService, CeFormsService, LayoutService } from '@codeffekt/ce-core';
-import { FormAccount, FormAccountWrapper } from '@codeffekt/ce-core-data';
+import { FormAccount, FormAccountWrapper, FormWrapper } from '@codeffekt/ce-core-data';
 import { firstValueFrom, Observable } from 'rxjs';
 import { UsersDataSource } from './users-datasource';
 import { UsersQueryBuilder } from './users-query.builder';
@@ -16,31 +16,31 @@ import { UsersQueryBuilder } from './users-query.builder';
 })
 export class UsersComponent implements OnInit {
 
+  @Input() formWrapper!: FormWrapper;
+  @Output() formChanges = new EventEmitter<FormWrapper>();
+
   usersDataSource!: UsersDataSource;
   users$!: Observable<readonly FormAccountWrapper[]>;
-  
+
   constructor(
     private readonly queryService: CeFormQueryService<FormAccountWrapper>,
+    private route: ActivatedRoute,
     private router: Router,
     private layout: LayoutService,
     private coreService: CeCoreService,
     private formsService: CeFormsService,
     private accountService: CeAccountService,
   ) {
-    this.usersDataSource = new UsersDataSource(this.formsService);    
+    this.usersDataSource = new UsersDataSource(this.formsService);
     this.queryService.setDatasource(this.usersDataSource);
-   }
+  }
 
-  ngOnInit() {    
+  ngOnInit() {
     this.prepareQueryService();
   }
 
-  createUser() {
-    this.router.navigate(['/users/new']);
-  }
-
   onSelected(user: FormAccountWrapper) {
-    this.router.navigate(['/users/edit/', user.core.id]);
+    this.router.navigate([user.core.id], { relativeTo: this.route });
   }
 
   reloadUsers() {
@@ -49,13 +49,13 @@ export class UsersComponent implements OnInit {
 
   async delete(user: FormAccountWrapper) {
     try {
-      await firstValueFrom(this.accountService.remove(user.core.id));      
+      await firstValueFrom(this.accountService.remove(user.core.id));
       this.layout.showSingleMessage(`L'utilisateur ${user.props.login} à été supprimé.`);
       this.reloadUsers();
     } catch (err) {
       this.layout.showErrorMessage(`Erreur lors de la suppression de l'utilisateur ${user.props.login}`);
     }
-  }  
+  }
 
   private async prepareQueryService() {
     const currentUser = this.coreService.getCurrentUser();

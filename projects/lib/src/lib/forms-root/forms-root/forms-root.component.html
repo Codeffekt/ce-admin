@@ -1,15 +1,4 @@
-<ce-nav-layout>
-    <ce-navbar ceNavBar>
-        <ce-navbar-content>
-            <ce-navbar-item>Modèles de formulaires</ce-navbar-item>
-            <ce-navbar-actions>
-                <button mat-stroked-button color="accent" matTooltip="Ajouter un formulaire racine" (click)="create()">
-                    <mat-icon>add</mat-icon>Ajouter
-                </button>
-            </ce-navbar-actions>
-        </ce-navbar-content>        
-    </ce-navbar>
-
+<ce-nav-layout>    
     <ce-formquery-wrapper [paginationEnabled]="true" [searchEnabled]="true">
         <ce-list>
           <ce-list-item *ngFor="let form of forms$ | async" (click)="edit(form)">
@@ -20,7 +9,7 @@
                 <button mat-menu-item (click)="collection(form)">Collection</button>
                 <button mat-menu-item (ngReallyClick)="delete(form)"
                     ngReallyTitle="Confirmation requise"
-                    ngReallyMessage="Voulez-vous vraiment supprimer le formulaire template {{form.id}} ?">
+                    ngReallyMessage="Voulez-vous vraiment supprimer le formulaire template {{form.core.id}} ?">
                     <span>Supprimer</span>
                 </button>
             </ce-list-item-actions>

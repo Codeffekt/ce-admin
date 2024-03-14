@@ -1,0 +1,25 @@
+<ce-side-menu title="Ce Admin" logo="assets/app_logo.png">
+    <ce-side-menu-content>
+        <ce-side-menu-list>
+            <ce-side-menu-header>Home</ce-side-menu-header>
+            <ce-side-menu-item routerLinkActive="active" [routerLink]="['users']"
+                label="Utilisateurs">
+            </ce-side-menu-item>        
+            <ce-side-menu-item routerLinkActive="active" [routerLink]="['projects']"
+                label="Projets">
+            </ce-side-menu-item>         
+            <ce-side-menu-item routerLinkActive="active" [routerLink]="['formsroot']"
+                label="Modèles">
+            </ce-side-menu-item> 
+            <ce-side-menu-item routerLinkActive="active" [routerLink]="['forms']"
+                label="Formulaires">
+            </ce-side-menu-item>         
+            <ce-side-menu-item routerLinkActive="active" [routerLink]="['media']"
+                label="Media">
+            </ce-side-menu-item>                 
+        </ce-side-menu-list>                
+    </ce-side-menu-content>
+    <ce-side-menu-footer>
+        <div class="mat-caption text-light text-center">1.0.0</div>
+    </ce-side-menu-footer>
+</ce-side-menu>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import {
@@ -9,9 +9,8 @@ import {
   ProjectsDataSource,
   ProjectsQueryBuilder
 } from '@codeffekt/ce-core';
-import { FormProject, FormProjectWrapper, FormWrapper } from '@codeffekt/ce-core-data';
-import { Observable, firstValueFrom } from 'rxjs';
-import { ProjectCreatorDialogComponent } from './project-creator-dialog/project-creator-dialog.component';
+import { FormProjectWrapper, FormWrapper } from '@codeffekt/ce-core-data';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'ce-admin-projects',
@@ -23,6 +22,9 @@ import { ProjectCreatorDialogComponent } from './project-creator-dialog/project-
 })
 export class ProjectsComponent implements OnInit {
 
+  @Input() formWrapper!: FormWrapper;
+  @Output() formChanges = new EventEmitter<FormWrapper>();
+
   projectsDataSource!: ProjectsDataSource;
   projects$!: Observable<readonly FormProjectWrapper[]>;
 
@@ -30,9 +32,8 @@ export class ProjectsComponent implements OnInit {
     private readonly queryService: CeFormQueryService<FormProjectWrapper>,
     private router: Router,
     private route: ActivatedRoute,
-    private dialog: MatDialog,
     private layout: LayoutService,
-    private formsService: CeFormsService,
+    formsService: CeFormsService,
     private coreService: CeCoreService,
     private projectsService: CeProjectsService,
     private bcService: CeBreadcrumbsService,
@@ -52,30 +53,7 @@ export class ProjectsComponent implements OnInit {
 
   reloadProjects() {
     this.queryService.load();
-  }
-
-  async createProject() {
-
-    const dialogRef = ProjectCreatorDialogComponent.createDialog(this.dialog, {
-      root: FormProject.ROOT,
-      forceTemplateChoice: true,
-    });
-
-    const dialogRes = await firstValueFrom(dialogRef.afterClosed());
-
-    if (dialogRes?.id) {
-      try {
-        const selectedTemplate = dialogRes;
-        //const newProject = await this.formsService.createFormFromTemplate(selectedTemplate.id!, { name: selectedTemplate.name });
-        const newProject = await this.formsService.createForm(selectedTemplate.id);
-        this.layout.showSingleMessage(`Le projet ${selectedTemplate.title} à été créé.`);
-        this.router.navigate([`/forms/edit/${newProject.id}`]);
-      } catch (err) {
-        this.layout.showErrorMessage(`Erreur lors de la création d'un nouveau projet`);
-      }
-    }
-
-  }
+  }  
 
   onSelected(project: FormProjectWrapper) {
     //this.router.navigate(['forms', 'edit', project.core.id]);
@@ -90,11 +68,7 @@ export class ProjectsComponent implements OnInit {
     } catch (err) {
       this.layout.showErrorMessage(`Erreur lors de la suppression du projet ${project.props.name}`);
     }
-  }
-
-  openCodeScanner() {
-    throw new Error('Method not implemented.');
-  }
+  }  
 
   private async prepareQueryService() {
     const currentUser = this.coreService.getCurrentUser();

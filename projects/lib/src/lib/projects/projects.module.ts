@@ -33,13 +33,15 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
+import { ProjectTopbarComponent } from './project-topbar/project-topbar.component';
 @NgModule({
   declarations: [
     ProjectsComponent,
     ProjectCreatorDialogComponent,
     ProjectEditorComponent,
     ProjectAccountsComponent,
-    ProjectNewComponent
+    ProjectNewComponent,
+    ProjectTopbarComponent
   ],
   imports: [
     CommonModule,
@@ -72,7 +74,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     ProjectsComponent,
     ProjectCreatorDialogComponent,
     ProjectEditorComponent,
-    ProjectAccountsComponent
+    ProjectAccountsComponent,
+    ProjectTopbarComponent,
   ],
   providers: [
     {

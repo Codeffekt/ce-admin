@@ -6,11 +6,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CeAdminMenuEntry, CeAdminModule } from '@codeffekt/ce-admin';
 import { CommonModule } from '@angular/common';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 const appConfig: CeAppConfig = {
   projectType: "*",
   projectTypes: [
-    { projectType: "*", label: "default" },    
+    { projectType: "*", label: "default" },
     { projectType: "app.config", label: "App Config" }
   ],
   title: "ce-admin-demo",
@@ -43,15 +44,16 @@ const menuEntries: CeAdminMenuEntry[] = [
   ],
   imports: [
     CommonModule,
-    BrowserModule,    
+    BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatSnackBarModule,
     CeAuthModule,
     CeCoreModule,
     CeAdminModule.forRoot({
       menuEntries,
       defaultRoutePath: 'projects'
-    }),    
+    }),
   ],
   providers: [
     {

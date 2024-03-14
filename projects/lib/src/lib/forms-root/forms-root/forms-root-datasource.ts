@@ -1,8 +1,8 @@
 import { CeFormsService, FormQueryDatasource } from "@codeffekt/ce-core";
-import { DbArrayRes, FormInstance, FormQuery, FormRoot } from "@codeffekt/ce-core-data";
+import { DbArrayRes, FormInstance, FormQuery, FormRoot, FormWrapper } from "@codeffekt/ce-core-data";
 import { Observable } from "rxjs";
 
-export class FormsRootDataSource extends FormQueryDatasource<FormRoot, FormRoot> {
+export class FormsRootDataSource extends FormQueryDatasource<FormWrapper, FormRoot> {
     constructor(
         private formsService: CeFormsService
     ) {
@@ -13,7 +13,7 @@ export class FormsRootDataSource extends FormQueryDatasource<FormRoot, FormRoot>
         return this.formsService.getRawFormsRootQuery(query);
     }
 
-    protected wrap(form: FormInstance): FormRoot {
-        return form;
+    protected wrap(form: FormInstance): FormWrapper {
+        return FormWrapper.fromForm(form);
     }
 }

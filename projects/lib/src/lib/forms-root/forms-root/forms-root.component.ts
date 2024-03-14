@@ -1,12 +1,9 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { CeFormQueryService, CeFormsService, FormsFormQueryBuilder, LayoutService } from '@codeffekt/ce-core';
-import { FormRoot, IndexType } from '@codeffekt/ce-core-data';
-import { Observable, firstValueFrom } from 'rxjs';
-import { CE_ADMIN_ROUTE_RESOLVER, CeAdminRouteResolver } from '../../ce-admin-route.resolver';
+import { FormRoot, FormWrapper } from '@codeffekt/ce-core-data';
+import { Observable } from 'rxjs';
 import { FormsRootDataSource } from './forms-root-datasource';
-import { FormRootCreatorDialogComponent } from '../form-root-creator-dialog/form-root-creator-dialog.component';
 
 @Component({
   selector: 'ce-admin-forms-root',
@@ -17,65 +14,50 @@ import { FormRootCreatorDialogComponent } from '../form-root-creator-dialog/form
   ]
 })
 export class FormsRootComponent implements OnInit {
+
+  @Input() formWrapper!: FormWrapper;
+  @Output() formChanges = new EventEmitter<FormWrapper>();
+
   formsDataSource!: FormsRootDataSource;
   formQueryBuilder = new FormsFormQueryBuilder();
-  forms$!: Observable<readonly FormRoot[]>;
+  forms$!: Observable<readonly FormWrapper[]>;
 
   constructor(
-    private dialog: MatDialog,
-    private readonly queryService: CeFormQueryService<FormRoot>,
+    private readonly queryService: CeFormQueryService<FormWrapper>,
     private router: Router,
     private layout: LayoutService,
-    private formsService: CeFormsService,
-    private apiService: CeFormsService,
-    @Inject(CE_ADMIN_ROUTE_RESOLVER) private routeResolver: CeAdminRouteResolver
-  ) {
+    private formsService: CeFormsService  ) {
     this.formsDataSource = new FormsRootDataSource(this.formsService);
     this.queryService.setDatasource(this.formsDataSource);
   }
 
   ngOnInit() {
     this.prepareQueryService();
+  }  
+
+  createInstance(form: FormWrapper) {
+    this.router.navigate(['formsroot', 'new', form.core.id]);
   }
 
-  create() {
-
-    const ref = this.dialog.open(
-      FormRootCreatorDialogComponent,
-      FormRootCreatorDialogComponent.createDialog()
-    );
-
-    ref.afterClosed()
-      .subscribe(formConfig => {
-        if (formConfig?.root?.length) {
-          this.createNewRoot(formConfig?.root);
-        }
-      });
+  collection(form: FormWrapper) {
+    this.router.navigate(['formsroot', 'collection', form.core.id]);
   }
 
-  createInstance(form: FormRoot) {
-    this.router.navigate(['formsroot', 'new', form.id]);
-  }
-
-  collection(form: FormRoot) {
-    this.router.navigate(['formsroot', 'collection', form.id]);
-  }
-
-  edit(form: FormRoot) {
-    this.router.navigate(['formsroot', 'edit', form.id]);        
+  edit(form: FormWrapper) {
+    this.router.navigate(['formsroot', 'edit', form.core.id]);        
   }
 
   reloadForms() {
     this.formsDataSource.reload();
   }
 
-  async delete(form: FormRoot) {
+  async delete(form: FormWrapper) {
     try {
-      await this.formsService.removeRoot(form.id);
-      this.layout.showSingleMessage(`Le formulaire ${form.id} à été supprimé.`);
+      await this.formsService.removeRoot(form.core.id);
+      this.layout.showSingleMessage(`Le formulaire ${form.core.id} à été supprimé.`);
       this.reloadForms();
     } catch (err) {
-      this.layout.showErrorMessage(`Erreur lors de la suppression du formulaire ${form.id}`);
+      this.layout.showErrorMessage(`Erreur lors de la suppression du formulaire ${form.core.id}`);
     }
   }
 
@@ -83,29 +65,5 @@ export class FormsRootComponent implements OnInit {
     this.queryService.setQueryBuilder(this.formQueryBuilder);
     this.forms$ = this.queryService.connect();
     this.queryService.load();
-  }
-
-  private async createNewRoot(root: IndexType) {
-    const existingRoot = await firstValueFrom(this.apiService.getFormRoot(root));
-    if (existingRoot?.id) {
-      this.layout.showErrorMessage(`Root ${root} id already exists.`);
-      return;
-    }
-    await this.saveNewForm({
-      id: root,
-      ctime: Date.now(),
-      title: root,
-      content: {}
-    } as FormRoot)
-  }
-
-  async saveNewForm(formRoot: FormRoot) {
-    try {
-      const newFormRoot = await this.apiService.updateFormRoot(formRoot);
-      this.layout.showSingleMessage(`Formulaire ${formRoot.title ?? formRoot.id} ajouté`);
-      this.router.navigate(this.routeResolver.resolve("formsroot.edit", newFormRoot.id).route);
-    } catch (err) {
-      this.layout.showErrorMessage(`Erreur lors la création du formulaire`);
-    }
-  }
+  }    
 }

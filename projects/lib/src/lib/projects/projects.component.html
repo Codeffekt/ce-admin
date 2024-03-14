@@ -1,14 +1,4 @@
 <ce-nav-layout>
-  <ce-navbar ceNavBar>
-    <ce-navbar-content>
-      <ce-navbar-item>Projets</ce-navbar-item>
-      <ce-navbar-actions>
-        <a mat-stroked-button color="accent" matTooltip="Ajouter un projet" (click)="createProject()">
-          <mat-icon>add</mat-icon>Ajouter un Projets
-        </a>
-      </ce-navbar-actions>
-    </ce-navbar-content>        
-  </ce-navbar>
 
   <ce-formquery-wrapper [paginationEnabled]="true" [searchEnabled]="true">
     <ce-list>
@@ -24,8 +14,6 @@
         </ce-list-item-actions>
       </ce-list-item>
   </ce-list>
-  </ce-formquery-wrapper>
-
-  <button class="code-button" mat-fab (click)="openCodeScanner()"><mat-icon>qr_code</mat-icon></button>
+  </ce-formquery-wrapper>  
 
 </ce-nav-layout>

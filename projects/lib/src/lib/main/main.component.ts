@@ -1,11 +1,7 @@
 import { MediaMatcher } from '@angular/cdk/layout';
-import { Portal } from '@angular/cdk/portal';
 import { AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatDrawer } from '@angular/material/sidenav';
-import { CeAppConfig, CeNavBarService, LayoutService } from '@codeffekt/ce-core';
-import { Observable } from 'rxjs';
-import { ConfigurationService } from '../services/configuration.service';
-import { CeActiveAdminMenuEntry, CeAdminMenuService } from '../services/menu.service';
+import { LayoutService } from '@codeffekt/ce-core';
 
 @Component({
   selector: 'ce-admin-main',
@@ -14,11 +10,7 @@ import { CeActiveAdminMenuEntry, CeAdminMenuService } from '../services/menu.ser
 })
 export class MainComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  @ViewChild(MatDrawer) drawer!: MatDrawer;
-  menuEntries!: CeActiveAdminMenuEntry[];
-  navBarPortal$!: Observable<Portal<any> | undefined>;
-
-  appConfig!: CeAppConfig;
+  @ViewChild(MatDrawer) drawer!: MatDrawer;  
 
   mobileQuery!: MediaQueryList;
 
@@ -26,21 +18,13 @@ export class MainComponent implements OnInit, AfterViewInit, OnDestroy {
 
   constructor(
     private layout: LayoutService,
-    private menuService: CeAdminMenuService,
-    configService: ConfigurationService,
-    private navBarService: CeNavBarService,
     private media: MediaMatcher,
     private changeDetectorRef: ChangeDetectorRef,    
   ) {
-    this.listenMobileQuery();
-    this.appConfig = configService.getConfig();
-    this.menuEntries = this.menuService.getActiveMenuEntries();
+    this.listenMobileQuery();   
   }
 
-  ngOnInit(): void { 
-    setTimeout(() => {      
-      this.navBarPortal$ = this.navBarService.getPortal();
-    });
+  ngOnInit(): void {     
   }
 
   ngAfterViewInit() {

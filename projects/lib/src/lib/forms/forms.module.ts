@@ -35,13 +35,15 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTabsModule } from '@angular/material/tabs';
+import { FormTopbarComponent } from './form-topbar/form-topbar.component';
 
 @NgModule({
   declarations: [
     FormsComponent,
     FormCreatorDialogComponent,
     FormSelectionDialogComponent,
-    FormEditorJsonDialogComponent
+    FormEditorJsonDialogComponent,
+    FormTopbarComponent
   ],
   imports: [
     CommonModule,
@@ -74,7 +76,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     UserEditorModule,
   ],
   exports: [
-    FormsComponent,    
+    FormsComponent,
+    FormTopbarComponent,    
   ],
   providers: [
     {
