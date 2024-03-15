@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UsersRoutingModule } from './users-routing.module';
-import { CeListModule, CeNavigationModule, CeNgReallyModule, ListItemStoreService, SearchDefaultQueryFactoryService } from '@codeffekt/ce-core';
+import {
+  CeListModule, CeNavigationModule,
+  CeNgReallyModule, ListItemStoreService,
+  SearchDefaultQueryFactoryService
+} from '@codeffekt/ce-core';
 import { FormAccount } from '@codeffekt/ce-core-data';
 import { ListItemAccountComponent } from '../list-item-account/list-item-account/list-item-account.component';
 import { FormRootCollectionModule } from '../forms-root/form-root-collection/form-root-collection.module';
@@ -13,7 +16,6 @@ import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
-  
     UserTopbarComponent
   ],
   imports: [
@@ -23,10 +25,9 @@ import { MatIconModule } from '@angular/material/icon';
     CeNgReallyModule,
     CeNavigationModule,
     FormRootCollectionModule,
-    MatButtonModule,    
+    MatButtonModule,
     MatMenuModule,
     MatIconModule,
-    UsersRoutingModule,
   ],
   exports: [
   ]

@@ -2,10 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminGuard } from '../services/admin.guard';
 import { MainComponent } from './main.component';
-import {
-  CeFormEditorComponent,
-  FormEditorResolverService
-} from '@codeffekt/ce-core';
 
 const routes: Routes = [
   {
@@ -20,11 +16,8 @@ const routes: Routes = [
         pathMatch: 'full'
       },
       {
-        path: ':form',
-        resolve: {
-          form: FormEditorResolverService,
-        },
-        component: CeFormEditorComponent,
+        path: ':form',               
+        loadChildren: () => import('../forms/subform/subform.module').then(m => m.SubFormModule)
       },
     ]
   }];

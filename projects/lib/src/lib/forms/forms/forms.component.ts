@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CeBreadcrumbsService, CeFormQueryService, CeFormsService, FormWrappersDataSource } from '@codeffekt/ce-core';
 import { FormWrapper } from '@codeffekt/ce-core-data';
 import { Observable } from 'rxjs';
@@ -25,6 +25,7 @@ export class FormsComponent implements OnInit {
 
   constructor(
     private readonly queryService: CeFormQueryService<FormWrapper>,
+    private route: ActivatedRoute,
     private router: Router,
     private formsService: CeFormsService,
     private bcService: CeBreadcrumbsService,
@@ -40,7 +41,7 @@ export class FormsComponent implements OnInit {
 
   reloadForms() {
     this.queryService.load();
-  }  
+  }
 
   /* async copy(form: FormWrapper) {
     try {
@@ -53,8 +54,8 @@ export class FormsComponent implements OnInit {
   } */
 
   onSelected(form: FormWrapper) {
-    this.router.navigate(['main', 'forms', form.core.id]);
-  }  
+    this.router.navigate([ form.core.id ], { relativeTo: this.route });
+  }
 
   /* async delete(form: FormWrapper) {
     try {

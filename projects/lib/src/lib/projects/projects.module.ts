@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProjectsComponent } from './projects.component';
-import { ProjectsRoutingModule } from './projects-routing.module';
 import { ProjectCreatorDialogComponent } from './project-creator-dialog/project-creator-dialog.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProjectEditorComponent } from './project-editor/project-editor.component';
@@ -44,8 +43,7 @@ import { ProjectTopbarComponent } from './project-topbar/project-topbar.componen
     ProjectTopbarComponent
   ],
   imports: [
-    CommonModule,
-    ProjectsRoutingModule,
+    CommonModule,   
     ReactiveFormsModule,
     CeNavigationModule,
     CeFormQueryWrapperModule,

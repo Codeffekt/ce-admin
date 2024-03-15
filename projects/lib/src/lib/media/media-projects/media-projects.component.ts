@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CeCoreService, CeFormQueryService, CeFormsService, ProjectsDataSource, ProjectsQueryBuilder } from '@codeffekt/ce-core';
-import { FormProjectWrapper } from '@codeffekt/ce-core-data';
+import { FormProjectWrapper, FormWrapper } from '@codeffekt/ce-core-data';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -12,6 +12,9 @@ import { Observable } from 'rxjs';
   ]
 })
 export class MediaProjectsComponent implements OnInit {
+
+  @Input() formWrapper!: FormWrapper;
+  @Output() formChanges = new EventEmitter<FormWrapper>();
 
   projectsDataSource!: ProjectsDataSource;
   projects$!: Observable<readonly FormProjectWrapper[]>;

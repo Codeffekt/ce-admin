@@ -41,11 +41,11 @@ export class FormTopbarComponent {
   }
 
   open_qr_scanner() {
-    const dialogRef = BarcodeScannerComponent.openDialog(this.dialog);
+    const dialogRef = BarcodeScannerComponent.openDialog(this.dialog, { useConfirmationDialog: false });
 
     dialogRef.afterClosed().subscribe((barcode: Pick<BarCode, "text" | "type">) => {
       if (barcode && barcode.text.length) {
-        this.router.navigate(['forms', 'edit', barcode.text]);
+        this.router.navigate(['main', 'forms', barcode.text]);
       }
     });
   }

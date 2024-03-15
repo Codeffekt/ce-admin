@@ -5,4 +5,6 @@ export * from './form-user-owner';
 export * from './form-creator-dialog/form-creator-dialog.component';
 export * from './form-selection-dialog/form-selection-dialog.component';
 export * from './form-topbar/form-topbar.component';
+export * from './form-toolbar/form-toolbar.component';
+export * from './subform';
 export * from './forms.module';

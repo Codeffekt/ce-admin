@@ -3,7 +3,12 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { CeFormEditorModule, CeGridModule, CeOverflowModule, CeSideMenuModule, FormActionBuilder, FormActionService, FormsLocalDatabaseService } from '@codeffekt/ce-core';
+import {
+  CeFormEditorModule, CeGridModule,
+  CeOverflowModule, CeSideMenuModule,
+  FormActionBuilder, FormActionService,
+  FormsLocalDatabaseService
+} from '@codeffekt/ce-core';
 import { MainRoutingModule } from './main-routing.module';
 import { MainComponent } from './main.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
@@ -18,6 +23,10 @@ import { FormsComponent } from '../forms/forms/forms.component';
 import { FormTopbarComponent } from '../forms/form-topbar/form-topbar.component';
 import { FormsRootComponent } from '../forms-root/forms-root/forms-root.component';
 import { FormRootTopbarComponent } from '../forms-root/form-root-topbar/form-root-topbar.component';
+import { MediaProjectsModule } from '../media/media-projects.module';
+import { MediaProjectsComponent } from '../media/media-projects/media-projects.component';
+import { SubFormModule } from '../forms/subform/subform.module';
+import { FormToolbarComponent } from '../forms/form-toolbar/form-toolbar.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +46,8 @@ import { FormRootTopbarComponent } from '../forms-root/form-root-topbar/form-roo
     ProjectsModule,
     UsersModule,
     FormsModule,
+    MediaProjectsModule,
+    SubFormModule,
   ],
   exports: [
     MainComponent,
@@ -68,7 +79,12 @@ export class CeAdminMainModule {
       'form-formsroot': FormActionBuilder
         .withRender(FormsRootComponent)
         .setMenu(MainMenuComponent)
-        .setTopbar(FormRootTopbarComponent)
+        .setTopbar(FormRootTopbarComponent),
+      'form-media': FormActionBuilder
+        .withRender(MediaProjectsComponent)
+        .setMenu(MainMenuComponent),
+      'forms-trias-hardware': FormActionBuilder
+        .withToolbar(FormToolbarComponent),        
     });
 
     localDatabase.setForms({

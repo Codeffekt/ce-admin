@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsComponent } from './forms/forms.component';
-import { FormsRoutingModule } from './forms-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormCreatorDialogComponent } from './form-creator-dialog/form-creator-dialog.component';
 import {
@@ -23,7 +22,6 @@ import { ListItemProjectComponent } from '../list-item-project/list-item-project
 import { FormProject } from '@codeffekt/ce-core-data';
 import { FormEditorJsonDialogComponent } from './form-editor-json/form-editor-json.component';
 import { CeAdminAuthZModule } from '../authz';
-import { FormEditorModule } from './form-editor';
 import { FormUserOwnerModule } from './form-user-owner';
 import { FormUsersSharedModule } from './form-users-shared/form-users-shared.module';
 import { CeFormSharingDialogModule } from './form-editor/form-sharing-dialog/form-sharing-dialog.module';
@@ -36,6 +34,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTabsModule } from '@angular/material/tabs';
 import { FormTopbarComponent } from './form-topbar/form-topbar.component';
+import { FormToolbarComponent } from './form-toolbar/form-toolbar.component';
 
 @NgModule({
   declarations: [
@@ -43,11 +42,11 @@ import { FormTopbarComponent } from './form-topbar/form-topbar.component';
     FormCreatorDialogComponent,
     FormSelectionDialogComponent,
     FormEditorJsonDialogComponent,
-    FormTopbarComponent
+    FormTopbarComponent,
+    FormToolbarComponent
   ],
   imports: [
-    CommonModule,
-    FormsRoutingModule,
+    CommonModule,    
     ReactiveFormsModule,
     CeNavigationModule,
     CeFormQueryWrapperModule,
@@ -67,8 +66,7 @@ import { FormTopbarComponent } from './form-topbar/form-topbar.component';
     MatTabsModule,
     MatMenuModule,
     ListItemProjectModule,
-    CeAdminAuthZModule,
-    FormEditorModule,
+    CeAdminAuthZModule,    
     FormUserOwnerModule,
     FormUsersSharedModule,
     CeLayoutModule,
@@ -77,7 +75,8 @@ import { FormTopbarComponent } from './form-topbar/form-topbar.component';
   ],
   exports: [
     FormsComponent,
-    FormTopbarComponent,    
+    FormTopbarComponent,  
+    FormToolbarComponent,  
   ],
   providers: [
     {

@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CeFormQueryService, CeFormsService, FormsFormQueryBuilder, LayoutService } from '@codeffekt/ce-core';
-import { FormRoot, FormWrapper } from '@codeffekt/ce-core-data';
+import { FormWrapper } from '@codeffekt/ce-core-data';
 import { Observable } from 'rxjs';
 import { FormsRootDataSource } from './forms-root-datasource';
 
@@ -24,16 +24,17 @@ export class FormsRootComponent implements OnInit {
 
   constructor(
     private readonly queryService: CeFormQueryService<FormWrapper>,
+    private route: ActivatedRoute,
     private router: Router,
     private layout: LayoutService,
-    private formsService: CeFormsService  ) {
+    private formsService: CeFormsService) {
     this.formsDataSource = new FormsRootDataSource(this.formsService);
     this.queryService.setDatasource(this.formsDataSource);
   }
 
   ngOnInit() {
     this.prepareQueryService();
-  }  
+  }
 
   createInstance(form: FormWrapper) {
     this.router.navigate(['formsroot', 'new', form.core.id]);
@@ -44,7 +45,7 @@ export class FormsRootComponent implements OnInit {
   }
 
   edit(form: FormWrapper) {
-    this.router.navigate(['formsroot', 'edit', form.core.id]);        
+    this.router.navigate([form.core.id], { relativeTo: this.route });
   }
 
   reloadForms() {
@@ -65,5 +66,5 @@ export class FormsRootComponent implements OnInit {
     this.queryService.setQueryBuilder(this.formQueryBuilder);
     this.forms$ = this.queryService.connect();
     this.queryService.load();
-  }    
+  }
 }
