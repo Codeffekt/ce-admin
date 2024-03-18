@@ -1,14 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CeAppConfig, CeAuthModule, CeCoreModule, CE_APP_CONFIG } from '@codeffekt/ce-core';
+import {
+  CeAuthModule,
+  CeCoreModule} from '@codeffekt/ce-core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CeAdminMenuEntry, CeAdminModule } from '@codeffekt/ce-admin';
+import { 
+  CeAdminModule } from '@codeffekt/ce-admin';
 import { CommonModule } from '@angular/common';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
-const appConfig: CeAppConfig = {
+/* const appConfig: CeAppConfig = {
   projectType: "*",
   projectTypes: [
     { projectType: "*", label: "default" },
@@ -36,7 +39,8 @@ const menuEntries: CeAdminMenuEntry[] = [
     },
     keepDefaultRoute: true,
   }
-];
+]; */
+
 
 @NgModule({
   declarations: [
@@ -50,16 +54,9 @@ const menuEntries: CeAdminMenuEntry[] = [
     MatSnackBarModule,
     CeAuthModule,
     CeCoreModule,
-    CeAdminModule.forRoot({
-      menuEntries,
-      defaultRoutePath: 'projects'
-    }),
+    CeAdminModule.forRoot(),
   ],
-  providers: [
-    {
-      provide: CE_APP_CONFIG,
-      useValue: appConfig,
-    }
+  providers: [    
   ],
   bootstrap: [AppComponent]
 })

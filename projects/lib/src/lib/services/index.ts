@@ -7,3 +7,4 @@ export * from './form-data.service';
 export * from './menu.service';
 export * from './app-runner.service';
 export * from './form-route.resolver';
+export * from './admin-action-default.service';

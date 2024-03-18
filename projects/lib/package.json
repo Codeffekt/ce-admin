@@ -11,23 +11,21 @@
   "publishConfig": {
     "access": "public"
   },
+  "license": "Apache-2.0",
   "peerDependencies": {
     "@angular/common": "^16.2.12",
     "@angular/core": "^16.2.12",
     "@angular/material": "^16.2.14",
     "@angular/material-moment-adapter": "^16.2.14",  
-    "@codeffekt/ce-core": "^16.0.2",
+    "@codeffekt/ce-core": "^16.0.3",
     "@codeffekt/ce-core-data": "^1.1.2",
     "@codeffekt/ce-code-editor": "^16.0.0",     
     "@codeffekt/ce-form-coordinates": "^16.0.0",
     "@codeffekt/ce-form-creator": "^16.0.0",
     "moment": "^2.29.1",
-    "bootstrap": "^5.1.1"
-  },
-  "main": "./dist/lib/bundles/codeffekt-ce-admin.umd.js",
-  "module": "./dist/lib/fesm2015/codeffekt-ce-admin.js",
-  "es2015": "./dist/lib/fesm2015/codeffekt-ce-admin.js",
-  "esm2015": "./dist/lib/esm2015/codeffekt-ce-admin.js",
-  "fesm2015": "./dist/lib/fesm2015/codeffekt-ce-admin.js",
-  "typings": "./dist/lib/codeffekt-ce-admin.d.ts"  
+    "bootstrap": "^5.3.3",
+    "@ngxs/devtools-plugin": "^3.8.2",
+    "@ngxs/store": "^3.8.2"
+  },  
+  "main": "./dist/lib/codeffekt-ce-admin.d.ts"  
 }

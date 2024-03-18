@@ -2,7 +2,7 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "outDir": "../../out-tsc/lib",
+    "outDir": "../../dist/ce-admin",
     "declaration": true,
     "declarationMap": true,
     "inlineSources": true,
@@ -15,5 +15,9 @@
   "exclude": [
     "src/test.ts",
     "**/*.spec.ts"
-  ]
+  ],
+  "include": [
+    "src/*",
+    "src/**/*"
+  ]    
 }

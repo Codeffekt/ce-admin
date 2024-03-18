@@ -1,12 +1,12 @@
 import { PortalModule } from '@angular/cdk/portal';
 import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
+import { Injectable, NgModule } from '@angular/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {
   CeFormEditorModule, CeGridModule,
   CeOverflowModule, CeSideMenuModule,
-  FormActionBuilder, FormActionService,
+  FormActionBuilder, FormActionDefault, FormActionService,
   FormsLocalDatabaseService
 } from '@codeffekt/ce-core';
 import { MainRoutingModule } from './main-routing.module';
@@ -27,6 +27,7 @@ import { MediaProjectsModule } from '../media/media-projects.module';
 import { MediaProjectsComponent } from '../media/media-projects/media-projects.component';
 import { SubFormModule } from '../forms/subform/subform.module';
 import { FormToolbarComponent } from '../forms/form-toolbar/form-toolbar.component';
+
 
 @NgModule({
   declarations: [
@@ -53,7 +54,7 @@ import { FormToolbarComponent } from '../forms/form-toolbar/form-toolbar.compone
     MainComponent,
     MainMenuComponent,
   ],
-  providers: [
+  providers: [    
   ]
 })
 export class CeAdminMainModule {
@@ -61,28 +62,23 @@ export class CeAdminMainModule {
   constructor(
     formActions: FormActionService,
     localDatabase: FormsLocalDatabaseService
-  ) {
+  ) {   
 
     formActions.setActions({
       'form-projects': FormActionBuilder
-        .withRender(ProjectsComponent)
-        .setMenu(MainMenuComponent)
+        .withRender(ProjectsComponent)      
         .setTopbar(ProjectTopbarComponent),
       'form-users': FormActionBuilder
-        .withRender(UsersComponent)
-        .setMenu(MainMenuComponent)
+        .withRender(UsersComponent)        
         .setTopbar(UserTopbarComponent),
       'form-forms': FormActionBuilder
-        .withRender(FormsComponent)
-        .setMenu(MainMenuComponent)
+        .withRender(FormsComponent)        
         .setTopbar(FormTopbarComponent),
       'form-formsroot': FormActionBuilder
-        .withRender(FormsRootComponent)
-        .setMenu(MainMenuComponent)
+        .withRender(FormsRootComponent)      
         .setTopbar(FormRootTopbarComponent),
       'form-media': FormActionBuilder
-        .withRender(MediaProjectsComponent)
-        .setMenu(MainMenuComponent),
+        .withRender(MediaProjectsComponent),        
       'forms-trias-hardware': FormActionBuilder
         .withToolbar(FormToolbarComponent),        
     });

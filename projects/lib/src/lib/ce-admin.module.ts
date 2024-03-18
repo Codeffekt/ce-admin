@@ -1,13 +1,9 @@
-import { APP_INITIALIZER, ModuleWithProviders, NgModule } from '@angular/core';
-import { Router } from '@angular/router';
-import { CeAppConfig, CE_APP_CONFIG } from '@codeffekt/ce-core';
-import { CeAdminMenuService } from './services/menu.service';
+import { ModuleWithProviders, NgModule } from '@angular/core';
+import { CeAppConfig, CE_APP_CONFIG, FormActionDefault } from '@codeffekt/ce-core';
 import { CeAdminModuleConfig, CE_ADMIN_CONFIG, EMPTY_CE_ADMIN_CONFIG } from './ce-admin-config';
 import { CeAdminDefaultRouteResolver } from './ce-admin-default-route.resolver';
 import { CE_ADMIN_ROUTE_RESOLVER } from './ce-admin-route.resolver';
-import { CeAdminMainModule } from './main/main.module';
-import { NgxsModule } from '@ngxs/store';
-import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
+import { CeAdminActionDefaultService } from './services/admin-action-default.service';
 
 const appConfig: CeAppConfig = {
   projectType: "*",
@@ -16,9 +12,7 @@ const appConfig: CeAppConfig = {
   version: "dev",
 };
 @NgModule({
-  imports: [
-    NgxsModule.forRoot([]),
-    NgxsReduxDevtoolsPluginModule.forRoot(),
+  imports: [    
     // CeAdminMainModule
   ],
   exports: [
@@ -36,6 +30,10 @@ const appConfig: CeAppConfig = {
       provide: CE_APP_CONFIG,
       useValue: appConfig
     },
+    {
+      provide: FormActionDefault,
+      useClass: CeAdminActionDefaultService,
+    },
     /* {
       provide: APP_INITIALIZER,
       useFactory: CeAdminMenuService.init,
@@ -52,7 +50,7 @@ export class CeAdminModule {
         {
           provide: CE_ADMIN_CONFIG,
           useValue: config
-        }
+        },        
       ]
     };
   }

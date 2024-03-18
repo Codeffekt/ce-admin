@@ -86,7 +86,7 @@ import { FormToolbarComponent } from './form-toolbar/form-toolbar.component';
     {
       provide: CeFormRouteResolver,
       useClass: FormRouteResolver,
-    }
+    },
   ]
 })
 export class FormsModule {
