@@ -1,17 +1,16 @@
 import { PortalModule } from '@angular/cdk/portal';
 import { CommonModule } from '@angular/common';
-import { Injectable, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {
   CeFormEditorModule, CeGridModule,
   CeOverflowModule, CeSideMenuModule,
-  FormActionBuilder, FormActionDefault, FormActionService,
+  FormActionBuilder, FormActionService,
   FormsLocalDatabaseService
 } from '@codeffekt/ce-core';
 import { MainRoutingModule } from './main-routing.module';
 import { MainComponent } from './main.component';
-import { MainMenuComponent } from './main-menu/main-menu.component';
 import { ProjectsModule } from '../projects/projects.module';
 import { ProjectsComponent } from '../projects/projects.component';
 import { ProjectTopbarComponent } from '../projects/project-topbar/project-topbar.component';
@@ -21,18 +20,16 @@ import { UserTopbarComponent } from '../users/user-topbar/user-topbar.component'
 import { FormsModule } from '../forms/forms.module';
 import { FormsComponent } from '../forms/forms/forms.component';
 import { FormTopbarComponent } from '../forms/form-topbar/form-topbar.component';
-import { FormsRootComponent } from '../forms-root/forms-root/forms-root.component';
-import { FormRootTopbarComponent } from '../forms-root/form-root-topbar/form-root-topbar.component';
 import { MediaProjectsModule } from '../media/media-projects.module';
 import { MediaProjectsComponent } from '../media/media-projects/media-projects.component';
 import { SubFormModule } from '../forms/subform/subform.module';
 import { FormToolbarComponent } from '../forms/form-toolbar/form-toolbar.component';
+import { MainMenuModule } from './main-menu/main-menu.module';
 
 
 @NgModule({
   declarations: [
-    MainComponent,
-    MainMenuComponent,
+    MainComponent,    
   ],
   imports: [
     CommonModule,
@@ -47,12 +44,12 @@ import { FormToolbarComponent } from '../forms/form-toolbar/form-toolbar.compone
     ProjectsModule,
     UsersModule,
     FormsModule,
+    MainMenuModule,
     MediaProjectsModule,
     SubFormModule,
   ],
   exports: [
-    MainComponent,
-    MainMenuComponent,
+    MainComponent,    
   ],
   providers: [    
   ]
@@ -73,10 +70,7 @@ export class CeAdminMainModule {
         .setTopbar(UserTopbarComponent),
       'form-forms': FormActionBuilder
         .withRender(FormsComponent)        
-        .setTopbar(FormTopbarComponent),
-      'form-formsroot': FormActionBuilder
-        .withRender(FormsRootComponent)      
-        .setTopbar(FormRootTopbarComponent),
+        .setTopbar(FormTopbarComponent),     
       'form-media': FormActionBuilder
         .withRender(MediaProjectsComponent),        
       'forms-trias-hardware': FormActionBuilder

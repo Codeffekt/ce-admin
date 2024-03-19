@@ -18,7 +18,7 @@ const routes: Routes = [
       {
         path: ':form',               
         loadChildren: () => import('../forms/subform/subform.module').then(m => m.SubFormModule)
-      },
+      },      
     ]
   }];
 

@@ -11,6 +11,7 @@ import {
   CeNgReallyModule,
   CePipesModule,
   CeProjectFormRouteResolver,
+  CeSideMenuModule,
   ListItemStoreService,
 } from "@codeffekt/ce-core";
 import { FormRootEditorComponent } from "./form-root-editor/form-root-editor.component";
@@ -30,16 +31,18 @@ import { MatDialogModule } from "@angular/material/dialog";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { MatMenuModule } from "@angular/material/menu";
-import { FormRootTopbarComponent } from './form-root-topbar/form-root-topbar.component';
+import { FormsMainComponent } from './forms-main/forms-main.component';
+import { MatSidenavModule } from "@angular/material/sidenav";
+import { MainMenuModule } from "../main/main-menu/main-menu.module";
 
 @NgModule({
   declarations: [
     FormsRootComponent,
     FormRootEditorComponent,
     ListItemFormRootComponent,
-    FormEditorDialogWrapperComponent,    
-    FormRootCreatorDialogComponent, 
-    FormRootTopbarComponent,
+    FormEditorDialogWrapperComponent,
+    FormRootCreatorDialogComponent,   
+    FormsMainComponent,
   ],
   imports: [
     CommonModule,
@@ -60,15 +63,17 @@ import { FormRootTopbarComponent } from './form-root-topbar/form-root-topbar.com
     MatFormFieldModule,
     MatDialogModule,
     MatInputModule,
+    MatSidenavModule,
+    CeSideMenuModule,
     CeFormCreatorModule,
     CeLayoutModule,
     UserEditorModule,
+    MainMenuModule,
   ],
   exports: [
     FormsRootComponent,
     FormRootEditorComponent,
-    FormRootCreatorDialogComponent,
-    FormRootTopbarComponent,
+    FormRootCreatorDialogComponent,  
   ],
   providers: [
     {
@@ -89,7 +94,7 @@ import { FormRootTopbarComponent } from './form-root-topbar/form-root-topbar.com
     } */
   ]
 })
-export class FormsRootModule {
+export class CeAdminRootModule {
 
   constructor(listItemStore: ListItemStoreService) {
 

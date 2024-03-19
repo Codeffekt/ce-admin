@@ -1,20 +1,31 @@
-<ce-nav-layout>    
-    <ce-formquery-wrapper [paginationEnabled]="true" [searchEnabled]="true">
-        <ce-list>
-          <ce-list-item *ngFor="let form of forms$ | async" (click)="edit(form)">
-            <ce-list-item-factory type="root" [item]="form">
-            </ce-list-item-factory>
-              <ce-list-item-actions>
-                <button mat-menu-item (click)="createInstance(form)">Ajouter</button>
-                <button mat-menu-item (click)="collection(form)">Collection</button>
-                <button mat-menu-item (ngReallyClick)="delete(form)"
-                    ngReallyTitle="Confirmation requise"
-                    ngReallyMessage="Voulez-vous vraiment supprimer le formulaire template {{form.core.id}} ?">
-                    <span>Supprimer</span>
-                </button>
-            </ce-list-item-actions>
-          </ce-list-item>
-      </ce-list>
-      </ce-formquery-wrapper>  
+<ce-nav-layout>
+
+  <ce-navbar ceNavBar>
+    <ce-navbar-content>
+      <ce-navbar-item>Modèles de formulaires</ce-navbar-item>
+      <ce-navbar-actions>
+        <button mat-stroked-button color="accent" matTooltip="Ajouter un formulaire racine" (click)="create()">
+          <mat-icon>add</mat-icon>Ajouter
+        </button>
+      </ce-navbar-actions>
+    </ce-navbar-content>
+  </ce-navbar>
+
+  <ce-formquery-wrapper [paginationEnabled]="true" [searchEnabled]="true">
+    <ce-list>
+      <ce-list-item *ngFor="let form of forms$ | async" (click)="edit(form)">
+        <ce-list-item-factory type="root" [item]="form">
+        </ce-list-item-factory>
+        <ce-list-item-actions>
+          <button mat-menu-item (click)="createInstance(form)">Ajouter</button>
+          <button mat-menu-item (click)="collection(form)">Collection</button>
+          <button mat-menu-item (ngReallyClick)="delete(form)" ngReallyTitle="Confirmation requise"
+            ngReallyMessage="Voulez-vous vraiment supprimer le formulaire template {{form.core.id}} ?">
+            <span>Supprimer</span>
+          </button>
+        </ce-list-item-actions>
+      </ce-list-item>
+    </ce-list>
+  </ce-formquery-wrapper>
 
 </ce-nav-layout>

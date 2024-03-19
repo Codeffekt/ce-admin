@@ -34,7 +34,7 @@ export const DEFAULT_CE_ADMIN_CONFIG: CeAdminModuleConfig = {
         icon: "assignment",
         route: {
             path: 'formsroot',
-            loadChildren: () => import('./forms-root/forms-root.module').then(m => m.FormsRootModule)
+            loadChildren: () => import('./forms-root/forms-root.module').then(m => m.CeAdminRootModule)
         }
     }, {
         label: "Formulaires",

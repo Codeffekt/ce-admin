@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormWrapper } from '@codeffekt/ce-core-data';
 
 @Component({
-  selector: 'lib-main-menu',
+  selector: 'ce-admin-main-menu',
   templateUrl: './main-menu.component.html',
   styleUrls: ['./main-menu.component.css']
 })

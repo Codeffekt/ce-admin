@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormRoot } from '@codeffekt/ce-core-data';
+import { FormWrapper } from '@codeffekt/ce-core-data';
 
 @Component({
   selector: 'lib-list-item-form-root',
@@ -8,11 +8,11 @@ import { FormRoot } from '@codeffekt/ce-core-data';
 })
 export class ListItemFormRootComponent implements OnInit {
 
-  @Input() item!: FormRoot;
+  @Input() item!: FormWrapper;
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {       
   }
 
 }

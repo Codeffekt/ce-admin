@@ -5,7 +5,7 @@ import { LogoutComponent } from '@codeffekt/ce-core';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'main',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
   {
@@ -17,9 +17,9 @@ const routes: Routes = [
     component: LogoutComponent
   },
   {
-    path: 'main',
+    path: 'home',
     loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
-  }
+  } 
 ];
 
 @NgModule({

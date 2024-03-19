@@ -1,0 +1,13 @@
+<mat-drawer-container class="h-100">
+    <mat-drawer mode="side" [opened]="true" style="width:256px">
+        <ce-admin-main-menu></ce-admin-main-menu>
+    </mat-drawer>
+    <mat-drawer-content>
+        <!-- <ce-grid class="h-100" templateRows="auto 1fr">                                         
+            <div overflow-auto cePadding="32px">               
+                <router-outlet></router-outlet>
+            </div>
+        </ce-grid> -->
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container>
