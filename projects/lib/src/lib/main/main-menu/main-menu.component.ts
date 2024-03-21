@@ -1,14 +1,29 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FormWrapper } from '@codeffekt/ce-core-data';
+import { AfterViewInit, Component, OnInit, ViewChild, ViewContainerRef } from "@angular/core";
+import { FormActionDefault } from "@codeffekt/ce-core";
 
 @Component({
-  selector: 'ce-admin-main-menu',
-  templateUrl: './main-menu.component.html',
-  styleUrls: ['./main-menu.component.css']
+    selector: 'ce-admin-main-menu',
+    templateUrl: './main-menu.component.html',
+    styleUrls: ['./main-menu.component.scss']
 })
-export class MainMenuComponent {
+export class CeAdminMainMenuComponent implements AfterViewInit {
 
-  @Input() formWrapper!: FormWrapper;
-  @Output() formChanges = new EventEmitter<FormWrapper>();
+    @ViewChild('container', { read: ViewContainerRef }) vcr!: ViewContainerRef;
 
+    constructor(
+        private formActionDefault: FormActionDefault,
+    ) {
+
+    }    
+
+    ngAfterViewInit(): void {
+        setTimeout(() => {
+            this.createComponent();
+        }, 0);
+    }
+
+    private createComponent() {
+        const componentType = this.formActionDefault.menu();
+        this.vcr.createComponent(componentType);
+    }
 }

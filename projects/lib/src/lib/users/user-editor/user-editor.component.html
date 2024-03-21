@@ -1,15 +1,34 @@
-<ng-container *ngIf="formWrapper as account">
+<ce-nav-layout>
 
-  <ce-column gap="24px">
-    <ce-admin-user-main-info [account]="account" (succeed)="onSuccessEditing($event)"
-      (failed)="onFailedEditing($event)">
-    </ce-admin-user-main-info>
-    <ng-container *ngIf="account.core.id">
-      <ce-grid gap="24px" templateColumns="repeat(auto-fit, minmax(500px,1fr))">
-        <ce-admin-user-projects-owned [account]="account"></ce-admin-user-projects-owned>
-        <ce-admin-user-projects-shared [account]="account"></ce-admin-user-projects-shared>
-      </ce-grid>
+  <ng-container *ngIf="(account$ | async) as account">
+
+    <ce-navbar ceNavBar>
+      <ce-navbar-content>
+        <ce-navbar-item [routerLink]="['/home', 'users']">Utilisateurs</ce-navbar-item>
+        <ce-navbar-item>{{account.login| uppercase}}</ce-navbar-item>
+      </ce-navbar-content>
+    </ce-navbar>
+
+    <ng-container *ngIf="(error$ | async) as error">
+      <div fxFlex fxLayoutAlign="center center">
+        <div fxLayout="column" fxLayoutAlign="center center">
+          <i class="material-icons icon-big primary">error</i>
+          <span class="mat-title">Impossible d'éditer ce compte</span>
+        </div>
+      </div>
     </ng-container>
-  </ce-column>
 
-</ng-container>
+    <ce-column gap="24px">
+      <ce-admin-user-main-info [account]="account" (succeed)="onSuccessEditing($event)"
+        (failed)="onFailedEditing($event)">
+      </ce-admin-user-main-info>
+      <ng-container *ngIf="account.id">
+        <ce-grid gap="24px" templateColumns="repeat(auto-fit, minmax(500px,1fr))">
+          <ce-admin-user-projects-owned [account]="account"></ce-admin-user-projects-owned>
+          <ce-admin-user-projects-shared [account]="account"></ce-admin-user-projects-shared>
+        </ce-grid>
+      </ng-container>
+    </ce-column>
+  </ng-container>
+
+</ce-nav-layout>

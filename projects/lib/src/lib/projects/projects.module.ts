@@ -33,6 +33,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { ProjectTopbarComponent } from './project-topbar/project-topbar.component';
+import { MainHomeModule } from '../main/main-home/main-home.module';
+import { ProjectsRoutingModule } from './projects-routing.module';
 @NgModule({
   declarations: [
     ProjectsComponent,
@@ -44,6 +46,7 @@ import { ProjectTopbarComponent } from './project-topbar/project-topbar.componen
   ],
   imports: [
     CommonModule,   
+    ProjectsRoutingModule,
     ReactiveFormsModule,
     CeNavigationModule,
     CeFormQueryWrapperModule,
@@ -67,6 +70,7 @@ import { ProjectTopbarComponent } from './project-topbar/project-topbar.componen
     MatTabsModule,
     MatMenuModule,
     MatButtonModule,
+    MainHomeModule,
   ],
   exports: [
     ProjectsComponent,
@@ -82,7 +86,7 @@ import { ProjectTopbarComponent } from './project-topbar/project-topbar.componen
     },    
   ]
 })
-export class ProjectsModule {
+export class CeAdminProjectsModule {
 
   constructor(listItemStore: ListItemStoreService) {
 

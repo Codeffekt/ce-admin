@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { BarCode, FormWrapper } from '@codeffekt/ce-core-data';
 import { FormCreatorDialogComponent } from '../form-creator-dialog/form-creator-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
-import { LayoutService } from '@codeffekt/ce-core';
+import { CeFormsService, LayoutService } from '@codeffekt/ce-core';
 import { Router } from '@angular/router';
 import { BarcodeScannerComponent } from '@codeffekt/ce-barcode';
 
@@ -20,6 +20,7 @@ export class FormTopbarComponent {
     private router: Router,
     private dialog: MatDialog,
     private layout: LayoutService,
+    private formsService: CeFormsService,
   ) {
 
   }
@@ -32,7 +33,9 @@ export class FormTopbarComponent {
     dialogRef.afterClosed().subscribe(async (formConfig) => {
       if (formConfig) {
         try {
-          this.router.navigate(['formsroot', 'new', formConfig.root]);
+          const newForm = await this.formsService.createForm(formConfig.root);
+          this.layout.showSingleMessage(`Le formulaire de type ${newForm.root} à été créé.`);          
+          this.router.navigate(['home', 'forms', 'forms', newForm.id]);
         } catch (err) {
           this.layout.showErrorMessage(`Erreur lors de la création d'un nouveau formulaire`);
         }
@@ -45,7 +48,7 @@ export class FormTopbarComponent {
 
     dialogRef.afterClosed().subscribe((barcode: Pick<BarCode, "text" | "type">) => {
       if (barcode && barcode.text.length) {
-        this.router.navigate(['main', 'forms', barcode.text]);
+        this.router.navigate(['home', 'forms', 'forms', barcode.text]);
       }
     });
   }

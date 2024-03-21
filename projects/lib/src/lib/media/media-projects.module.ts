@@ -1,31 +1,21 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
-import {
-    CeFormQueryWrapperModule, CeListModule,
-    CeMediaModule, CeNavigationModule,
-    CeNgReallyModule, CePipesModule
-} from "@codeffekt/ce-core";
-import { MediaProjectsComponent } from './media-projects/media-projects.component';
-import { RouterModule } from "@angular/router";
+import { MediaProjectsRoutingModule } from "./media-projects-routing.module";
+import { MainHomeModule } from "../main/main-home";
+import { MediaProjectsModule } from "./media-projects/media-projects.module";
 
 @NgModule({
     imports: [
         CommonModule, 
-        RouterModule,       
-        CeListModule,
-        CeNavigationModule,
-        CeNgReallyModule,
-        CeMediaModule,
-        CePipesModule,
-        CeFormQueryWrapperModule,
+        MediaProjectsRoutingModule,                
+        MainHomeModule,
+        MediaProjectsModule,
     ],
-    declarations: [
-        MediaProjectsComponent,
+    declarations: [        
     ],
     providers: [
     ],
-    exports: [
-        MediaProjectsComponent,
+    exports: [    
     ]
 })
-export class MediaProjectsModule { }
+export class CeAdminMediaProjectsModule { }

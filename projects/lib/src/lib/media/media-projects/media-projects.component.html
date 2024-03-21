@@ -1,4 +1,11 @@
-<ce-nav-layout>    
+<ce-nav-layout> 
+    
+    <ce-navbar ceNavBar>
+        <ce-navbar-content>
+            <ce-navbar-item>Media</ce-navbar-item>
+        </ce-navbar-content>
+    </ce-navbar>
+
     <ce-formquery-wrapper [searchEnabled]="true" [paginationEnabled]="true">
         <ce-list>
             <ce-list-item *ngFor="let project of projects$ | async" routerLink="{{project.core.id}}">

@@ -5,13 +5,13 @@ import { FormsRootComponent } from './forms-root/forms-root.component';
 import { FormRootResolverService } from './form-root-resolver.service';
 import { FormRootCollectionComponent } from './form-root-collection/form-root-collection.component';
 import { FormRootNewComponent } from './form-root-new/form-root-new.component';
-import { FormsMainComponent } from './forms-main/forms-main.component';
+import { MainHomeComponent } from '../main/main-home';
 
 const routes: Routes = [
   {
     path: '',
-    data: { routeId: 'Formulaires Racines' },
-    component: FormsMainComponent,
+    data: { routeId: 'Formulaires Racines' },    
+    component: MainHomeComponent,
     children: [
       {
         path: '',

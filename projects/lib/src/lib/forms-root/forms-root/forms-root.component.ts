@@ -105,7 +105,7 @@ export class FormsRootComponent implements OnInit {
     try {
       const newFormRoot = await this.formsService.updateFormRoot(formRoot);
       this.layout.showSingleMessage(`Formulaire ${formRoot.title ?? formRoot.id} ajouté`);
-      this.router.navigate(this.routeResolver.resolve("formsroot.edit", newFormRoot.id).route);
+      this.router.navigate(['home', 'root', 'edit', newFormRoot.id]);
     } catch (err) {
       this.layout.showErrorMessage(`Erreur lors la création du formulaire`);
     }

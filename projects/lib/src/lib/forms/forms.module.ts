@@ -1,82 +1,44 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsComponent } from './forms/forms.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { FormCreatorDialogComponent } from './form-creator-dialog/form-creator-dialog.component';
 import {
-  CeFormDataService, CeFormQueryWrapperModule, CeFormRouteResolver, CeFormsModule,
-  CeFormsPipesModule,
-  CeLayoutModule,
-  CeListModule,
-  CeNavigationModule,
-  CeNgReallyModule,
-  CePipesModule,
+  CeFormDataService, CeFormRouteResolver, CeFormsModule,
+  FormActionBuilder,
+  FormActionService,
+  FormsLocalDatabaseService,
   ListItemStoreService
 } from '@codeffekt/ce-core';
 import { FormDataService } from '../services/form-data.service';
-import { MatIconModule } from '@angular/material/icon';
-import { CeCodeEditorModule } from '@codeffekt/ce-code-editor';
-import { FormSelectionDialogComponent } from './form-selection-dialog/form-selection-dialog.component';
 import { ListItemProjectModule } from '../list-item-project/list-item-project.module';
 import { ListItemProjectComponent } from '../list-item-project/list-item-project/list-item-project.component';
 import { FormProject } from '@codeffekt/ce-core-data';
-import { FormEditorJsonDialogComponent } from './form-editor-json/form-editor-json.component';
 import { CeAdminAuthZModule } from '../authz';
-import { FormUserOwnerModule } from './form-user-owner';
-import { FormUsersSharedModule } from './form-users-shared/form-users-shared.module';
-import { CeFormSharingDialogModule } from './form-editor/form-sharing-dialog/form-sharing-dialog.module';
 import { FormRouteResolver } from '../services/form-route.resolver';
-import { UserEditorModule } from '../users/user-editor/user-editor.module';
-import { MatButtonModule } from '@angular/material/button';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatSelectModule } from '@angular/material/select';
-import { MatTabsModule } from '@angular/material/tabs';
 import { FormTopbarComponent } from './form-topbar/form-topbar.component';
 import { FormToolbarComponent } from './form-toolbar/form-toolbar.component';
+import { SubFormModule } from './subform';
+import { FormHomeModule } from './form-home';
+import { AdminFormsRoutingModule } from './forms-routing.module';
+import { FormsModule } from './forms/forms.module';
+import { FormTopbarModule } from './form-topbar/form-topbar.module';
+import { FormToolbarModule } from './form-toolbar/form-toolbar.module';
 
 @NgModule({
-  declarations: [
-    FormsComponent,
-    FormCreatorDialogComponent,
-    FormSelectionDialogComponent,
-    FormEditorJsonDialogComponent,
-    FormTopbarComponent,
-    FormToolbarComponent
+  declarations: [    
   ],
   imports: [
-    CommonModule,    
-    ReactiveFormsModule,
-    CeNavigationModule,
-    CeFormQueryWrapperModule,
-    CeLayoutModule,
-    CePipesModule,
-    CeListModule,
-    CeCodeEditorModule,
-    CeNgReallyModule,
-    CeFormsModule,
-    CeFormsPipesModule,
-    MatDialogModule,
-    MatIconModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    MatDialogModule,
-    MatButtonModule,
-    MatTabsModule,
-    MatMenuModule,
+    CommonModule,        
+    AdminFormsRoutingModule,    
+    CeFormsModule,    
     ListItemProjectModule,
-    CeAdminAuthZModule,    
-    FormUserOwnerModule,
-    FormUsersSharedModule,
-    CeLayoutModule,
-    CeFormSharingDialogModule,
-    UserEditorModule,
+    CeAdminAuthZModule,            
+    SubFormModule,
+    FormHomeModule, 
+    FormsModule,   
+    FormTopbarModule,
+    FormToolbarModule,    
   ],
-  exports: [
-    FormsComponent,
-    FormTopbarComponent,  
-    FormToolbarComponent,  
+  exports: [      
   ],
   providers: [
     {
@@ -89,9 +51,13 @@ import { FormToolbarComponent } from './form-toolbar/form-toolbar.component';
     },
   ]
 })
-export class FormsModule {
+export class CeAdminFormsModule {
 
-  constructor(listItemStore: ListItemStoreService) {
+  constructor(
+    listItemStore: ListItemStoreService,
+    formActions: FormActionService,
+    localDatabase: FormsLocalDatabaseService
+  ) {
 
     listItemStore.setComponents({
       [FormProject.ROOT]: {
@@ -99,6 +65,24 @@ export class FormsModule {
       }
     });
 
+    formActions.setActions({      
+      'form-forms': FormActionBuilder
+        .withRender(FormsComponent)        
+        .setTopbar(FormTopbarComponent),             
+      'forms-trias-hardware': FormActionBuilder
+        .withToolbar(FormToolbarComponent),        
+    });
+
+    localDatabase.setForms({            
+      'forms': {
+        id: 'forms',
+        title: 'Formulaires',
+        ctime: Date.now(),
+        valid: true,
+        root: 'form-forms',
+        content: {}
+      },      
+    });
   }
 
 }

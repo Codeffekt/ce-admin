@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
-import { CeBarcodeModule } from '@codeffekt/ce-barcode';
-import { CeFormCoordinatesModule } from '@codeffekt/ce-form-coordinates';
 import { CommonModule } from '@angular/common';
-import { CeAdminMainModule } from '@codeffekt/ce-admin';
 import { HomeRoutingModule } from './home-routing.module';
+import { MainMenuModule } from '../main-menu/main-menu.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    HomeRoutingModule,        
+    HomeRoutingModule,
+    MainMenuModule,        
   ],
-  providers: [],
+  providers: [       
+  ],
 })
 export class HomeModule { }
  

@@ -3,9 +3,7 @@ import {
     CeFormQueryWrapperModule, 
     CeFormsPipesModule, CeLayoutModule,
     CeListModule, CeNavigationModule,
-    CeNgReallyModule, CePipesModule, CeSectionModule, FormActionBuilder, FormActionService
-} from "@codeffekt/ce-core";
-import { FormAccount } from "@codeffekt/ce-core-data";
+    CeNgReallyModule, CePipesModule, CeSectionModule} from "@codeffekt/ce-core";
 import { UserEditorComponent } from "./user-editor.component";
 import { UserMainInfoComponent } from "../user-main-info/user-main-info.component";
 import { UserProjectsSharedComponent } from "../user-projects-shared/user-projects-shared.component";
@@ -15,7 +13,6 @@ import { UserApiKeyComponent } from "../user-api-key/user-api-key.component";
 import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { ClipboardModule } from "@angular/cdk/clipboard";
-import { UserCreationComponent } from "../user-creation/user-creation.component";
 import { MatButtonModule } from "@angular/material/button";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatFormFieldModule } from "@angular/material/form-field";
@@ -56,16 +53,5 @@ import { MatSelectModule } from "@angular/material/select";
         UserEditorComponent,
     ]
 })
-export class UserEditorModule {
-
-    constructor(
-        formActionService: FormActionService,        
-    ) {
-        formActionService.setActions({
-            [FormAccount.ROOT]: FormActionBuilder
-                .withRender(UserEditorComponent)
-                .setBuilder(UserCreationComponent)
-        });        
-    }
-
+export class UserEditorModule {    
 }

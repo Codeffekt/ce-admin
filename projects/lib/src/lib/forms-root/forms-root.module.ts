@@ -31,9 +31,8 @@ import { MatDialogModule } from "@angular/material/dialog";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { MatMenuModule } from "@angular/material/menu";
-import { FormsMainComponent } from './forms-main/forms-main.component';
 import { MatSidenavModule } from "@angular/material/sidenav";
-import { MainMenuModule } from "../main/main-menu/main-menu.module";
+import { MainHomeModule } from "../main/main-home";
 
 @NgModule({
   declarations: [
@@ -42,7 +41,6 @@ import { MainMenuModule } from "../main/main-menu/main-menu.module";
     ListItemFormRootComponent,
     FormEditorDialogWrapperComponent,
     FormRootCreatorDialogComponent,   
-    FormsMainComponent,
   ],
   imports: [
     CommonModule,
@@ -67,8 +65,8 @@ import { MainMenuModule } from "../main/main-menu/main-menu.module";
     CeSideMenuModule,
     CeFormCreatorModule,
     CeLayoutModule,
-    UserEditorModule,
-    MainMenuModule,
+    UserEditorModule,    
+    MainHomeModule,
   ],
   exports: [
     FormsRootComponent,

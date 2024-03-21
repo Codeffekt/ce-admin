@@ -1,18 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AdminGuard } from '../services/admin.guard';
-import { MainComponent } from './main.component';
+import { FormHomeComponent } from '../forms/form-home/form-home.component';
 
 const routes: Routes = [
   {
     path: '',    
     data: { isRoot: true },
-    component: MainComponent,
-    canActivate: [AdminGuard],
+    component: FormHomeComponent,    
     children: [
       {
         path: '',
-        redirectTo: 'projects',
+        redirectTo: 'forms',
         pathMatch: 'full'
       },
       {
@@ -27,4 +25,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class MainRoutingModule { }
+export class AdminFormsRoutingModule { }

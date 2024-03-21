@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CeBreadcrumbsService, CeFormQueryService, CeFormsService, FormWrappersDataSource } from '@codeffekt/ce-core';
+import { CeBreadcrumbsService, CeFormQueryService, CeFormsService, FormWrappersDataSource, LayoutService } from '@codeffekt/ce-core';
 import { FormWrapper } from '@codeffekt/ce-core-data';
 import { Observable } from 'rxjs';
 import { FormsFormQueryBuilder } from './forms-formquery-builder';
@@ -27,6 +27,7 @@ export class FormsComponent implements OnInit {
     private readonly queryService: CeFormQueryService<FormWrapper>,
     private route: ActivatedRoute,
     private router: Router,
+    private layout: LayoutService,
     private formsService: CeFormsService,
     private bcService: CeBreadcrumbsService,
   ) {
@@ -43,21 +44,21 @@ export class FormsComponent implements OnInit {
     this.queryService.load();
   }
 
-  /* async copy(form: FormWrapper) {
+  async copy(form: FormWrapper) {
     try {
       const newForm = await this.formsService.copyForm(form.core.id);
       this.layout.showSingleMessage(`Le copie du formulaire de type ${newForm.root} à été créé.`);
-      this.router.navigate(['forms', 'edit', newForm.id]);
+      this.router.navigate(['home', 'forms', 'forms', newForm.id]);
     } catch (err) {
       this.layout.showErrorMessage(`Erreur lors de la copie d'un formulaire`);
     }
-  } */
+  }
 
   onSelected(form: FormWrapper) {
     this.router.navigate([ form.core.id ], { relativeTo: this.route });
   }
 
-  /* async delete(form: FormWrapper) {
+  async delete(form: FormWrapper) {
     try {
       await this.formsService.deleteForm(form.core.id);
       this.layout.showSingleMessage(`Formulaire supprimé avec succès`);
@@ -65,7 +66,7 @@ export class FormsComponent implements OnInit {
     } catch (err) {
       this.layout.showErrorMessage(`Erreur lors de la suppression du formulaire`);
     }
-  } */
+  }
 
   private async prepareQueryService() {
     this.queryService.setQueryBuilder(this.formQueryBuilder);

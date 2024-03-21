@@ -13,13 +13,18 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatMenuModule } from '@angular/material/menu';
 import { UserTopbarComponent } from './user-topbar/user-topbar.component';
 import { MatIconModule } from '@angular/material/icon';
+import { UsersRoutingModule } from './users-routing.module';
+import { UsersMainComponent } from './users-main/users-main.component';
+import { MainHomeModule } from '../main/main-home';
 
 @NgModule({
   declarations: [
-    UserTopbarComponent
+    UserTopbarComponent,
+    UsersMainComponent
   ],
   imports: [
     CommonModule,
+    UsersRoutingModule,
     MatDialogModule,
     CeListModule,
     CeNgReallyModule,
@@ -28,11 +33,12 @@ import { MatIconModule } from '@angular/material/icon';
     MatButtonModule,
     MatMenuModule,
     MatIconModule,
+    MainHomeModule,
   ],
   exports: [
   ]
 })
-export class UsersModule {
+export class CeAdminUsersModule {
 
   constructor(
     listItemStore: ListItemStoreService,

@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { FormRootCollectionComponent } from "./form-root-collection.component";
 import {
-    CeFormQueryWrapperModule, CeLayoutModule,
+    CeFormQueryWrapperModule, CeFormsPipesModule, CeLayoutModule,
     CeListModule, CeNavigationAccountModule,
     CeNavigationModule, CeNgReallyModule
 } from "@codeffekt/ce-core";
@@ -22,6 +22,7 @@ import { MatButtonModule } from "@angular/material/button";
         CeListModule,
         CeLayoutModule,
         CeNavigationModule,
+        CeFormsPipesModule,
         MatIconModule,
         MatMenuModule,
         MatButtonModule,

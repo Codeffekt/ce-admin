@@ -1,7 +1,8 @@
 <ce-nav-layout *ngIf="formRoot">
     <ce-navbar ceNavBar>
       <ce-navbar-content>
-        <ce-nav-breadcrumb-items></ce-nav-breadcrumb-items>
+        <ce-navbar-item [routerLink]="['/home', 'root']">Modèles</ce-navbar-item>
+        <ce-navbar-item>Collection {{formRoot | formInstanceTitle}}</ce-navbar-item>
         <ce-navbar-actions>
           <a mat-stroked-button color="accent" matTooltip="Ajouter un formulaire" (click)="createForm()">
             <mat-icon>add</mat-icon>Ajouter un formulaire

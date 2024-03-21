@@ -3,7 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   CeAuthModule,
-  CeCoreModule
+  CeCoreModule,
+  FormActionDefault
 } from '@codeffekt/ce-core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,38 +15,7 @@ import { CommonModule } from '@angular/common';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsModule } from '@ngxs/store';
-
-
-/* const appConfig: CeAppConfig = {
-  projectType: "*",
-  projectTypes: [
-    { projectType: "*", label: "default" },
-    { projectType: "app.config", label: "App Config" }
-  ],
-  title: "ce-admin-demo",
-  version: "dev",
-};
-
-const menuEntries: CeAdminMenuEntry[] = [
-  {
-    label: 'Example',
-    icon: 'assignment',
-    authz: { resource: 'forms', actions: ['all'] },
-    route: {
-      path: 'example',
-      loadChildren: () => import('./module-example/module-example.module').then(m => m.ModuleExampleModule)
-    }
-  },
-  {
-    label: "Formulaires (custom)",
-    icon: "assignment",
-    route: {
-      path: 'forms',
-    },
-    keepDefaultRoute: true,
-  }
-]; */
-
+import { HomeActionDefaultService } from './home/home-action-default.service';
 
 @NgModule({
   declarations: [
@@ -69,6 +39,10 @@ const menuEntries: CeAdminMenuEntry[] = [
     CeAdminModule.forRoot(),
   ],
   providers: [
+    {
+      provide: FormActionDefault,
+      useClass: HomeActionDefaultService,
+    },
   ],
   bootstrap: [AppComponent]
 })

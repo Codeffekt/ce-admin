@@ -36,7 +36,7 @@ export class FormRootCollectionComponent implements OnInit {
   }
 
   onSelected(form: FormWrapper) {
-    this.router.navigate([form.core.id], { relativeTo: this.route });
+    this.router.navigate(['home', 'forms', 'forms', form.core.id]);
   }
 
   async createForm() {
@@ -54,7 +54,7 @@ export class FormRootCollectionComponent implements OnInit {
           await this.formsService.createForm(dialogRes.id) :
           await this.formsService.createForm(this.formRoot.id);
         this.layout.showSingleMessage(`Le formulaire à été créé.`);
-        this.router.navigate([newForm.id], { relativeTo: this.route });
+        this.router.navigate(['home', 'forms', 'forms', newForm.id], { relativeTo: this.route });
       } catch (err) {
         this.layout.showErrorMessage(`Erreur lors de la création d'un nouveau projet`);
       }

@@ -29,7 +29,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatAutocompleteModule,
     CeListModule,
     CeFormInputAutocompleteModule,
-    MatMenuModule,
+    MatMenuModule,    
     CePipesModule,
     CeNgReallyModule,
     CeFormQueryWrapperModule,

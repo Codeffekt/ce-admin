@@ -17,6 +17,7 @@ import { MatTabsModule } from "@angular/material/tabs";
 import { MatTooltipModule } from "@angular/material/tooltip";
 import { MatChipsModule } from '@angular/material/chips';
 import { CeBarcodeModule } from "@codeffekt/ce-barcode";
+import { CeFormSharingDialogModule } from "./form-sharing-dialog/form-sharing-dialog.module";
 
 @NgModule({
     declarations: [
@@ -39,6 +40,7 @@ import { CeBarcodeModule } from "@codeffekt/ce-barcode";
         MatMenuModule,
         FormUserOwnerModule,
         FormUsersSharedModule,
+        CeFormSharingDialogModule,
         CeLayoutModule,
         CeFormEditorModule,
         MatChipsModule,

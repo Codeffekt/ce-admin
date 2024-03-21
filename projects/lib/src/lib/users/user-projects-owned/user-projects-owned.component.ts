@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CeFormQueryService, CeFormsService } from '@codeffekt/ce-core';
-import { AccountSettings, FormAccountWrapper, FormProject, FormProjectWrapper, FormWrapper } from '@codeffekt/ce-core-data';
+import { AccountSettings, FormProject, FormProjectWrapper } from '@codeffekt/ce-core-data';
 import { Observable } from 'rxjs';
 import { FormOwnedDatasource } from '../../forms/form-users-shared/form-owned-datasource';
 import { FormOwnedFormQueryBuilder } from '../../forms/form-users-shared/form-owned-formquery-builder';
@@ -13,7 +13,7 @@ import { FormOwnedFormQueryBuilder } from '../../forms/form-users-shared/form-ow
 })
 export class UserProjectsOwnedComponent implements OnInit {
 
-  @Input() account!: FormAccountWrapper;
+  @Input() account!: AccountSettings;
 
   formsProject$!: Observable<readonly FormProjectWrapper[]>;
 

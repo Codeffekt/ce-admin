@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
     {
-        path: '',
+        path: '',      
         redirectTo: 'forms',
         pathMatch: 'full'
     },
@@ -14,11 +14,23 @@ const routes: Routes = [
     {
         path: 'forms',
         loadChildren: () => import('../forms/form.module').then(m => m.FormsModule)
+    },
+    {
+        path: 'users',
+        loadChildren: () => import('../users/users.module').then(m => m.UsersModule)
+    },
+    {
+        path: 'projects',
+        loadChildren: () => import('../projects/projects.module').then(m => m.ProjectsModule)
+    },
+    {
+        path: 'media',
+        loadChildren: () => import('../media/media.module').then(m => m.MediaModule)
     }
 ];
 
 @NgModule({
-    imports: [RouterModule.forChild(routes/* , { enableTracing: true } */)],
+    imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
 })
 export class HomeRoutingModule { }

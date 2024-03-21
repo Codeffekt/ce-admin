@@ -16,9 +16,6 @@ import { UsersQueryBuilder } from './users-query.builder';
 })
 export class UsersComponent implements OnInit {
 
-  @Input() formWrapper!: FormWrapper;
-  @Output() formChanges = new EventEmitter<FormWrapper>();
-
   usersDataSource!: UsersDataSource;
   users$!: Observable<readonly FormAccountWrapper[]>;
 
@@ -39,8 +36,12 @@ export class UsersComponent implements OnInit {
     this.prepareQueryService();
   }
 
+  createUser() {
+    this.router.navigate(['/home/users/new']);
+  }
+
   onSelected(user: FormAccountWrapper) {
-    this.router.navigate([user.core.id], { relativeTo: this.route });
+    this.router.navigate(['edit', user.core.id], { relativeTo: this.route });
   }
 
   reloadUsers() {

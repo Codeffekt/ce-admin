@@ -1,16 +1,15 @@
 import { MediaMatcher } from '@angular/cdk/layout';
-import { AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ViewChild } from '@angular/core';
 import { MatDrawer } from '@angular/material/sidenav';
 import { LayoutService } from '@codeffekt/ce-core';
 
 @Component({
-  selector: 'ce-admin-main',
-  templateUrl: './main.component.html',
-  styleUrls: ['./main.component.css'],
+  selector: 'lib-main-home',
+  templateUrl: './main-home.component.html',
+  styleUrls: ['./main-home.component.css']
 })
-export class MainComponent implements OnInit, AfterViewInit, OnDestroy {
-
-  @ViewChild(MatDrawer) drawer!: MatDrawer;  
+export class MainHomeComponent {
+  @ViewChild(MatDrawer) drawer!: MatDrawer;
 
   mobileQuery!: MediaQueryList;
 
@@ -19,12 +18,12 @@ export class MainComponent implements OnInit, AfterViewInit, OnDestroy {
   constructor(
     private layout: LayoutService,
     private media: MediaMatcher,
-    private changeDetectorRef: ChangeDetectorRef,    
+    private changeDetectorRef: ChangeDetectorRef,
   ) {
-    this.listenMobileQuery();   
+    this.listenMobileQuery();
   }
 
-  ngOnInit(): void {     
+  ngOnInit(): void {
   }
 
   ngAfterViewInit() {

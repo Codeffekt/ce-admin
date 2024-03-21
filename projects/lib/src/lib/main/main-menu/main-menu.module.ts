@@ -1,22 +1,18 @@
 import { NgModule } from "@angular/core";
-import { MainMenuComponent } from "./main-menu.component";
+import { CeAdminMainMenuComponent } from "./main-menu.component";
 import { CommonModule } from "@angular/common";
-import { CeSideMenuModule } from "@codeffekt/ce-core";
-import { RouterModule } from "@angular/router";
 
 @NgModule({
     declarations: [
-        MainMenuComponent,
+        CeAdminMainMenuComponent,
     ],
     imports: [
         CommonModule,
-        RouterModule,
-        CeSideMenuModule,
     ],
     exports: [
-        MainMenuComponent,
+        CeAdminMainMenuComponent,
     ]
 })
-export class MainMenuModule {
-    
+export class CeAdminMainMenuModule {
+
 }
