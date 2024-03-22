@@ -1,0 +1,30 @@
+<ce-nav-layout>
+
+    <ce-navbar ceNavBar>
+      <ce-navbar-content>
+        <ce-navbar-item>Traitements</ce-navbar-item>
+        <ce-navbar-actions>
+          <a mat-stroked-button color="accent" matTooltip="Ajouter un traitement" (click)="createProcessing()">
+            <mat-icon>add</mat-icon>Ajouter un Traitement
+          </a>
+        </ce-navbar-actions>
+      </ce-navbar-content>        
+    </ce-navbar>
+  
+    <ce-formquery-wrapper [paginationEnabled]="true" [searchEnabled]="true">
+      <ce-list>
+        <ce-list-item *ngFor="let p of processings$ | async" (click)="onSelected(p)">
+          <ce-list-item-factory [type]="p.core.root" [item]="p">
+          </ce-list-item-factory>
+            <ce-list-item-actions>
+              <button mat-menu-item (ngReallyClick)="delete(p)"
+                  ngReallyTitle="Confirmation requise"
+                  ngReallyMessage="Voulez-vous vraiment supprimer le project {{p.props.name}} ?">
+                  <span>Supprimer</span>
+              </button>
+          </ce-list-item-actions>
+        </ce-list-item>
+    </ce-list>
+    </ce-formquery-wrapper>  
+  
+  </ce-nav-layout>

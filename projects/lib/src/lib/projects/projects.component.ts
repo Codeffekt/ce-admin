@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import {
   CeBreadcrumbsService,
@@ -9,8 +8,10 @@ import {
   ProjectsDataSource,
   ProjectsQueryBuilder
 } from '@codeffekt/ce-core';
-import { FormProjectWrapper, FormWrapper } from '@codeffekt/ce-core-data';
-import { Observable } from 'rxjs';
+import { FormProject, FormProjectWrapper, FormWrapper } from '@codeffekt/ce-core-data';
+import { Observable, firstValueFrom } from 'rxjs';
+import { ProjectCreatorDialogComponent } from './project-creator-dialog/project-creator-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'ce-admin-projects',
@@ -33,10 +34,11 @@ export class ProjectsComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private layout: LayoutService,
-    formsService: CeFormsService,
-    private coreService: CeCoreService,
+    private formsService: CeFormsService,
+    private coreService: CeCoreService,    
     private projectsService: CeProjectsService,
     private bcService: CeBreadcrumbsService,
+    private dialog: MatDialog,
   ) {
     this.bcService.setItems([]);
     this.projectsDataSource = new ProjectsDataSource(formsService);
@@ -58,6 +60,29 @@ export class ProjectsComponent implements OnInit {
   onSelected(project: FormProjectWrapper) {
     //this.router.navigate(['forms', 'edit', project.core.id]);
     this.router.navigate([project.core.id], { relativeTo: this.route });
+  }
+
+  async createProject() {
+
+    const dialogRef = ProjectCreatorDialogComponent.createDialog(this.dialog, {
+      root: FormProject.ROOT,
+      forceTemplateChoice: true,
+    });
+
+    const dialogRes = await firstValueFrom(dialogRef.afterClosed());
+
+    if (dialogRes?.id) {
+      try {
+        const selectedTemplate = dialogRes;
+        //const newProject = await this.formsService.createFormFromTemplate(selectedTemplate.id!, { name: selectedTemplate.name });
+        const newProject = await this.formsService.createForm(selectedTemplate.id);
+        this.layout.showSingleMessage(`Le projet ${selectedTemplate.title} à été créé.`);
+        this.router.navigate([`/home/projects/${newProject.id}`]);
+      } catch (err) {
+        this.layout.showErrorMessage(`Erreur lors de la création d'un nouveau projet`);
+      }
+    }
+
   }
 
   async delete(project: FormProjectWrapper) {

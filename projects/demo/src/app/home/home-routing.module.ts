@@ -26,6 +26,10 @@ const routes: Routes = [
     {
         path: 'media',
         loadChildren: () => import('../media/media.module').then(m => m.MediaModule)
+    },
+    {
+        path: 'processings',
+        loadChildren: () => import('../processings/processings.module').then(m => m.ProcessingsModule)
     }
 ];
 

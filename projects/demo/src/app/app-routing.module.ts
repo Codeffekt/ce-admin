@@ -21,11 +21,11 @@ const routes: Routes = [
     path: 'home',
     canActivate: [AdminGuard],
     loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
-  } 
+  }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes/* , { bindToComponentInputs: true } */)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

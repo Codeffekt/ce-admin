@@ -13,6 +13,7 @@ export * from './lib/users';
 export * from './lib/media';
 export * from './lib/list-item-account';
 export * from './lib/list-item-project';
+export * from './lib/processing';
 
 // services
 export * from './lib/services';
