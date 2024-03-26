@@ -1,0 +1,13 @@
+<ce-navbar ceNavBar>
+    <ce-navbar-content>
+        <ce-navbar-item>Formulaires</ce-navbar-item>
+        <ce-navbar-actions>
+            <button mat-button matTooltip="Scanner le qrcode d'un formulaire" (click)="open_qr_scanner()">
+                <mat-icon>qr_code_scanner</mat-icon>
+            </button>
+            <button mat-stroked-button color="accent" matTooltip="Ajouter un formulaire" (click)="create()">
+                <mat-icon>add</mat-icon>Ajouter
+            </button>
+        </ce-navbar-actions>
+    </ce-navbar-content>
+</ce-navbar>

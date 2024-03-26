@@ -14,17 +14,19 @@ import { ListItemProjectComponent } from '../list-item-project/list-item-project
 import { FormProject } from '@codeffekt/ce-core-data';
 import { CeAdminAuthZModule } from '../authz';
 import { FormRouteResolver } from '../services/form-route.resolver';
-import { FormTopbarComponent } from './form-topbar/form-topbar.component';
-import { FormToolbarComponent } from './form-toolbar/form-toolbar.component';
+import { FormsTopbarComponent } from './forms-topbar/forms-topbar.component';
 import { SubFormModule } from './subform';
 import { FormHomeModule } from './form-home';
 import { AdminFormsRoutingModule } from './forms-routing.module';
 import { FormsModule } from './forms/forms.module';
-import { FormTopbarModule } from './form-topbar/form-topbar.module';
+import { FormsTopbarModule } from './forms-topbar/forms-topbar.module';
 import { FormToolbarModule } from './form-toolbar/form-toolbar.module';
+import { FormsToolbarModule } from './forms-toolbar/forms-toolbar.module';
+import { FormsToolbarComponent } from './forms-toolbar/forms-toolbar.component';
+import { FormTopbarModule } from './form-topbar/form-topbar.module';
 
 @NgModule({
-  declarations: [    
+  declarations: [      
   ],
   imports: [
     CommonModule,        
@@ -35,8 +37,10 @@ import { FormToolbarModule } from './form-toolbar/form-toolbar.module';
     SubFormModule,
     FormHomeModule, 
     FormsModule,   
-    FormTopbarModule,
-    FormToolbarModule,    
+    FormsTopbarModule,
+    FormsToolbarModule,
+    FormToolbarModule,  
+    FormTopbarModule,  
   ],
   exports: [      
   ],
@@ -48,7 +52,7 @@ import { FormToolbarModule } from './form-toolbar/form-toolbar.module';
     {
       provide: CeFormRouteResolver,
       useClass: FormRouteResolver,
-    },
+    },    
   ]
 })
 export class CeAdminFormsModule {
@@ -68,9 +72,8 @@ export class CeAdminFormsModule {
     formActions.setActions({      
       'form-forms': FormActionBuilder
         .withRender(FormsComponent)        
-        .setTopbar(FormTopbarComponent),             
-      'forms-trias-hardware': FormActionBuilder
-        .withToolbar(FormToolbarComponent),        
+        .setTopbar(FormsTopbarComponent)
+        .setToolbar(FormsToolbarComponent),                           
     });
 
     localDatabase.setForms({            

@@ -1,26 +1,19 @@
+<ce-nav-layout *ngIf="form">
+    <ce-navbar>
+        <ce-navbar-item [routerLink]="['/home', 'processings']">Traitements</ce-navbar-item>
+        <ce-navbar-item>{{((form| valueForKey:'name') ?? form.id) | uppercase}}</ce-navbar-item>
+    </ce-navbar>
 
 
-<ce-nav-layout>
-    <ce-grid gap="12px">
-        <ng-container *ngIf="(processing$ | async) as processing">
+    <ce-row ceNavLayoutSticky cePadding="12px 42px">
+        <div class="mat-body-2 quiet">
+            <button mat-button (click)="onStart()">Start</button>
+            <button mat-button (click)="onCancel()">Cancel</button>
+            <button mat-button (click)="onCheck()">Check</button>
+        </div>
+    </ce-row>
 
-            <ce-navbar>
-                <ce-navbar-item [routerLink]="['/home', 'processings']">Traitements</ce-navbar-item>
-                <ce-navbar-item>{{((processing.form.core| valueForKey:'name') ?? processing.form.core.id) | uppercase}}</ce-navbar-item>
-            </ce-navbar>
-
-
-            <ce-row ceNavLayoutSticky cePadding="12px 42px">
-                <div class="mat-body-2 quiet">
-                    <button mat-button>Start</button>
-                    <button mat-button>Cancel</button>
-                    <button mat-button>Check</button>
-                </div>
-            </ce-row>
-
-            <!-- <ce-form-editor-toolbar></ce-form-editor-toolbar> -->
-            <ce-form-factory [formWrapper]="processing.form" [formMask]="processingMask"
-                (formChanges)="onFormChanges(processing, $event)"></ce-form-factory>
-        </ng-container>
-    </ce-grid>
+    <!-- <ce-form-editor-toolbar></ce-form-editor-toolbar> -->
+    <ce-form-factory [formWrapper]="formWrapper" [formMask]="processingMask"
+        (formChanges)="onFormChanges(formInfo, $event)"></ce-form-factory>
 </ce-nav-layout>

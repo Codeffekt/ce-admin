@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CeFormEditorComponent, FormEditorResolverService } from '@codeffekt/ce-core';
 
-
 const routes: Routes = [
     {
         path: '',
@@ -14,7 +13,7 @@ const routes: Routes = [
                 resolve: {
                     form: FormEditorResolverService,
                 },
-                component: CeFormEditorComponent
+                component: CeFormEditorComponent,               
             },
             {
                 path: ':form',

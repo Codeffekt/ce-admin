@@ -24,6 +24,8 @@ const appConfig: CeAppConfig = {
       useValue: appConfig
     },   
   ],
+  declarations: [   
+  ],
 })
 export class CeAdminModule {
   static forRoot(): ModuleWithProviders<CeAdminModule> {

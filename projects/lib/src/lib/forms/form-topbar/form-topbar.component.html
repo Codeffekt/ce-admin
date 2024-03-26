@@ -1,13 +1,22 @@
 <ce-navbar ceNavBar>
     <ce-navbar-content>
-        <ce-navbar-item>Formulaires</ce-navbar-item>
-        <ce-navbar-actions>
-            <button mat-button matTooltip="Scanner le qrcode d'un formulaire" (click)="open_qr_scanner()">
-                <mat-icon>qr_code_scanner</mat-icon>
-            </button>
-            <button mat-stroked-button color="accent" matTooltip="Ajouter un formulaire" (click)="create()">
-                <mat-icon>add</mat-icon>Ajouter
-            </button>
-        </ce-navbar-actions>
+        <ce-navbar-item [routerLink]="['/home', 'forms']">Formulaires</ce-navbar-item>
+        <ce-navbar-item>{{formWrapper?.core?.id | uppercase}}</ce-navbar-item>
     </ce-navbar-content>
+    <ce-navbar-actions alignment="end">
+        <button mat-icon-button class="ms-2" [matMenuTriggerFor]="menu" (click)="$event.stopPropagation()">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+    </ce-navbar-actions>
+
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item matTooltip="Mise à niveau du formulaire" (ngReallyClick)="upgradeForm()"
+            ngReallyTitle="Confirmation requise" ngReallyMessage="Voulez-vous vraiment mettre à niveau ce formulaire ?">
+            <mat-icon>update</mat-icon>Upgrade
+        </button>
+        <button mat-menu-item matTooltip="Supprimer le formulaire" (ngReallyClick)="deleteForm()"
+            ngReallyTitle="Confirmation requise" ngReallyMessage="Voulez-vous vraiment supprimer ce formulaire ?">
+            <mat-icon>delete</mat-icon>Supprimer
+        </button>
+    </mat-menu>
 </ce-navbar>

@@ -8,6 +8,7 @@ import {
 } from "@codeffekt/ce-core";
 import { RouterModule } from "@angular/router";
 import { MatButtonModule } from "@angular/material/button";
+import { ProcessingDialogModule } from "../processing-dialog";
 
 @NgModule({
     declarations: [
@@ -22,6 +23,7 @@ import { MatButtonModule } from "@angular/material/button";
         CeGridModule,
         CeFormModule,        
         MatButtonModule,
+        ProcessingDialogModule,
     ],
     exports: [
         ProcessingComponent,

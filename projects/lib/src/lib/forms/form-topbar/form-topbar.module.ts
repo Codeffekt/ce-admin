@@ -1,11 +1,10 @@
-import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { FormTopbarComponent } from "./form-topbar.component";
-import { CeNavigationModule } from "@codeffekt/ce-core";
-import { MatIconModule } from "@angular/material/icon";
+import { CommonModule } from "@angular/common";
+import { CeNavigationModule, CeNgReallyModule } from "@codeffekt/ce-core";
 import { MatButtonModule } from "@angular/material/button";
-import { MatDialogModule } from "@angular/material/dialog";
-import { CeBarcodeModule } from "@codeffekt/ce-barcode";
+import { MatIconModule } from "@angular/material/icon";
+import { MatMenuModule } from "@angular/material/menu";
 
 @NgModule({
     declarations: [
@@ -14,10 +13,10 @@ import { CeBarcodeModule } from "@codeffekt/ce-barcode";
     imports: [
         CommonModule,
         CeNavigationModule,
-        CeBarcodeModule,
-        MatIconModule,
+        CeNgReallyModule,
         MatButtonModule,
-        MatDialogModule,
+        MatIconModule,
+        MatMenuModule,
     ],
     exports: [
         FormTopbarComponent,

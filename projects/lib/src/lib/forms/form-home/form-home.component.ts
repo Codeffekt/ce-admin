@@ -1,5 +1,9 @@
 import { MediaMatcher } from '@angular/cdk/layout';
-import { AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import {
+  AfterViewInit, ChangeDetectorRef,
+  Component, OnDestroy,
+  OnInit, ViewChild
+} from '@angular/core';
 import { MatDrawer } from '@angular/material/sidenav';
 import { LayoutService } from '@codeffekt/ce-core';
 
@@ -10,7 +14,7 @@ import { LayoutService } from '@codeffekt/ce-core';
 })
 export class FormHomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  @ViewChild(MatDrawer) drawer!: MatDrawer;  
+  @ViewChild(MatDrawer) drawer!: MatDrawer;
 
   mobileQuery!: MediaQueryList;
 
@@ -19,12 +23,12 @@ export class FormHomeComponent implements OnInit, AfterViewInit, OnDestroy {
   constructor(
     private layout: LayoutService,
     private media: MediaMatcher,
-    private changeDetectorRef: ChangeDetectorRef,    
+    private changeDetectorRef: ChangeDetectorRef,
   ) {
-    this.listenMobileQuery();   
+    this.listenMobileQuery();
   }
 
-  ngOnInit(): void {     
+  ngOnInit(): void {
   }
 
   ngAfterViewInit() {
