@@ -21,7 +21,7 @@ export class ProcessingComponent implements OnInit {
   formWrapper!: FormWrapper<any>;
 
   processingMask = FormInstanceMaskWrapper.withOrder([
-    "name", "status", "description",
+    "name", "status", "description", "message",
     "endpoint", "params"
   ]);
 
@@ -41,11 +41,7 @@ export class ProcessingComponent implements OnInit {
         params: {
           field: "params",
           label: "Paramètres"
-        },
-        message: {
-          field: "message",
-          disabled: true
-        },
+        },       
         res: {
           field: "res",
           disabled: true
@@ -53,6 +49,10 @@ export class ProcessingComponent implements OnInit {
         progress: {
           field: "progress",
           disabled: true
+        },
+        message: {
+          field: "message",
+          readonly: true
         },
         name: {
           field: "name",
@@ -64,7 +64,7 @@ export class ProcessingComponent implements OnInit {
         },
         description: {
           field: "description",
-          readonly: true,
+          disabled: true,
         }
       }
     };
@@ -111,11 +111,12 @@ export class ProcessingComponent implements OnInit {
           return `Cancel processing ${this.form.id}`;
         },
       }
-    );
+    );    
   }
 
   async onCheck() {
-    await this.createProcessingDialog(
+    this.reloadForm();
+    /* await this.createProcessingDialog(
       {
         run: async () => {
           return await this.processingService.status(this.form.id);
@@ -130,10 +131,15 @@ export class ProcessingComponent implements OnInit {
           return `Status processing ${this.form.id}`;
         },
       }
-    );
+    );     */
   }
 
   async onFormChanges(formInfo: FormInfo, wrapper: FormWrapper) {
+  }
+
+  async onReset() {
+    FormWrapper.setFormValue("status", "NONE", this.form);
+    this.formEditorService.updateForm(this.form);
   }
 
   private async createProcessingDialog(pci: ProcessingCommandInterface) {
@@ -159,10 +165,14 @@ export class ProcessingComponent implements OnInit {
       ).subscribe(formInfo => this.updateFormInfo(formInfo));
   }
 
+  private reloadForm() {
+    this.formEditorService.getForm(this.form.id, { forceReload: true });
+  }
+
   private async autoUpdateForm() {
-    interval(4000).pipe(
+    interval(2000).pipe(
       untilDestroyed(this),
-      filter(() => this.form !== undefined && !this.dialogIsOpen),
+      filter(() => this.form !== undefined && !this.dialogIsOpen),      
     ).subscribe(_ => this.formEditorService.getForm(this.form.id, { forceReload: true }));
   }
 }

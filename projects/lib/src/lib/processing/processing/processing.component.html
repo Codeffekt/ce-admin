@@ -10,10 +10,11 @@
             <button mat-button (click)="onStart()">Start</button>
             <button mat-button (click)="onCancel()">Cancel</button>
             <button mat-button (click)="onCheck()">Check</button>
+            <button mat-button (click)="onReset()">Reset</button>
         </div>
     </ce-row>
 
     <!-- <ce-form-editor-toolbar></ce-form-editor-toolbar> -->
     <ce-form-factory [formWrapper]="formWrapper" [formMask]="processingMask"
-        (formChanges)="onFormChanges(formInfo, $event)"></ce-form-factory>
+        (formChanges)="onFormChanges(formInfo, $event)" [rebuildOnChanges]="true"></ce-form-factory>
 </ce-nav-layout>
