@@ -1,7 +1,7 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CeAccountService, CeCoreService, CeFormQueryService, CeFormsService, LayoutService } from '@codeffekt/ce-core';
-import { FormAccount, FormAccountWrapper, FormWrapper } from '@codeffekt/ce-core-data';
+import { FormAccount, FormAccountWrapper } from '@codeffekt/ce-core-data';
 import { firstValueFrom, Observable } from 'rxjs';
 import { UsersDataSource } from './users-datasource';
 import { UsersQueryBuilder } from './users-query.builder';

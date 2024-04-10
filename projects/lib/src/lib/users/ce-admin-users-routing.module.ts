@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { UserEditorComponent } from './user-editor/user-editor.component';
 
-import { UsersComponent } from './users.component';
+import { UsersComponent } from './users/users.component';
 import { UserCreationComponent } from './user-creation/user-creation.component';
 import { MainHomeComponent } from '../main/main-home';
 
@@ -34,4 +34,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class UsersRoutingModule { }
+export class CeAdminUsersRoutingModule { }

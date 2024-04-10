@@ -1,6 +1,6 @@
 {
   "name": "@codeffekt/ce-admin",
-  "version": "16.0.2",
+  "version": "16.0.3",
   "description": "Angular library components to create CeForms manager",
   "author": {
     "name": "Codeffekt",
@@ -17,7 +17,7 @@
     "@angular/core": "^16.2.12",
     "@angular/material": "^16.2.14",
     "@angular/material-moment-adapter": "^16.2.14",  
-    "@codeffekt/ce-core": "^16.0.3",
+    "@codeffekt/ce-core": "^16.0.5",
     "@codeffekt/ce-core-data": "^1.1.2",
     "@codeffekt/ce-code-editor": "^16.0.0",     
     "@codeffekt/ce-form-coordinates": "^16.0.0",
