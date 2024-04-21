@@ -69,7 +69,7 @@ export class ProcessingComponent implements OnInit {
       }
     };
     this.retrieveForm();
-    this.autoUpdateForm();
+    // this.autoUpdateForm();
   }
 
   ngOnInit(): void {
@@ -93,6 +93,7 @@ export class ProcessingComponent implements OnInit {
         },
       }
     );
+    this.reloadForm();
   }
 
   async onCancel() {
@@ -111,12 +112,12 @@ export class ProcessingComponent implements OnInit {
           return `Cancel processing ${this.form.id}`;
         },
       }
-    );    
+    );  
+    this.reloadForm();  
   }
 
-  async onCheck() {
-    this.reloadForm();
-    /* await this.createProcessingDialog(
+  async onCheck() {    
+    await this.createProcessingDialog(
       {
         run: async () => {
           return await this.processingService.status(this.form.id);
@@ -131,7 +132,8 @@ export class ProcessingComponent implements OnInit {
           return `Status processing ${this.form.id}`;
         },
       }
-    );     */
+    );    
+    this.reloadForm();
   }
 
   async onFormChanges(formInfo: FormInfo, wrapper: FormWrapper) {
