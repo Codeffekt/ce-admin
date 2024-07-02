@@ -5,7 +5,7 @@
         <mat-label>Type de formulaire</mat-label>
         <mat-select formControlName="root">
           <mat-option [value]="rootType.id" *ngFor="let rootType of rootTypes">
-            {{rootType.title}}
+            {{rootType.id}} ({{rootType.title}})
           </mat-option>
         </mat-select>
         <mat-error *ngIf="formGroup.get('root')?.hasError('required')">Champ requis</mat-error>

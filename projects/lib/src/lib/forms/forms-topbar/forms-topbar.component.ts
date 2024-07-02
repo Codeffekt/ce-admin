@@ -24,7 +24,7 @@ export class FormsTopbarComponent {
 
   create() {
     const dialogRef = this.dialog.open(FormCreatorDialogComponent, {
-      width: '300px'
+      width: '40%'
     });
 
     dialogRef.afterClosed().subscribe(async (formConfig) => {
