@@ -26,7 +26,7 @@
     "@angular/router": "^16.2.12",
     "@codeffekt/ce-barcode": "^16.0.1",
     "@codeffekt/ce-code-editor": "^16.0.0",
-    "@codeffekt/ce-core": "^16.0.6",
+    "@codeffekt/ce-core": "^16.0.9",
     "@codeffekt/ce-core-data": "^1.1.4",
     "@codeffekt/ce-form-coordinates": "^16.0.0",
     "@codeffekt/ce-form-creator": "^16.0.0",
