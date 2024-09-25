@@ -5,3 +5,5 @@ export * from './form-root-new';
 export * from './form-root-collection';
 export * from './form-root-creator-dialog/form-root-creator-dialog.component';
 export * from './form-root-resolver.service';
+export * from './forms-root-selection';
+export * from './forms-root-selection-dialog';

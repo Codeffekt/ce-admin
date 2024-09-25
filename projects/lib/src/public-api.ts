@@ -14,6 +14,7 @@ export * from './lib/media';
 export * from './lib/list-item-account';
 export * from './lib/list-item-project';
 export * from './lib/processing';
+export * from './lib/spaces';
 
 // services
 export * from './lib/services';

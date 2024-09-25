@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Sélection d'un formulaire root</h1>
+<div mat-dialog-content class="d-flex flex-column">
+    <lib-forms-root-selection (selectionChanges)="onSelectionChanges($event)"></lib-forms-root-selection>    
+</div>
+<div mat-dialog-actions class="d-flex flex-row justify-content-between">
+    <button mat-button (click)="dismiss()">Annuler</button>
+    <button mat-button color="accent" [disabled]="!currentSelection" [mat-dialog-close]="currentSelection">Sélectionner</button>
+</div>
