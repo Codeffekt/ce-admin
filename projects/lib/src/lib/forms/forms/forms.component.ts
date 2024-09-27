@@ -10,7 +10,7 @@ import { FormsFormQueryBuilder } from './forms-formquery-builder';
   templateUrl: './forms.component.html',
   styleUrls: ['./forms.component.css'],
   providers: [
-    CeFormQueryService
+    CeFormQueryService,
   ]
 })
 export class FormsComponent implements OnInit {
@@ -55,7 +55,7 @@ export class FormsComponent implements OnInit {
   }
 
   onSelected(form: FormWrapper) {
-    this.router.navigate([ form.core.id ], { relativeTo: this.route });
+    this.router.navigate([form.core.id], { relativeTo: this.route });
   }
 
   async delete(form: FormWrapper) {
