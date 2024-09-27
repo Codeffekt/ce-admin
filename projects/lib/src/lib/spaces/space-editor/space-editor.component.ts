@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CeSpacesService, LayoutService, SpaceEditorInfo } from '@codeffekt/ce-core';
+import { CeNavigationModule, CeSpacesService, LayoutService, SpaceEditorInfo } from '@codeffekt/ce-core';
 import {
   CeFormCreatorModule,
   ProjectFormat,
@@ -15,6 +15,7 @@ import { MatDialogModule } from '@angular/material/dialog';
   imports: [
     CommonModule,
     CeFormCreatorModule,
+    CeNavigationModule,
     MatDialogModule,
     FormsRootSelectionDialogComponent,
   ],

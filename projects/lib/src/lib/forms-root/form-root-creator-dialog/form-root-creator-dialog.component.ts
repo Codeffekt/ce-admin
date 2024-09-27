@@ -1,6 +1,10 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
-import { MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
+import { ReactiveFormsModule, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogConfig, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 
 export type FormRootCreatorConfig = {
@@ -9,6 +13,15 @@ export type FormRootCreatorConfig = {
 
 @UntilDestroy()
 @Component({
+  standalone: true,
+  imports: [
+    CommonModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatInputModule,
+    ReactiveFormsModule,
+  ],
   selector: 'lib-form-root-creator-dialog',
   templateUrl: './form-root-creator-dialog.component.html',
   styleUrls: ['./form-root-creator-dialog.component.css']

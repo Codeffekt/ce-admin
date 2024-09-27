@@ -2,10 +2,10 @@
 
     <ce-navbar ceNavBar>
       <ce-navbar-content>
-        <ce-navbar-item>Projets</ce-navbar-item>
+        <ce-navbar-item>Espaces</ce-navbar-item>
         <ce-navbar-actions>
-          <a mat-stroked-button color="accent" matTooltip="Ajouter un projet" (click)="createProject()">
-            <mat-icon>add</mat-icon>Ajouter un Projets
+          <a mat-stroked-button color="accent" matTooltip="Ajouter un espace" (click)="createSpace()">
+            <mat-icon>add</mat-icon>Ajouter un Espace
           </a>
         </ce-navbar-actions>
       </ce-navbar-content>        
@@ -19,7 +19,7 @@
             <ce-list-item-actions>
               <button mat-menu-item (ngReallyClick)="delete(project)"
                   ngReallyTitle="Confirmation requise"
-                  ngReallyMessage="Voulez-vous vraiment supprimer le project {{project.core.id}} ?">
+                  ngReallyMessage="Voulez-vous vraiment supprimer l'espace {{project.core.id}} ?">
                   <span>Supprimer</span>
               </button>
           </ce-list-item-actions>
