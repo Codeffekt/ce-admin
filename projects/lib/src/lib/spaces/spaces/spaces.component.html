@@ -1,30 +1,35 @@
 <ce-nav-layout>
 
-    <ce-navbar ceNavBar>
-      <ce-navbar-content>
-        <ce-navbar-item>Espaces</ce-navbar-item>
-        <ce-navbar-actions>
-          <a mat-stroked-button color="accent" matTooltip="Ajouter un espace" (click)="createSpace()">
-            <mat-icon>add</mat-icon>Ajouter un Espace
-          </a>
-        </ce-navbar-actions>
-      </ce-navbar-content>        
-    </ce-navbar>
-  
-    <ce-formquery-wrapper [paginationEnabled]="true" [searchEnabled]="true">
-      <ce-list>
-        <ce-list-item *ngFor="let project of projects$ | async" (click)="onSelected(project)">
-          <ce-list-item-factory [type]="project.core.root" [item]="project">
-          </ce-list-item-factory>
-            <ce-list-item-actions>
-              <button mat-menu-item (ngReallyClick)="delete(project)"
-                  ngReallyTitle="Confirmation requise"
-                  ngReallyMessage="Voulez-vous vraiment supprimer l'espace {{project.core.id}} ?">
-                  <span>Supprimer</span>
-              </button>
-          </ce-list-item-actions>
-        </ce-list-item>
+  <ce-navbar ceNavBar>
+    <ce-navbar-content>
+      <ce-navbar-item>Espaces</ce-navbar-item>
+      <ce-navbar-actions>
+        <a mat-stroked-button color="accent" matTooltip="Ajouter un espace" (click)="createSpace()">
+          <mat-icon>add</mat-icon>Ajouter un Espace
+        </a>
+      </ce-navbar-actions>
+    </ce-navbar-content>
+  </ce-navbar>
+
+  <ce-formquery-wrapper [paginationEnabled]="true" [searchEnabled]="true">
+    <ce-list>
+      <ce-list-item *ngFor="let project of projects$ | async" (click)="onSelected(project)">
+        <ce-list-item-factory [type]="project.core.root" [item]="project">
+        </ce-list-item-factory>
+        <ce-list-item-actions>
+          <button mat-menu-item (click)="onNavigate(project)">
+            <span>Naviguer</span>
+          </button>
+          <button mat-menu-item (click)="onSelected(project)">
+            <span>Editor</span>
+          </button>
+          <button mat-menu-item (ngReallyClick)="delete(project)" ngReallyTitle="Confirmation requise"
+            ngReallyMessage="Voulez-vous vraiment supprimer l'espace {{project.core.id}} ?">
+            <span>Supprimer</span>
+          </button>
+        </ce-list-item-actions>
+      </ce-list-item>
     </ce-list>
-    </ce-formquery-wrapper>  
-  
-  </ce-nav-layout>
+  </ce-formquery-wrapper>
+
+</ce-nav-layout>

@@ -17,6 +17,9 @@ import { AppRunnerService } from '../../services/app-runner.service';
 class FormEditorFormRouteResolver implements ICeFormRouteResolver {
 
   constructor(private readonly appRunnerService: AppRunnerService,) { }
+  navigate(formId: IndexType, formInstance: FormInstance): Promise<boolean> {
+    throw new Error('Method not implemented.');
+  }
 
   resolve(formField: string, formId: IndexType, formInstance: FormInstance): CeFormRouteParams {
     const block = FormUtils.getBlockFromField(formInstance, formField);

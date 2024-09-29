@@ -64,7 +64,11 @@ export class SpacesComponent {
   }
 
   onSelected(space: FormSpaceEditorFormatWrapper) {
-    this.router.navigate([space.core.id], { relativeTo: this.route });
+    this.router.navigate(['editor', space.core.id], { relativeTo: this.route });
+  }
+
+  onNavigate(space: FormSpaceEditorFormatWrapper) {
+    this.router.navigate(['form', space.core.id], { relativeTo: this.route });
   }
 
   async createSpace() {

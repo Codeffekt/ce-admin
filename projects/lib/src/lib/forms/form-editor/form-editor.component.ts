@@ -13,6 +13,9 @@ import { FormsQrcodeDialogComponent } from '@codeffekt/ce-barcode';
 
 @Injectable()
 class FormEditorFormRouteResolver implements ICeFormRouteResolver {
+  navigate(formId: IndexType, formInstance: FormInstance): Promise<boolean> {
+    throw new Error('Method not implemented.');
+  }
   resolve(formField: string, formId: IndexType, formInstance: FormInstance): CeFormRouteParams {
     return { route: ['/forms/edit', formId] };
   }
