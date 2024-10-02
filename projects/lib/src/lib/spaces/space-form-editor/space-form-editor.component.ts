@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 import {
     CeFormModule, CeFormRouteResolver,
     CeGridModule, CeListModule, CeNavigationModule, 
-    FormInfo
+    FormInfo,
+    SpaceFormPathService
 } from '@codeffekt/ce-core';
 import { SpaceFormRouteResolver } from './space-form-route-resolver.service';
-import { SpaceFormPathService } from './space-form-path.service';
+import { SpaceNavMenuComponent } from '../space-nav-menu/space-nav-menu.component';
 
 @Component({
     selector: 'app-form-editor',
@@ -17,6 +18,7 @@ import { SpaceFormPathService } from './space-form-path.service';
         CeGridModule,
         CeFormModule,
         CeListModule,
+        SpaceNavMenuComponent,
     ],
     templateUrl: './space-form-editor.component.html',
     styleUrls: ['./space-form-editor.component.scss'],

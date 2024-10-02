@@ -3,6 +3,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import {
   CeBreadcrumbsService, 
+  CeFormDataService, 
   CeFormQueryService, CeFormQueryWrapperModule,
   CeFormsService, CeListModule,
   CeNavigationModule, CeNgReallyModule,
@@ -13,6 +14,9 @@ import {
 import { FormSpaceEditorFormat, FormSpaceEditorFormatWrapper, FormWrapper } from '@codeffekt/ce-core-data';
 import { Observable } from 'rxjs';
 import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+import { FormDataService } from '../../services/form-data.service';
 
 @Component({
   standalone: true,
@@ -20,12 +24,14 @@ import { MatIconModule } from '@angular/material/icon';
     CommonModule,
     CeNavigationModule,
     MatIconModule,
+    MatMenuModule,
+    MatButtonModule,
     CeFormQueryWrapperModule,
     CeListModule,
     CeNgReallyModule,
   ],
   providers: [
-    CeFormQueryService,
+    CeFormQueryService,    
   ],
   selector: 'lib-spaces',
   templateUrl: './spaces.component.html',

@@ -1,8 +1,8 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { MainHomeComponent } from "../main/main-home";
-import { SpaceEditorResolverService } from "@codeffekt/ce-core";
-import { SpaceFormPathResolverService, SpaceFormPathService } from "./space-form-editor";
+import { SpaceEditorResolverService, SpaceFormPathService } from "@codeffekt/ce-core";
+import { SpaceFormPathResolverService } from "./space-form-editor";
 
 const routes: Routes = [
     {

@@ -49,11 +49,11 @@ export class SpaceEditorComponent implements OnInit {
     } catch (err) {
       this.layoutService.showErrorMessage(`Cannot update project ${this.spaceInfo.form.core.id}`);
     }
-    this.router.navigate([".."], { relativeTo: this.route });
+    this.router.navigate(["../.."], { relativeTo: this.route });
   }
 
   onCancel() {
-    this.router.navigate([".."], { relativeTo: this.route });
+    this.router.navigate(["../.."], { relativeTo: this.route });
   }
 
 }

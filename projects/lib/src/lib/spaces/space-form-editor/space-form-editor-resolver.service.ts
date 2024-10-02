@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { ActivatedRouteSnapshot, RouterStateSnapshot } from "@angular/router";
+import { SpaceFormPathService } from "@codeffekt/ce-core";
 import { IndexType } from "@codeffekt/ce-core-data";
-import { SpaceFormPathService } from "./space-form-path.service";
 
 @Injectable()
 export class SpaceFormPathResolverService {

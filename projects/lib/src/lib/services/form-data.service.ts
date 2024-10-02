@@ -16,11 +16,20 @@ export class FormDataService implements ICeFormDataService {
     }
 
     createFormArrayElt(formArrayField: string, formIndex: IndexType): Promise<FormInstance> {
-        throw new Error(`Not implemented for formroot`);    
+        return this.apiService.rawFormMutation({
+            type: "formArray",
+            op: "create",
+            indices: [formIndex],
+            formArrayField: formArrayField,
+        });
     }
 
     deleteFormArrayElt(formId: IndexType): Promise<void> {
-        throw new Error(`Not implemented for formroot`);    
+        return this.apiService.rawFormMutation({
+            type: "form",
+            op: "delete",
+            indices: [formId]
+        });
     }
 
     addFormAssocElts(formId: string, elts: string[], field?: string): Promise<boolean> {        

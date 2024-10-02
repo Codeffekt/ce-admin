@@ -1,0 +1,12 @@
+<ng-container *ngIf="(currentForm$ | async) as currentForm">
+    <span>{{currentForm.form | formTitle}}</span>
+    <button mat-icon-button class="text-muted ms-2" [matMenuTriggerFor]="menu" (click)="$event.stopPropagation()"  >       
+        <mat-icon>more_vert</mat-icon>
+    </button>
+</ng-container>
+
+<mat-menu #menu="matMenu">
+    <button mat-menu-item mat-menu-item (click)="onGoElt(item)" *ngFor="let item of (currentForms$ | async)">
+        <span>{{item.form | formTitle}}</span>
+    </button>    
+</mat-menu>
