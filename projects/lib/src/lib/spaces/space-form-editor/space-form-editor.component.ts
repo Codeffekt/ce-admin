@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
     CeFormModule, CeFormRouteResolver,
+    CeFormUpdaterService,
     CeGridModule, CeListModule, CeNavigationModule, 
     FormInfo,
     SpaceFormPathService
@@ -33,11 +34,12 @@ export class SpaceFormEditorComponent {
 
     private formService = inject(SpaceFormPathService);
     private formRouteResolver = inject(CeFormRouteResolver);
+    private formUpdaterService = inject(CeFormUpdaterService);
     currentForm$ = this.formService.onCurrentForm();
     currentForms$ = this.formService.onCurrentForms();
 
-    onFormChanges(form: FormInfo, changes: any) {
-
+    async onFormChanges(form: FormInfo, changes: any) {
+        await this.formUpdaterService.updateForm(form.form);
     }
 
     onGoElt(form: FormInfo) {

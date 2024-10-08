@@ -82,7 +82,7 @@ export class SpacesComponent {
       const newForm = await this.formsService.createForm(
         FormSpaceEditorFormat.ROOT);
       this.layout.showSingleMessage(`Le formulaire de type ${newForm.root} à été créé.`);
-      this.router.navigate(['home', 'spaces', newForm.id]);
+      this.router.navigate(['editor', newForm.id], { relativeTo: this.route });
     } catch (err) {
       this.layout.showErrorMessage(`Erreur lors de la création d'un nouveau formulaire`);
     }
