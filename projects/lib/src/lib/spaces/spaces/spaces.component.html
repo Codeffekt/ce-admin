@@ -13,7 +13,7 @@
 
   <ce-formquery-wrapper [paginationEnabled]="true" [searchEnabled]="true">
     <ce-list>
-      <ce-list-item *ngFor="let project of projects$ | async" (click)="onSelected(project)">
+      <ce-list-item *ngFor="let project of projects$ | async; trackBy:idTrackBy" (click)="onSelected(project)">
         <ce-list-item-factory [type]="project.core.root" [item]="project">
         </ce-list-item-factory>
         <ce-list-item-actions>

@@ -1,4 +1,5 @@
 <ce-list-item-content>
     <ce-list-item-label>{{item.core|valueForKey:'context.name'}}</ce-list-item-label>
     <ce-list-item-label size="small">créé le {{item.core.ctime|calendarDate}}</ce-list-item-label>        
+    <button mat-button *ngIf="(entryPoint$ | async) as entryPoint" (click)="onNavigate(entryPoint)">Naviguer</button>
 </ce-list-item-content>

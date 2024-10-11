@@ -77,6 +77,10 @@ export class SpacesComponent {
     this.router.navigate(['form', space.core.id], { relativeTo: this.route });
   }
 
+  idTrackBy(index: number, item: FormSpaceEditorFormatWrapper){
+    return item.core.id; 
+ }
+
   async createSpace() {
     try {
       const newForm = await this.formsService.createForm(
