@@ -41,7 +41,6 @@
     "@zxing/library": "^0.21.3",
     "@zxing/ngx-scanner": "^18.0.1",
     "angular-plotly.js": "^6.0.0",
-    "angular-split": "^16.2.1",
     "angular-svg-icon": "^16.1.0",
     "bootstrap": "^5.3.3",
     "codemirror": "^5.63.0",

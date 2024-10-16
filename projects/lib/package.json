@@ -1,6 +1,6 @@
 {
   "name": "@codeffekt/ce-admin",
-  "version": "18.0.0",
+  "version": "18.0.1",
   "description": "Angular library components to create CeForms manager",
   "author": {
     "name": "Codeffekt",
@@ -24,8 +24,8 @@
     "@codeffekt/ce-form-creator": "^18.0.0",
     "moment": "^2.29.1",
     "bootstrap": "^5.3.3",
-    "@ngxs/devtools-plugin": "^3.8.2",
-    "@ngxs/store": "^3.8.2"
+    "@ngxs/devtools-plugin": "^18.1.1",
+    "@ngxs/store": "^18.1.1"
   },  
   "main": "./dist/lib/codeffekt-ce-admin.d.ts"  
 }
