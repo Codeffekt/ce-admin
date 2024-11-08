@@ -35,7 +35,7 @@ import { FormDataService } from '../../services/form-data.service';
   ],
   selector: 'lib-spaces',
   templateUrl: './spaces.component.html',
-  styleUrls: ['./spaces.component.css']
+  styleUrls: ['./spaces.component.scss']
 })
 export class SpacesComponent {
   @Input() formWrapper!: FormWrapper;
@@ -69,7 +69,7 @@ export class SpacesComponent {
     this.queryService.load();
   }
 
-  onSelected(space: FormSpaceEditorFormatWrapper) {
+  onEdit(space: FormSpaceEditorFormatWrapper) {
     this.router.navigate(['editor', space.core.id], { relativeTo: this.route });
   }
 

@@ -17,7 +17,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatButtonModule,
   ],
   templateUrl: './list-item-space.component.html',
-  styleUrls: ['./list-item-space.component.css']
+  styleUrls: ['./list-item-space.component.scss']
 })
 export class ListItemSpaceComponent implements OnInit {
 
@@ -35,6 +35,10 @@ export class ListItemSpaceComponent implements OnInit {
 
   onNavigate(form: FormInstanceExt) {
     this.router.navigate(['form', form.id], { relativeTo: this.route });
+  }
+
+  onEdit() {
+    this.router.navigate(['editor', this.item.core.id], { relativeTo: this.route });
   }
 
   private retrieveEntryPoint() {

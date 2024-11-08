@@ -1,0 +1,9 @@
+:host {
+
+    display: grid;
+
+    .actions {
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+}

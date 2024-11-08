@@ -11,17 +11,17 @@
     </ce-navbar-content>
   </ce-navbar>
 
-  <ce-formquery-wrapper [paginationEnabled]="true" [searchEnabled]="true">
+  <ce-formquery-wrapper class="space-query-wrapper" [paginationEnabled]="true" [searchEnabled]="true">
     <ce-list>
-      <ce-list-item *ngFor="let project of projects$ | async; trackBy:idTrackBy" (click)="onSelected(project)">
+      <ce-list-item [selectable]="false" *ngFor="let project of projects$ | async; trackBy:idTrackBy">
         <ce-list-item-factory [type]="project.core.root" [item]="project">
         </ce-list-item-factory>
         <ce-list-item-actions>
           <button mat-menu-item (click)="onNavigate(project)">
             <span>Naviguer</span>
           </button>
-          <button mat-menu-item (click)="onSelected(project)">
-            <span>Editor</span>
+          <button mat-menu-item (click)="onEdit(project)">
+            <span>Editer</span>
           </button>
           <button mat-menu-item (ngReallyClick)="delete(project)" ngReallyTitle="Confirmation requise"
             ngReallyMessage="Voulez-vous vraiment supprimer l'espace {{project.core.id}} ?">

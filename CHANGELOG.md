@@ -1,3 +1,7 @@
+## [18.0.2]
+ -- form creator styling
+ -- spaces list styling
+
 ## [16.1.1] space editor
 
 ## [13.9.1] put ngxs dep in admin module

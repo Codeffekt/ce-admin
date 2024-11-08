@@ -164,7 +164,7 @@ export class ProcessingComponent implements OnInit {
     this.formEditorService.onFormInfo()
       .pipe(
         untilDestroyed(this)
-      ).subscribe(formInfo => this.updateFormInfo(formInfo));
+      ).subscribe(formInfo => this.updateFormInfo(formInfo!));
   }
 
   private reloadForm() {
