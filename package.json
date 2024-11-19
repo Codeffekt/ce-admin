@@ -27,7 +27,7 @@
     "@codeffekt/ce-barcode": "^18.0.1",
     "@codeffekt/ce-canvas-nodes": "^0.0.8",
     "@codeffekt/ce-code-editor": "^18.0.0",
-    "@codeffekt/ce-core": "^18.0.3",
+    "@codeffekt/ce-core": "^18.0.4",
     "@codeffekt/ce-core-data": "^1.2.1",
     "@codeffekt/ce-form-coordinates": "^18.0.0",
     "@codeffekt/ce-form-creator": "^18.0.5",

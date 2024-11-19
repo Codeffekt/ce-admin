@@ -1,6 +1,6 @@
 import { Component, inject, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormInstance, FormInstanceExt, FormSpaceEditorFormatWrapper, FormUtils } from '@codeffekt/ce-core-data';
+import { FormInstance, FormInstanceExt, FormSpaceEditorFormatWrapper, FormUtils, FormWrapper, IndexType } from '@codeffekt/ce-core-data';
 import { CeFormsPipesModule, CeFormsService, CeListModule, CePipesModule, FormQueryArrayBuilder } from '@codeffekt/ce-core';
 import { filter, firstValueFrom, map, Observable } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -27,14 +27,14 @@ export class ListItemSpaceComponent implements OnInit {
   private router = inject(Router);
   private route = inject(ActivatedRoute);
 
-  entryPoint$!: Observable<FormInstanceExt>;
+  entryPointFormIndex?: IndexType;
 
   ngOnInit(): void {
-    this.retrieveEntryPoint();
+    this.entryPointFormIndex = this.retrieveEntryPoint();
   }
 
-  onNavigate(form: FormInstanceExt) {
-    this.router.navigate(['form', form.id], { relativeTo: this.route });
+  onNavigate() {
+    this.router.navigate(['entries', this.item.core.id], { relativeTo: this.route });
   }
 
   onEdit() {
@@ -42,16 +42,7 @@ export class ListItemSpaceComponent implements OnInit {
   }
 
   private retrieveEntryPoint() {
-
-    const contextForm = FormUtils.getFormField("context", this.item.core);    
-    const entryPointBlock = FormUtils.getBlockFromField(contextForm, "entryPoint");
-
-    this.entryPoint$ = this.formsService.getRawFormsQuery(
-      FormQueryArrayBuilder.fromBlock(entryPointBlock, contextForm).create()
-    ).pipe(
-      filter(res => res.elts.length > 0),
-      map(res => res.elts[0])
-    );
-
+    const contextForm = FormUtils.getFormField("context", this.item.core);
+    return FormWrapper.getFormValue("entryPoint", contextForm);
   }
 }

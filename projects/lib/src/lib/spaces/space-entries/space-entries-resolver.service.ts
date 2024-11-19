@@ -1,22 +1,22 @@
 import { Injectable } from "@angular/core";
 import { ActivatedRouteSnapshot, RouterStateSnapshot } from "@angular/router";
-import { SpaceFormPathService } from "@codeffekt/ce-core";
 import { IndexType } from "@codeffekt/ce-core-data";
+import { SpaceEntriesService } from "./space-entries.service";
 
 @Injectable()
-export class SpaceFormPathResolverService {
+export class SpaceEntriesResolverService {
     constructor(
-        private pathService: SpaceFormPathService,
+        private entriesService: SpaceEntriesService,
     ) { }
 
     async resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<IndexType> {
-        const id = route.paramMap.get('formPath');
+        const id = route.paramMap.get('form');
 
         if (id === null) {
-            throw new Error(`FormPath cannot be null`);
-        }        
+            throw new Error(`Form cannot be null`);
+        }
 
-        this.pathService.setCurrentPath(id);
+        await this.entriesService.setSpaceEntry(id);
         return id;
     }
 }

@@ -1,3 +1,6 @@
+## [18.0.3]
+ -- add space navigation ui (entries)
+
 ## [18.0.2]
  -- form creator styling
  -- spaces list styling

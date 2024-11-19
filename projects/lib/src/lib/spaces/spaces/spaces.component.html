@@ -17,7 +17,7 @@
         <ce-list-item-factory [type]="project.core.root" [item]="project">
         </ce-list-item-factory>
         <ce-list-item-actions>
-          <button mat-menu-item (click)="onNavigate(project)">
+          <button mat-menu-item [disabled]="!(project.core | valueForKey:'context.entryPoint')" (click)="onNavigate(project)">
             <span>Naviguer</span>
           </button>
           <button mat-menu-item (click)="onEdit(project)">

@@ -9,6 +9,7 @@ import {
 } from '@codeffekt/ce-core';
 import { SpaceFormRouteResolver } from './space-form-route-resolver.service';
 import { SpaceNavMenuComponent } from '../space-nav-menu/space-nav-menu.component';
+import { tap } from 'rxjs';
 
 @Component({
     selector: 'app-form-editor',

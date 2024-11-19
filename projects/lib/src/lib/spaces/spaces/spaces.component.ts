@@ -5,13 +5,14 @@ import {
   CeBreadcrumbsService, 
   CeFormDataService, 
   CeFormQueryService, CeFormQueryWrapperModule,
+  CeFormsPipesModule,
   CeFormsService, CeListModule,
   CeNavigationModule, CeNgReallyModule,
   LayoutService,
   SpacesEditorFormatDatasource,
   SpacesEditorFormatQueryBuilder
 } from '@codeffekt/ce-core';
-import { FormSpaceEditorFormat, FormSpaceEditorFormatWrapper, FormWrapper } from '@codeffekt/ce-core-data';
+import { FormSpaceEditorFormat, FormSpaceEditorFormatWrapper, FormUtils, FormWrapper } from '@codeffekt/ce-core-data';
 import { Observable } from 'rxjs';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
@@ -28,6 +29,7 @@ import { FormDataService } from '../../services/form-data.service';
     MatButtonModule,
     CeFormQueryWrapperModule,
     CeListModule,
+    CeFormsPipesModule,
     CeNgReallyModule,
   ],
   providers: [
@@ -74,7 +76,8 @@ export class SpacesComponent {
   }
 
   onNavigate(space: FormSpaceEditorFormatWrapper) {
-    this.router.navigate(['form', space.core.id], { relativeTo: this.route });
+    const entryPoint = this.retrieveEntryPoint(space);
+    this.router.navigate(['entries', space.core.id], { relativeTo: this.route });
   }
 
   idTrackBy(index: number, item: FormSpaceEditorFormatWrapper){
@@ -108,5 +111,10 @@ export class SpacesComponent {
     );
     this.projects$ = this.queryService.connect();
     this.queryService.load();
+  }
+
+  private retrieveEntryPoint(project: FormSpaceEditorFormatWrapper) {
+    const contextForm = FormUtils.getFormField("context", project.core);
+    return FormWrapper.getFormValue("entryPoint", contextForm);
   }
 }

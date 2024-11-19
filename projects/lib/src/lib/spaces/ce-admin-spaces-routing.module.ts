@@ -3,12 +3,14 @@ import { RouterModule, Routes } from "@angular/router";
 import { MainHomeComponent } from "../main/main-home";
 import { SpaceEditorResolverService, SpaceFormPathService } from "@codeffekt/ce-core";
 import { SpaceFormPathResolverService } from "./space-form-editor";
+import { SpaceEntriesService } from "./space-entries";
+import { SpaceEntriesResolverService } from "./space-entries/space-entries-resolver.service";
 
 const routes: Routes = [
     {
         path: '',
         data: { routeId: 'Espaces' },
-        component: MainHomeComponent,
+        component: MainHomeComponent,        
         children: [
             {
                 path: '',
@@ -22,6 +24,17 @@ const routes: Routes = [
                 loadComponent: () => import('./space-editor/space-editor.component').then(m => m.SpaceEditorComponent)
             },
             {
+                path: 'entries/:form',
+                resolve: {
+                    entry: SpaceEntriesResolverService,
+                },
+                loadComponent: () => import('./space-entries/space-entries.component').then(m => m.SpaceEntriesComponent),
+                providers: [
+                    SpaceEntriesResolverService,
+                    SpaceEntriesService,
+                ]
+            },
+            {
                 path: 'form/:formPath',
                 resolve: {
                     form: SpaceFormPathResolverService,
@@ -29,7 +42,6 @@ const routes: Routes = [
                 loadComponent: () => import('./space-form-editor/space-form-editor.component').then(m => m.SpaceFormEditorComponent),
                 providers: [
                     SpaceFormPathResolverService,
-                    SpaceFormPathService,
                 ]
             }
         ]
