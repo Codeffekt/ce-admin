@@ -4,7 +4,8 @@
         <ce-navbar-content>
           <ce-navbar-item>{{spaceContextForm | valueForKey:'name'}}</ce-navbar-item>
           <ce-navbar-actions>
-            <a mat-stroked-button color="accent" matTooltip="Ajouter une entrée" (click)="onCreateEntry()">
+            <a mat-stroked-button color="accent" matTooltip="Ajouter une entrée" (ngReallyClick)="onCreateEntry()"
+            ngReallyTitle="Confirmation requise" ngReallyMessage="Voulez-vous vraiment ajouter une nouvelle entrée pour l'espace le formulaire {{spaceContextForm | valueForKey:'name'}} ?">
               <mat-icon>add</mat-icon>Ajouter une entrée
             </a>
           </ce-navbar-actions>

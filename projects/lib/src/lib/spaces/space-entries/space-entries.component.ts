@@ -6,7 +6,8 @@ import {
   CeFormsService, CeListModule,
   CeNavigationModule, CeNgReallyModule,
   FormQueryBuilder,
-  FormWrappersDataSource
+  FormWrappersDataSource,
+  LayoutService
 } from '@codeffekt/ce-core';
 import { SpaceEntriesService } from './space-entries.service';
 import { FormInstance, FormWrapper } from '@codeffekt/ce-core-data';
@@ -48,6 +49,7 @@ export class SpaceEntriesComponent implements OnInit {
   private formsService = inject(CeFormsService);
   private route = inject(ActivatedRoute);
   private router = inject(Router);
+  private layout = inject(LayoutService);
 
   constructor() {
     this.formsDataSource = new FormWrappersDataSource(this.formsService);
@@ -63,14 +65,19 @@ export class SpaceEntriesComponent implements OnInit {
     this.router.navigate(['../../form', form.core.id], { relativeTo: this.route });
   }
 
-  onCreateEntry() {
-
+  async onCreateEntry() {
+    try {
+      const newForm = await this.formsService.createForm(this.spaceEntriesService.getSpaceEntry());
+      this.layout.showSingleMessage(`Le formulaire de type ${newForm.root} à été créé.`);          
+      this.router.navigate(['../../form', newForm.id], { relativeTo: this.route });
+    } catch (err) {
+      this.layout.showErrorMessage(`Erreur lors de la création d'un nouveau formulaire`);
+    }
   }
 
   private async prepareQueryService() {
     this.formQueryBuilder.setRoot(this.spaceEntriesService.getSpaceEntry());
-    this.queryService.setQueryBuilder(this.formQueryBuilder);
-    this.queryService.setModel(null as any);
+    this.queryService.setQueryBuilder(this.formQueryBuilder);    
     this.forms$ = this.queryService.connect();
     this.queryService.load();
   }
