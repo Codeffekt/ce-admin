@@ -25,6 +25,6 @@ export class UserCreationComponent {
   }
 
   private routeToAccount(account: AccountSettings) {
-    this.router.navigate([`/forms/edit/${account.id}`]);
+    this.router.navigate([`/home/users/edit/${account.id}`]);
   }
 }

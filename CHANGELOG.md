@@ -1,3 +1,6 @@
+## [18.0.4]
+ - Fix : add user redirection
+
 ## [18.0.3]
  -- add space navigation ui (entries)
 
