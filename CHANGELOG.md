@@ -1,3 +1,6 @@
+## [18.0.5]
+ - @codeffekt packages updates
+
 ## [18.0.4]
  - Fix : add user redirection
 
