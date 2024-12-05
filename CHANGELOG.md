@@ -1,3 +1,6 @@
+## [18.0.6]
+ - @codeffekt packages updates
+
 ## [18.0.5]
  - @codeffekt packages updates
 
