@@ -4,9 +4,10 @@ import { LayoutService } from '@codeffekt/ce-core';
 import { AccountSettings } from '@codeffekt/ce-core-data';
 
 @Component({
-  selector: 'lib-user-creation',
-  templateUrl: './user-creation.component.html',
-  styleUrls: ['./user-creation.component.css']
+    selector: 'lib-user-creation',
+    templateUrl: './user-creation.component.html',
+    styleUrls: ['./user-creation.component.css'],
+    standalone: false
 })
 export class UserCreationComponent {
 

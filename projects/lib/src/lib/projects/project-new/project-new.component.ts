@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'lib-project-new',
-  templateUrl: './project-new.component.html',
-  styleUrls: ['./project-new.component.scss']
+    selector: 'lib-project-new',
+    templateUrl: './project-new.component.html',
+    styleUrls: ['./project-new.component.scss'],
+    standalone: false
 })
 export class ProjectNewComponent implements OnInit {
 

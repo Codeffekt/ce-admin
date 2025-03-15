@@ -6,6 +6,7 @@ import { FormRoot } from "@codeffekt/ce-core-data";
     selector: 'lib-form-root-new',
     templateUrl: './form-root-new.component.html',
     styleUrls: ['./form-root-new.component.scss'],
+    standalone: false
 })
 export class FormRootNewComponent implements OnInit {
 

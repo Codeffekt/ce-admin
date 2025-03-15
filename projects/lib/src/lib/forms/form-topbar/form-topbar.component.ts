@@ -4,9 +4,10 @@ import { CeFormEditorService, CeFormsService, LayoutService } from '@codeffekt/c
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'lib-form-topbar',
-  templateUrl: './form-topbar.component.html',
-  styleUrls: ['./form-topbar.component.css']
+    selector: 'lib-form-topbar',
+    templateUrl: './form-topbar.component.html',
+    styleUrls: ['./form-topbar.component.css'],
+    standalone: false
 })
 export class FormTopbarComponent {
 

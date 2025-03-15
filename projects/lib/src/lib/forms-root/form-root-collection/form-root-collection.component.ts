@@ -8,12 +8,13 @@ import { ProjectCreatorDialogComponent } from '../../projects/project-creator-di
 import { MatDialog } from '@angular/material/dialog';
 
 @Component({
-  selector: 'lib-form-root-collection',
-  templateUrl: './form-root-collection.component.html',
-  styleUrls: ['./form-root-collection.component.css'],
-  providers: [
-    CeFormQueryService
-  ]
+    selector: 'lib-form-root-collection',
+    templateUrl: './form-root-collection.component.html',
+    styleUrls: ['./form-root-collection.component.css'],
+    providers: [
+        CeFormQueryService
+    ],
+    standalone: false
 })
 export class FormRootCollectionComponent implements OnInit {
 

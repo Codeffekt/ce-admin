@@ -19,13 +19,14 @@ class ProjectFormsFormRouteResolver implements ICeFormRouteResolver {
 
 @UntilDestroy()
 @Component({
-  selector: 'lib-project-forms',
-  templateUrl: './project-forms.component.html',
-  styleUrls: ['./project-forms.component.scss'],
-  providers: [{
-    provide: CeFormRouteResolver,
-    useClass: ProjectFormsFormRouteResolver
-  }]
+    selector: 'lib-project-forms',
+    templateUrl: './project-forms.component.html',
+    styleUrls: ['./project-forms.component.scss'],
+    providers: [{
+            provide: CeFormRouteResolver,
+            useClass: ProjectFormsFormRouteResolver
+        }],
+    standalone: false
 })
 export class ProjectFormsComponent implements OnInit {
 

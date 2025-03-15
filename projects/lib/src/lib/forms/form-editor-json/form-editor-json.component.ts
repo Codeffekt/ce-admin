@@ -8,9 +8,10 @@ export interface FormEditorJsonConfig {
 }
 
 @Component({
-  selector: 'ce-form-editor-json',
-  templateUrl: './form-editor-json.component.html',
-  styleUrls: ['./form-editor-json.component.scss']
+    selector: 'ce-form-editor-json',
+    templateUrl: './form-editor-json.component.html',
+    styleUrls: ['./form-editor-json.component.scss'],
+    standalone: false
 })
 export class FormEditorJsonDialogComponent implements OnInit {
 

@@ -16,13 +16,14 @@ class FormEditorFormRouteResolver implements ICeFormRouteResolver {
 }
 
 @Component({
-  selector: 'lib-app-masks',
-  templateUrl: './app-masks.component.html',
-  styleUrls: ['./app-masks.component.scss'],
-  providers: [{
-    provide: CeFormRouteResolver,
-    useClass: FormEditorFormRouteResolver,    
-  }]
+    selector: 'lib-app-masks',
+    templateUrl: './app-masks.component.html',
+    styleUrls: ['./app-masks.component.scss'],
+    providers: [{
+            provide: CeFormRouteResolver,
+            useClass: FormEditorFormRouteResolver,
+        }],
+    standalone: false
 })
 export class AppMasksComponent implements OnInit {
 

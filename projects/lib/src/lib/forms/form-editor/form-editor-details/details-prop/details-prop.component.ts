@@ -1,9 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
-  selector: 'ce-details-prop',
-  templateUrl: './details-prop.component.html',
-  styleUrls: ['./details-prop.component.scss']
+    selector: 'ce-details-prop',
+    templateUrl: './details-prop.component.html',
+    styleUrls: ['./details-prop.component.scss'],
+    standalone: false
 })
 export class DetailsPropComponent implements OnInit {
 

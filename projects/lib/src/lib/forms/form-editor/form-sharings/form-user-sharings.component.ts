@@ -9,10 +9,11 @@ import { FormSharingDialogComponent } from '../form-sharing-dialog/form-sharing-
 
 @UntilDestroy()
 @Component({
-  selector: 'ce-form-user-sharings',
-  templateUrl: './form-user-sharings.component.html',
-  styleUrls: ['./form-user-sharings.component.scss'],
-  providers: [FormEditorSharingService]
+    selector: 'ce-form-user-sharings',
+    templateUrl: './form-user-sharings.component.html',
+    styleUrls: ['./form-user-sharings.component.scss'],
+    providers: [FormEditorSharingService],
+    standalone: false
 })
 export class FormUserSharingsComponent implements OnInit, OnDestroy {
 

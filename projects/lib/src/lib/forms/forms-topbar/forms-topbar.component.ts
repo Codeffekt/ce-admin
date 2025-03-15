@@ -7,9 +7,10 @@ import { Router } from '@angular/router';
 import { BarcodeScannerComponent } from '@codeffekt/ce-barcode';
 
 @Component({
-  selector: 'lib-forms-topbar',
-  templateUrl: './forms-topbar.component.html',
-  styleUrls: ['./forms-topbar.component.css']
+    selector: 'lib-forms-topbar',
+    templateUrl: './forms-topbar.component.html',
+    styleUrls: ['./forms-topbar.component.css'],
+    standalone: false
 })
 export class FormsTopbarComponent {  
 

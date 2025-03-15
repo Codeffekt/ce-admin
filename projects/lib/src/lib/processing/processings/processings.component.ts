@@ -6,12 +6,13 @@ import { ProcessingsFormQueryBuilder } from './processings-formquery-builder';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'lib-processings',
-  templateUrl: './processings.component.html',
-  styleUrls: ['./processings.component.css'],
-  providers: [
-    CeFormQueryService
-  ]
+    selector: 'lib-processings',
+    templateUrl: './processings.component.html',
+    styleUrls: ['./processings.component.css'],
+    providers: [
+        CeFormQueryService
+    ],
+    standalone: false
 })
 export class ProcessingsComponent implements OnInit {
 

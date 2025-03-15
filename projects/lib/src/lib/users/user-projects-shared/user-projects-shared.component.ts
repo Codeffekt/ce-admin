@@ -13,10 +13,11 @@ import { FormSelectionDialogComponent } from '../../forms/form-selection-dialog/
 import { FormSharingService } from '../../services/form-sharing.service';
 
 @Component({
-  selector: 'ce-admin-user-projects-shared',
-  templateUrl: './user-projects-shared.component.html',
-  styleUrls: ['./user-projects-shared.component.scss'],
-  providers: [CeFormQueryService]
+    selector: 'ce-admin-user-projects-shared',
+    templateUrl: './user-projects-shared.component.html',
+    styleUrls: ['./user-projects-shared.component.scss'],
+    providers: [CeFormQueryService],
+    standalone: false
 })
 export class UserProjectsSharedComponent implements OnInit {
 

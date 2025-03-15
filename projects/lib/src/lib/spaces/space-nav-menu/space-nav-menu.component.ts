@@ -6,17 +6,16 @@ import { MatButtonModule } from '@angular/material/button';
 import { CeFormRouteResolver, CeFormsPipesModule, FormInfo, SpaceFormPathService } from '@codeffekt/ce-core';
 
 @Component({
-  selector: 'lib-space-nav-menu',
-  standalone: true,
-  imports: [
-    CommonModule,
-    MatIconModule,
-    MatMenuModule,
-    MatButtonModule,
-    CeFormsPipesModule,
-  ],
-  templateUrl: './space-nav-menu.component.html',
-  styleUrls: ['./space-nav-menu.component.css']
+    selector: 'lib-space-nav-menu',
+    imports: [
+        CommonModule,
+        MatIconModule,
+        MatMenuModule,
+        MatButtonModule,
+        CeFormsPipesModule,
+    ],
+    templateUrl: './space-nav-menu.component.html',
+    styleUrls: ['./space-nav-menu.component.css']
 })
 export class SpaceNavMenuComponent {
 

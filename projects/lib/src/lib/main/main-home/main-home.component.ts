@@ -4,9 +4,10 @@ import { MatDrawer } from '@angular/material/sidenav';
 import { LayoutService } from '@codeffekt/ce-core';
 
 @Component({
-  selector: 'lib-main-home',
-  templateUrl: './main-home.component.html',
-  styleUrls: ['./main-home.component.css']
+    selector: 'lib-main-home',
+    templateUrl: './main-home.component.html',
+    styleUrls: ['./main-home.component.css'],
+    standalone: false
 })
 export class MainHomeComponent {
   @ViewChild(MatDrawer) drawer!: MatDrawer;

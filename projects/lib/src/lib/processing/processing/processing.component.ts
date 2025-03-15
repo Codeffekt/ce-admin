@@ -8,9 +8,10 @@ import { filter, firstValueFrom, interval } from 'rxjs';
 
 @UntilDestroy()
 @Component({
-  selector: 'lib-processing',
-  templateUrl: './processing.component.html',
-  styleUrls: ['./processing.component.css']
+    selector: 'lib-processing',
+    templateUrl: './processing.component.html',
+    styleUrls: ['./processing.component.css'],
+    standalone: false
 })
 export class ProcessingComponent implements OnInit {
 

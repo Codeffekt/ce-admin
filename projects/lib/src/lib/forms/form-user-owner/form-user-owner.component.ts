@@ -7,9 +7,10 @@ import { FormSelectionDialogComponent } from '../form-selection-dialog/form-sele
 import { UserShareableFormQueryBuilder } from '../form-users-shared';
 
 @Component({
-  selector: 'ce-admin-form-user-owner',
-  templateUrl: './form-user-owner.component.html',
-  styleUrls: ['./form-user-owner.component.scss']
+    selector: 'ce-admin-form-user-owner',
+    templateUrl: './form-user-owner.component.html',
+    styleUrls: ['./form-user-owner.component.scss'],
+    standalone: false
 })
 export class FormUserOwnerComponent implements OnInit {
 

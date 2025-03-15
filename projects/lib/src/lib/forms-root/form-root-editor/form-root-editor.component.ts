@@ -19,13 +19,14 @@ class FormRootEditorFormRouteResolver implements ICeFormRouteResolver {
 }
 
 @Component({
-  selector: 'ce-admin-form-root-editor',
-  templateUrl: './form-root-editor.component.html',
-  styleUrls: ['./form-root-editor.component.scss'],
-  providers: [{
-    provide: CeFormRouteResolver,
-    useClass: FormRootEditorFormRouteResolver
-  }]
+    selector: 'ce-admin-form-root-editor',
+    templateUrl: './form-root-editor.component.html',
+    styleUrls: ['./form-root-editor.component.scss'],
+    providers: [{
+            provide: CeFormRouteResolver,
+            useClass: FormRootEditorFormRouteResolver
+        }],
+    standalone: false
 })
 export class FormRootEditorComponent implements OnInit {
 

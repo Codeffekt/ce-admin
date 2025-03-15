@@ -3,9 +3,10 @@ import { Router } from '@angular/router';
 import { FormWrapper } from '@codeffekt/ce-core-data';
 
 @Component({
-  selector: 'lib-user-topbar',
-  templateUrl: './user-topbar.component.html',
-  styleUrls: ['./user-topbar.component.css']
+    selector: 'lib-user-topbar',
+    templateUrl: './user-topbar.component.html',
+    styleUrls: ['./user-topbar.component.css'],
+    standalone: false
 })
 export class UserTopbarComponent {
 

@@ -10,9 +10,10 @@ interface MenuEntry {
 }
 
 @Component({
-  selector: 'lib-app-project',
-  templateUrl: './app-project.component.html',
-  styleUrls: ['./app-project.component.scss']
+    selector: 'lib-app-project',
+    templateUrl: './app-project.component.html',
+    styleUrls: ['./app-project.component.scss'],
+    standalone: false
 })
 export class AppProjectComponent implements OnInit {
 

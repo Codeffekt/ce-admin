@@ -12,9 +12,10 @@ import { UserApiKeyComponent } from '../user-api-key/user-api-key.component';
 
 @UntilDestroy()
 @Component({
-  selector: 'ce-admin-user-main-info',
-  templateUrl: './user-main-info.component.html',
-  styleUrls: ['./user-main-info.component.scss']
+    selector: 'ce-admin-user-main-info',
+    templateUrl: './user-main-info.component.html',
+    styleUrls: ['./user-main-info.component.scss'],
+    standalone: false
 })
 export class UserMainInfoComponent implements OnInit {
 

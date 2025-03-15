@@ -7,9 +7,10 @@ import { UntilDestroy } from '@ngneat/until-destroy';
 
 @UntilDestroy()
 @Component({
-  selector: 'ce-admin-project-accounts',
-  templateUrl: './project-accounts.component.html',
-  styleUrls: ['./project-accounts.component.scss']
+    selector: 'ce-admin-project-accounts',
+    templateUrl: './project-accounts.component.html',
+    styleUrls: ['./project-accounts.component.scss'],
+    standalone: false
 })
 export class ProjectAccountsComponent implements OnInit {
 

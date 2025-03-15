@@ -20,24 +20,23 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormDataService } from '../../services/form-data.service';
 
 @Component({
-  standalone: true,
-  imports: [
-    CommonModule,
-    CeNavigationModule,
-    MatIconModule,
-    MatMenuModule,
-    MatButtonModule,
-    CeFormQueryWrapperModule,
-    CeListModule,
-    CeFormsPipesModule,
-    CeNgReallyModule,
-  ],
-  providers: [
-    CeFormQueryService,    
-  ],
-  selector: 'lib-spaces',
-  templateUrl: './spaces.component.html',
-  styleUrls: ['./spaces.component.scss']
+    imports: [
+        CommonModule,
+        CeNavigationModule,
+        MatIconModule,
+        MatMenuModule,
+        MatButtonModule,
+        CeFormQueryWrapperModule,
+        CeListModule,
+        CeFormsPipesModule,
+        CeNgReallyModule,
+    ],
+    providers: [
+        CeFormQueryService,
+    ],
+    selector: 'lib-spaces',
+    templateUrl: './spaces.component.html',
+    styleUrls: ['./spaces.component.scss']
 })
 export class SpacesComponent {
   @Input() formWrapper!: FormWrapper;

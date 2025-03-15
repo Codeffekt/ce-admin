@@ -13,7 +13,6 @@ import { tap } from 'rxjs';
 
 @Component({
     selector: 'app-form-editor',
-    standalone: true,
     imports: [
         CommonModule,
         CeNavigationModule,

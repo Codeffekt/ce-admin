@@ -11,9 +11,10 @@ export interface UserApiKeyComponentConfig {
 }
 
 @Component({
-  selector: 'lib-user-api-key',
-  templateUrl: './user-api-key.component.html',
-  styleUrls: ['./user-api-key.component.scss']
+    selector: 'lib-user-api-key',
+    templateUrl: './user-api-key.component.html',
+    styleUrls: ['./user-api-key.component.scss'],
+    standalone: false
 })
 export class UserApiKeyComponent implements OnInit {
 

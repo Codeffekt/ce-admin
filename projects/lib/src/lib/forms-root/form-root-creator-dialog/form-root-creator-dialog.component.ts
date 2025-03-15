@@ -13,18 +13,17 @@ export type FormRootCreatorConfig = {
 
 @UntilDestroy()
 @Component({
-  standalone: true,
-  imports: [
-    CommonModule,
-    MatDialogModule,
-    MatFormFieldModule,
-    MatButtonModule,
-    MatInputModule,
-    ReactiveFormsModule,
-  ],
-  selector: 'lib-form-root-creator-dialog',
-  templateUrl: './form-root-creator-dialog.component.html',
-  styleUrls: ['./form-root-creator-dialog.component.css']
+    imports: [
+        CommonModule,
+        MatDialogModule,
+        MatFormFieldModule,
+        MatButtonModule,
+        MatInputModule,
+        ReactiveFormsModule,
+    ],
+    selector: 'lib-form-root-creator-dialog',
+    templateUrl: './form-root-creator-dialog.component.html',
+    styleUrls: ['./form-root-creator-dialog.component.css']
 })
 export class FormRootCreatorDialogComponent implements OnInit {
 

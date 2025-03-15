@@ -7,12 +7,13 @@ import { FormsVersionDataSource } from './forms-version-datasource';
 import { FormsVersionFormQueryBuilder } from './forms-version-formquery.builder';
 
 @Component({
-  selector: 'lib-forms-version',
-  templateUrl: './forms-version.component.html',
-  styleUrls: ['./forms-version.component.scss'],
-  providers: [
-    CeFormQueryService
-  ]
+    selector: 'lib-forms-version',
+    templateUrl: './forms-version.component.html',
+    styleUrls: ['./forms-version.component.scss'],
+    providers: [
+        CeFormQueryService
+    ],
+    standalone: false
 })
 export class FormsVersionComponent implements OnInit {
 

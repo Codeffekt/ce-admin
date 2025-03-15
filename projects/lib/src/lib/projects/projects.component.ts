@@ -14,12 +14,13 @@ import { ProjectCreatorDialogComponent } from './project-creator-dialog/project-
 import { MatDialog } from '@angular/material/dialog';
 
 @Component({
-  selector: 'ce-admin-projects',
-  templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.scss'],
-  providers: [
-    CeFormQueryService
-  ]
+    selector: 'ce-admin-projects',
+    templateUrl: './projects.component.html',
+    styleUrls: ['./projects.component.scss'],
+    providers: [
+        CeFormQueryService
+    ],
+    standalone: false
 })
 export class ProjectsComponent implements OnInit {
 

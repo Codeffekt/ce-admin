@@ -4,9 +4,10 @@ import { UserValidators } from '../user-validators';
 import { MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
-  selector: 'ce-user-password',
-  templateUrl: './user-password.component.html',
-  styleUrls: ['./user-password.component.scss']
+    selector: 'ce-user-password',
+    templateUrl: './user-password.component.html',
+    styleUrls: ['./user-password.component.scss'],
+    standalone: false
 })
 export class UserPasswordComponent {
 

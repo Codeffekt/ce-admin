@@ -7,9 +7,10 @@ import { AppRunnerService } from '../../../services/app-runner.service';
 
 @UntilDestroy()
 @Component({
-  selector: 'lib-sub-form-editor',
-  templateUrl: './sub-form-editor.component.html',
-  styleUrls: ['./sub-form-editor.component.scss']
+    selector: 'lib-sub-form-editor',
+    templateUrl: './sub-form-editor.component.html',
+    styleUrls: ['./sub-form-editor.component.scss'],
+    standalone: false
 })
 export class SubFormEditorComponent implements OnInit {
 

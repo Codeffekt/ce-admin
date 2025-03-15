@@ -8,9 +8,10 @@ import { UserValidators } from '../user-validators';
 
 @UntilDestroy()
 @Component({
-  selector: 'ce-user-creation-info',
-  templateUrl: './user-creation-info.component.html',
-  styleUrls: ['./user-creation-info.component.css']
+    selector: 'ce-user-creation-info',
+    templateUrl: './user-creation-info.component.html',
+    styleUrls: ['./user-creation-info.component.css'],
+    standalone: false
 })
 export class UserCreationInfoComponent implements OnInit {
 

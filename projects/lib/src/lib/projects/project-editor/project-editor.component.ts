@@ -16,13 +16,14 @@ class FormProjectEditorFormRouteResolver implements ICeFormRouteResolver {
 }
 
 @Component({
-  selector: 'lib-project-editor',
-  templateUrl: './project-editor.component.html',
-  styleUrls: ['./project-editor.component.scss'],
-  providers: [{
-    provide: CeFormRouteResolver,
-    useClass: FormProjectEditorFormRouteResolver
-  }]
+    selector: 'lib-project-editor',
+    templateUrl: './project-editor.component.html',
+    styleUrls: ['./project-editor.component.scss'],
+    providers: [{
+            provide: CeFormRouteResolver,
+            useClass: FormProjectEditorFormRouteResolver
+        }],
+    standalone: false
 })
 export class ProjectEditorComponent implements OnInit {
 

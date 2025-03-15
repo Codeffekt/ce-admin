@@ -4,9 +4,10 @@ import { FormInstance } from '@codeffekt/ce-core-data';
 import { FormEditorOperationsService } from '../form-editor-operation.service';
 
 @Component({
-  selector: 'ce-form-editor-toolbar',
-  templateUrl: './form-editor-toolbar.component.html',
-  styleUrls: ['./form-editor-toolbar.component.scss']
+    selector: 'ce-form-editor-toolbar',
+    templateUrl: './form-editor-toolbar.component.html',
+    styleUrls: ['./form-editor-toolbar.component.scss'],
+    standalone: false
 })
 export class FormEditorToolbarComponent implements OnInit {
 

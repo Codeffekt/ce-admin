@@ -10,9 +10,10 @@ export interface ProcessingCommandInterface<T = any> {
 
 
 @Component({
-  selector: 'lib-processing-dialog',
-  templateUrl: './processing-dialog.component.html',
-  styleUrls: ['./processing-dialog.component.css']
+    selector: 'lib-processing-dialog',
+    templateUrl: './processing-dialog.component.html',
+    styleUrls: ['./processing-dialog.component.css'],
+    standalone: false
 })
 export class ProcessingDialogComponent {
 

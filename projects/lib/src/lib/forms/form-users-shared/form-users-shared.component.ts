@@ -9,10 +9,11 @@ import { FormSharingDatasource } from './form-sharing-datasource';
 import { UserShareableFormQueryBuilder } from './user-shareable-formquery-builder';
 
 @Component({
-  selector: 'ce-admin-form-users-shared',
-  templateUrl: './form-users-shared.component.html',
-  styleUrls: ['./form-users-shared.component.scss'],
-  providers: [CeFormQueryService]
+    selector: 'ce-admin-form-users-shared',
+    templateUrl: './form-users-shared.component.html',
+    styleUrls: ['./form-users-shared.component.scss'],
+    providers: [CeFormQueryService],
+    standalone: false
 })
 export class FormUsersSharedComponent implements OnInit {
 

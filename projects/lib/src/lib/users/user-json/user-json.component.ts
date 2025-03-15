@@ -4,9 +4,10 @@ import { FormAccountWrapper, FormInstance } from '@codeffekt/ce-core-data';
 import { AccountEditorService } from '../../services/account-editor.service';
 
 @Component({
-  selector: 'ce-admin-user-json',
-  templateUrl: './user-json.component.html',
-  styleUrls: ['./user-json.component.scss']
+    selector: 'ce-admin-user-json',
+    templateUrl: './user-json.component.html',
+    styleUrls: ['./user-json.component.scss'],
+    standalone: false
 })
 export class UserJsonComponent implements OnInit {
 

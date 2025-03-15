@@ -12,13 +12,14 @@ export interface FormSharingsDialogConfig {
 }
 
 @Component({
-  selector: 'ce-form-sharing-dialog',
-  templateUrl: './form-sharing-dialog.component.html',
-  styleUrls: ['./form-sharing-dialog.component.scss'],
-  providers: [
-    CeFormQueryService,
-    FormEditorSharingService
-  ]
+    selector: 'ce-form-sharing-dialog',
+    templateUrl: './form-sharing-dialog.component.html',
+    styleUrls: ['./form-sharing-dialog.component.scss'],
+    providers: [
+        CeFormQueryService,
+        FormEditorSharingService
+    ],
+    standalone: false
 })
 export class FormSharingDialogComponent implements OnInit {
 

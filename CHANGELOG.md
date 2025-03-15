@@ -1,3 +1,6 @@
+## [19.0.0]
+ - angular 19
+
 ## [18.0.7]
  - @codeffekt packages updates
 

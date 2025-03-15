@@ -12,9 +12,10 @@ export interface FormTemplateCreatorConfig {
 
 @UntilDestroy()
 @Component({
-  selector: 'app-project-creator-dialog',
-  templateUrl: './project-creator-dialog.component.html',
-  styleUrls: ['./project-creator-dialog.component.scss']
+    selector: 'app-project-creator-dialog',
+    templateUrl: './project-creator-dialog.component.html',
+    styleUrls: ['./project-creator-dialog.component.scss'],
+    standalone: false
 })
 export class ProjectCreatorDialogComponent implements OnInit {
 

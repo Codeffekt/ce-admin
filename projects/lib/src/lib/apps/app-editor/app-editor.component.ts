@@ -3,9 +3,10 @@ import { FormWrapper } from '@codeffekt/ce-core-data';
 import { AppRunnerService } from '../../services/app-runner.service';
 
 @Component({
-  selector: 'lib-app-editor',
-  templateUrl: './app-editor.component.html',
-  styleUrls: ['./app-editor.component.scss']
+    selector: 'lib-app-editor',
+    templateUrl: './app-editor.component.html',
+    styleUrls: ['./app-editor.component.scss'],
+    standalone: false
 })
 export class AppEditorComponent implements OnInit {
 

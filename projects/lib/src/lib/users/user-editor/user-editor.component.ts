@@ -7,9 +7,10 @@ import { AccountEditorService } from '../../services/account-editor.service';
 import { LayoutService } from '@codeffekt/ce-core';
 
 @Component({
-  selector: 'lib-user-editor',
-  templateUrl: './user-editor.component.html',
-  styleUrls: ['./user-editor.component.scss']
+    selector: 'lib-user-editor',
+    templateUrl: './user-editor.component.html',
+    styleUrls: ['./user-editor.component.scss'],
+    standalone: false
 })
 export class UserEditorComponent implements OnInit {
 

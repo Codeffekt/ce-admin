@@ -12,7 +12,8 @@ import { AppsFormQueryBuilder } from "./apps-formquery-builder";
     styleUrls: ["./apps.component.scss"],
     providers: [
         CeFormQueryService
-    ]
+    ],
+    standalone: false
 })
 export class AppsComponent implements OnInit {
 

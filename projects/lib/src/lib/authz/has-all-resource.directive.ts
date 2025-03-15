@@ -2,7 +2,8 @@ import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
 import { AuthZService } from '../services/authz.service';
 
 @Directive({
-  selector: '[hasAllResource]'
+    selector: '[hasAllResource]',
+    standalone: false
 })
 export class HasAllResourceDirective {
 

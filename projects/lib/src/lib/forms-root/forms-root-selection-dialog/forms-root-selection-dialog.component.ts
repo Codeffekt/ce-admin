@@ -6,16 +6,15 @@ import { FormsRootSelectionComponent } from '../forms-root-selection/forms-root-
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-  selector: 'lib-forms-root-selection-dialog',
-  standalone: true,
-  imports: [
-    CommonModule,
-    FormsRootSelectionComponent,
-    MatDialogModule,
-    MatButtonModule,
-  ],
-  templateUrl: './forms-root-selection-dialog.component.html',
-  styleUrls: ['./forms-root-selection-dialog.component.css']
+    selector: 'lib-forms-root-selection-dialog',
+    imports: [
+        CommonModule,
+        FormsRootSelectionComponent,
+        MatDialogModule,
+        MatButtonModule,
+    ],
+    templateUrl: './forms-root-selection-dialog.component.html',
+    styleUrls: ['./forms-root-selection-dialog.component.css']
 })
 export class FormsRootSelectionDialogComponent {
 

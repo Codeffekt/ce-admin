@@ -1,9 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormProjectWrapper } from '@codeffekt/ce-core-data';
 @Component({
-  selector: 'lib-app-project-list-item',
-  templateUrl: './app-project-list-item.component.html',
-  styleUrls: ['./app-project-list-item.component.scss']
+    selector: 'lib-app-project-list-item',
+    templateUrl: './app-project-list-item.component.html',
+    styleUrls: ['./app-project-list-item.component.scss'],
+    standalone: false
 })
 export class AppProjectListItemComponent implements OnInit {
 

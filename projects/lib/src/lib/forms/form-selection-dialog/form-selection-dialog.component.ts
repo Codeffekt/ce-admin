@@ -15,10 +15,11 @@ export interface FormSelectionConfig {
 }
 
 @Component({
-  selector: 'lib-form-selection-dialog',
-  templateUrl: './form-selection-dialog.component.html',
-  styleUrls: ['./form-selection-dialog.component.scss'],
-  providers: [CeFormQueryService]
+    selector: 'lib-form-selection-dialog',
+    templateUrl: './form-selection-dialog.component.html',
+    styleUrls: ['./form-selection-dialog.component.scss'],
+    providers: [CeFormQueryService],
+    standalone: false
 })
 export class FormSelectionDialogComponent implements OnInit {
 

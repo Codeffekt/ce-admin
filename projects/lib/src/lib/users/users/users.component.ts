@@ -7,12 +7,13 @@ import { UsersDataSource } from './users-datasource';
 import { UsersQueryBuilder } from './users-query.builder';
 
 @Component({
-  selector: 'ce-admin-users',
-  templateUrl: './users.component.html',
-  styleUrls: ['./users.component.scss'],
-  providers: [
-    CeFormQueryService
-  ]
+    selector: 'ce-admin-users',
+    templateUrl: './users.component.html',
+    styleUrls: ['./users.component.scss'],
+    providers: [
+        CeFormQueryService
+    ],
+    standalone: false
 })
 export class UsersComponent implements OnInit {
 

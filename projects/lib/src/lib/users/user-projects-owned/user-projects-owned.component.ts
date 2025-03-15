@@ -6,10 +6,11 @@ import { FormOwnedDatasource } from '../../forms/form-users-shared/form-owned-da
 import { FormOwnedFormQueryBuilder } from '../../forms/form-users-shared/form-owned-formquery-builder';
 
 @Component({
-  selector: 'ce-admin-user-projects-owned',
-  templateUrl: './user-projects-owned.component.html',
-  styleUrls: ['./user-projects-owned.component.scss'],
-  providers: [CeFormQueryService]
+    selector: 'ce-admin-user-projects-owned',
+    templateUrl: './user-projects-owned.component.html',
+    styleUrls: ['./user-projects-owned.component.scss'],
+    providers: [CeFormQueryService],
+    standalone: false
 })
 export class UserProjectsOwnedComponent implements OnInit {
 

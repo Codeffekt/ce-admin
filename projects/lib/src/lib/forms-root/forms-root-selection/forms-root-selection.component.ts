@@ -11,19 +11,18 @@ import { Observable } from 'rxjs';
 import { FormWrapper } from '@codeffekt/ce-core-data';
 
 @Component({
-  selector: 'lib-forms-root-selection',
-  standalone: true,
-  imports: [
-    CommonModule,
-    CeFormQueryWrapperModule,
-    CeListModule,
-    CeNgReallyModule,
-  ],
-  templateUrl: './forms-root-selection.component.html',
-  styleUrls: ['./forms-root-selection.component.css'],
-  providers: [
-    CeFormQueryService,    
-  ]
+    selector: 'lib-forms-root-selection',
+    imports: [
+        CommonModule,
+        CeFormQueryWrapperModule,
+        CeListModule,
+        CeNgReallyModule,
+    ],
+    templateUrl: './forms-root-selection.component.html',
+    styleUrls: ['./forms-root-selection.component.css'],
+    providers: [
+        CeFormQueryService,
+    ]
 })
 export class FormsRootSelectionComponent implements OnInit {
 

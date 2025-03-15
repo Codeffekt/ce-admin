@@ -11,23 +11,22 @@ import { FormsRootSelectionDialogComponent, FormsRootSelectionDialogService } fr
 import { MatDialogModule } from '@angular/material/dialog';
 
 @Component({
-  standalone: true,
-  imports: [
-    CommonModule,
-    CeFormCreatorModule,
-    CeNavigationModule,
-    MatDialogModule,
-    FormsRootSelectionDialogComponent,
-  ],
-  providers: [
-    {
-      provide: RootSelectionDialogService,
-      useClass: FormsRootSelectionDialogService,
-    }
-  ],
-  selector: 'lib-space-editor',
-  templateUrl: './space-editor.component.html',
-  styleUrls: ['./space-editor.component.css']
+    imports: [
+        CommonModule,
+        CeFormCreatorModule,
+        CeNavigationModule,
+        MatDialogModule,
+        FormsRootSelectionDialogComponent,
+    ],
+    providers: [
+        {
+            provide: RootSelectionDialogService,
+            useClass: FormsRootSelectionDialogService,
+        }
+    ],
+    selector: 'lib-space-editor',
+    templateUrl: './space-editor.component.html',
+    styleUrls: ['./space-editor.component.css']
 })
 export class SpaceEditorComponent implements OnInit {
 

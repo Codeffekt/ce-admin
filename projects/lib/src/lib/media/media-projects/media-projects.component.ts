@@ -4,12 +4,13 @@ import { FormProjectWrapper } from '@codeffekt/ce-core-data';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-media-projects',
-  templateUrl: './media-projects.component.html',
-  styleUrls: ['./media-projects.component.scss'],
-  providers: [
-    CeFormQueryService,    
-  ]
+    selector: 'app-media-projects',
+    templateUrl: './media-projects.component.html',
+    styleUrls: ['./media-projects.component.scss'],
+    providers: [
+        CeFormQueryService,
+    ],
+    standalone: false
 })
 export class MediaProjectsComponent implements OnInit {  
 

@@ -7,17 +7,16 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-  selector: 'lib-list-item-space',
-  standalone: true,
-  imports: [
-    CommonModule,
-    CeListModule,
-    CePipesModule,
-    CeFormsPipesModule,
-    MatButtonModule,
-  ],
-  templateUrl: './list-item-space.component.html',
-  styleUrls: ['./list-item-space.component.scss']
+    selector: 'lib-list-item-space',
+    imports: [
+        CommonModule,
+        CeListModule,
+        CePipesModule,
+        CeFormsPipesModule,
+        MatButtonModule,
+    ],
+    templateUrl: './list-item-space.component.html',
+    styleUrls: ['./list-item-space.component.scss']
 })
 export class ListItemSpaceComponent implements OnInit {
 

@@ -7,9 +7,10 @@ import { CeFormsService, LayoutService } from '@codeffekt/ce-core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'lib-project-topbar',
-  templateUrl: './project-topbar.component.html',
-  styleUrls: ['./project-topbar.component.css']
+    selector: 'lib-project-topbar',
+    templateUrl: './project-topbar.component.html',
+    styleUrls: ['./project-topbar.component.css'],
+    standalone: false
 })
 export class ProjectTopbarComponent {
 

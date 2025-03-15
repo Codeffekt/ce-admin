@@ -2,9 +2,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { AccountSettings } from '@codeffekt/ce-core-data';
 
 @Component({
-  selector: 'ce-admin-user-actions',
-  templateUrl: './user-actions.component.html',
-  styleUrls: ['./user-actions.component.scss']
+    selector: 'ce-admin-user-actions',
+    templateUrl: './user-actions.component.html',
+    styleUrls: ['./user-actions.component.scss'],
+    standalone: false
 })
 export class UserActionsComponent implements OnInit {
 

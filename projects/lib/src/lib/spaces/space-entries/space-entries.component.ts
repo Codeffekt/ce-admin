@@ -17,23 +17,22 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-  selector: 'lib-space-entries',
-  standalone: true,
-  imports: [
-    CommonModule,
-    MatIconModule,
-    MatButtonModule,
-    CeNavigationModule,
-    CeFormQueryWrapperModule,
-    CeListModule,
-    CeNgReallyModule,  
-    CeFormsPipesModule,  
-  ],
-  templateUrl: './space-entries.component.html',
-  styleUrl: './space-entries.component.css',
-  providers: [
-    CeFormQueryService,    
-  ]
+    selector: 'lib-space-entries',
+    imports: [
+        CommonModule,
+        MatIconModule,
+        MatButtonModule,
+        CeNavigationModule,
+        CeFormQueryWrapperModule,
+        CeListModule,
+        CeNgReallyModule,
+        CeFormsPipesModule,
+    ],
+    templateUrl: './space-entries.component.html',
+    styleUrl: './space-entries.component.css',
+    providers: [
+        CeFormQueryService,
+    ]
 })
 export class SpaceEntriesComponent implements OnInit {
 

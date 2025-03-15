@@ -18,9 +18,10 @@ const SELECT_CHOICES_LIMIT = 50;
 
 @UntilDestroy()
 @Component({
-  selector: 'lib-form-creator-dialog',
-  templateUrl: './form-creator-dialog.component.html',
-  styleUrls: ['./form-creator-dialog.component.css']
+    selector: 'lib-form-creator-dialog',
+    templateUrl: './form-creator-dialog.component.html',
+    styleUrls: ['./form-creator-dialog.component.css'],
+    standalone: false
 })
 export class FormCreatorDialogComponent implements OnInit {
 

@@ -8,12 +8,14 @@ import { UserShareableFormQueryBuilder } from '../../form-users-shared';
 import { CeFormEditorOwnerService } from '../form-editor-owner.service';
 
 @Component({
-  selector: 'ce-form-editor-details',
-  templateUrl: './form-editor-details.component.html',
-  styleUrls: ['./form-editor-details.component.scss'],
-  providers: [
-    CeFormQueryService,
-    CeFormEditorOwnerService]
+    selector: 'ce-form-editor-details',
+    templateUrl: './form-editor-details.component.html',
+    styleUrls: ['./form-editor-details.component.scss'],
+    providers: [
+        CeFormQueryService,
+        CeFormEditorOwnerService
+    ],
+    standalone: false
 })
 export class FormEditorDetailsComponent implements OnInit {
 

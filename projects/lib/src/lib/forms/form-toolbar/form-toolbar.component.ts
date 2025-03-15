@@ -7,12 +7,13 @@ import { filter } from 'rxjs';
 import { FormEditorOperationsService } from '../form-editor/form-editor-operation.service';
 
 @Component({
-  selector: 'lib-form-toolbar',
-  templateUrl: './form-toolbar.component.html',
-  styleUrls: ['./form-toolbar.component.scss'],
-  providers: [
-    FormEditorOperationsService,
-  ]
+    selector: 'lib-form-toolbar',
+    templateUrl: './form-toolbar.component.html',
+    styleUrls: ['./form-toolbar.component.scss'],
+    providers: [
+        FormEditorOperationsService,
+    ],
+    standalone: false
 })
 export class FormToolbarComponent {
 

@@ -56,14 +56,15 @@ class FormEditorFormRouteResolver implements ICeFormRouteResolver {
 
 @UntilDestroy()
 @Component({
-  selector: 'lib-app-form-editor',
-  templateUrl: './app-form-editor.component.html',
-  styleUrls: ['./app-form-editor.component.scss'],
-  providers: [{
-    provide: CeFormRouteResolver,
-    useClass: FormEditorFormRouteResolver,
-    deps: [AppRunnerService]
-  }]
+    selector: 'lib-app-form-editor',
+    templateUrl: './app-form-editor.component.html',
+    styleUrls: ['./app-form-editor.component.scss'],
+    providers: [{
+            provide: CeFormRouteResolver,
+            useClass: FormEditorFormRouteResolver,
+            deps: [AppRunnerService]
+        }],
+    standalone: false
 })
 export class AppFormEditorComponent implements OnInit {
 

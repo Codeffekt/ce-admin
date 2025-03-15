@@ -6,9 +6,10 @@ import { firstValueFrom } from 'rxjs';
 import { CeAdminRouteResolver, CE_ADMIN_ROUTE_RESOLVER } from '../../ce-admin-route.resolver';
 
 @Component({
-  selector: 'lib-forms-version-editor',
-  templateUrl: './forms-version-editor.component.html',
-  styleUrls: ['./forms-version-editor.component.scss']
+    selector: 'lib-forms-version-editor',
+    templateUrl: './forms-version-editor.component.html',
+    styleUrls: ['./forms-version-editor.component.scss'],
+    standalone: false
 })
 export class FormsVersionEditorComponent implements OnInit {
 

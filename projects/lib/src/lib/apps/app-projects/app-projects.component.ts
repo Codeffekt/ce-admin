@@ -6,12 +6,13 @@ import { Observable } from 'rxjs';
 import { AppRunnerService } from '../../services/app-runner.service';
 
 @Component({
-  selector: 'lib-app-projects',
-  templateUrl: './app-projects.component.html',
-  styleUrls: ['./app-projects.component.scss'],
-  providers: [
-    CeFormQueryService
-  ]
+    selector: 'lib-app-projects',
+    templateUrl: './app-projects.component.html',
+    styleUrls: ['./app-projects.component.scss'],
+    providers: [
+        CeFormQueryService
+    ],
+    standalone: false
 })
 export class AppProjectsComponent implements OnInit {
 

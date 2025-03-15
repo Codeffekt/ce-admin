@@ -2,7 +2,8 @@ import { Directive, OnInit, TemplateRef, ViewContainerRef } from '@angular/core'
 import { AuthZService } from '../services/authz.service';
 
 @Directive({
-  selector: '[isAdmin]'
+    selector: '[isAdmin]',
+    standalone: false
 })
 export class IsAdminDirective implements OnInit {
 

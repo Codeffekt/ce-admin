@@ -8,9 +8,10 @@ import { MatDrawer } from '@angular/material/sidenav';
 import { LayoutService } from '@codeffekt/ce-core';
 
 @Component({
-  selector: 'ce-admin-form-home',
-  templateUrl: './form-home.component.html',
-  styleUrls: ['./form-home.component.css'],
+    selector: 'ce-admin-form-home',
+    templateUrl: './form-home.component.html',
+    styleUrls: ['./form-home.component.css'],
+    standalone: false
 })
 export class FormHomeComponent implements OnInit, AfterViewInit, OnDestroy {
 

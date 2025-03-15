@@ -3,9 +3,10 @@ import { CeAccountService, IListItemContent } from '@codeffekt/ce-core';
 import { AccountSettings, FormSharingWrapper } from '@codeffekt/ce-core-data';
 
 @Component({
-  selector: 'ce-form-user-sharing-list-item',
-  templateUrl: './form-user-sharing-list-item.component.html',
-  styleUrls: ['./form-user-sharing-list-item.component.scss']
+    selector: 'ce-form-user-sharing-list-item',
+    templateUrl: './form-user-sharing-list-item.component.html',
+    styleUrls: ['./form-user-sharing-list-item.component.scss'],
+    standalone: false
 })
 export class FormUserSharingListItemComponent implements OnInit, IListItemContent {
 

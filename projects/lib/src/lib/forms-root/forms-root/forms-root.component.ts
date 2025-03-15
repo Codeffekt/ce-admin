@@ -9,12 +9,13 @@ import { MatDialog } from '@angular/material/dialog';
 import { CE_ADMIN_ROUTE_RESOLVER, CeAdminRouteResolver } from '../../ce-admin-route.resolver';
 
 @Component({
-  selector: 'ce-admin-forms-root',
-  templateUrl: './forms-root.component.html',
-  styleUrls: ['./forms-root.component.css'],
-  providers: [
-    CeFormQueryService
-  ]
+    selector: 'ce-admin-forms-root',
+    templateUrl: './forms-root.component.html',
+    styleUrls: ['./forms-root.component.css'],
+    providers: [
+        CeFormQueryService
+    ],
+    standalone: false
 })
 export class FormsRootComponent implements OnInit {
 

@@ -4,7 +4,8 @@ import { FormActionDefault } from "@codeffekt/ce-core";
 @Component({
     selector: 'ce-admin-main-menu',
     templateUrl: './main-menu.component.html',
-    styleUrls: ['./main-menu.component.scss']
+    styleUrls: ['./main-menu.component.scss'],
+    standalone: false
 })
 export class CeAdminMainMenuComponent implements AfterViewInit {
 

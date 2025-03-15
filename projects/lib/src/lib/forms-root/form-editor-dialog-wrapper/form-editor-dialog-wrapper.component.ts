@@ -11,9 +11,10 @@ const DEFAULT_CONFIG: FormEditorDialogWrapperConfig = {
 }
 
 @Component({
-  selector: 'ce-form-editor-dialog-wrapper',
-  templateUrl: './form-editor-dialog-wrapper.component.html',
-  styleUrls: ['./form-editor-dialog-wrapper.component.scss']
+    selector: 'ce-form-editor-dialog-wrapper',
+    templateUrl: './form-editor-dialog-wrapper.component.html',
+    styleUrls: ['./form-editor-dialog-wrapper.component.scss'],
+    standalone: false
 })
 export class FormEditorDialogWrapperComponent implements OnInit {
 

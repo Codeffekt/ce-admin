@@ -2,7 +2,8 @@ import { Directive, TemplateRef, ViewContainerRef } from '@angular/core';
 import { AuthZService } from '../services/authz.service';
 
 @Directive({
-  selector: '[isNotSuperAdmin]'
+    selector: '[isNotSuperAdmin]',
+    standalone: false
 })
 export class IsNotSuperAdminDirective {
 

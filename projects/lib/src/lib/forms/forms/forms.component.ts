@@ -6,12 +6,13 @@ import { Observable } from 'rxjs';
 import { FormsFormQueryBuilder } from './forms-formquery-builder';
 
 @Component({
-  selector: 'ce-admin-forms',
-  templateUrl: './forms.component.html',
-  styleUrls: ['./forms.component.css'],
-  providers: [
-    CeFormQueryService,
-  ]
+    selector: 'ce-admin-forms',
+    templateUrl: './forms.component.html',
+    styleUrls: ['./forms.component.css'],
+    providers: [
+        CeFormQueryService,
+    ],
+    standalone: false
 })
 export class FormsComponent implements OnInit {
 
