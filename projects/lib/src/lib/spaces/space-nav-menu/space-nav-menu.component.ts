@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
-import { CeFormRouteResolver, CeFormsPipesModule, FormInfo, SpaceFormPathService } from '@codeffekt/ce-core';
+import { CeFormRouteResolver, CeFormsPipesModule, FormInfo, SpaceFormContextService } from '@codeffekt/ce-core';
 
 @Component({
     selector: 'lib-space-nav-menu',
@@ -19,7 +19,7 @@ import { CeFormRouteResolver, CeFormsPipesModule, FormInfo, SpaceFormPathService
 })
 export class SpaceNavMenuComponent {
 
-  private formService = inject(SpaceFormPathService);
+  private formService = inject(SpaceFormContextService);
   private formRouteResolver = inject(CeFormRouteResolver);
   currentForm$ = this.formService.onCurrentForm();
   currentForms$ = this.formService.onCurrentForms();

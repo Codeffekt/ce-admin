@@ -3,13 +3,13 @@ import { MatDialog } from '@angular/material/dialog';
 import {
   CeFormQueryService,
   CeFormsService,
+  FormSelectionDialogComponent,
   LayoutService
 } from '@codeffekt/ce-core';
 import { AccountSettings, FormWrapper, FormSharingWrapper, FormProject } from '@codeffekt/ce-core-data';
 import { filter, Observable } from 'rxjs';
 import { FormShareableFormQueryBuilder } from '../../forms/form-users-shared/form-shareable-formquery-builder';
 import { FormSharingDatasource } from '../../forms/form-users-shared/form-sharing-datasource';
-import { FormSelectionDialogComponent } from '../../forms/form-selection-dialog/form-selection-dialog.component';
 import { FormSharingService } from '../../services/form-sharing.service';
 
 @Component({

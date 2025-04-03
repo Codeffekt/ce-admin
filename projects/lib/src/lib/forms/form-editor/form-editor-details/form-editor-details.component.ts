@@ -1,9 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { CeFormQueryService, LayoutService } from '@codeffekt/ce-core';
+import { CeFormQueryService, FormSelectionDialogComponent, LayoutService } from '@codeffekt/ce-core';
 import { FormAccountWrapper, FormInstance } from '@codeffekt/ce-core-data';
 import { Observable, filter } from 'rxjs';
-import { FormSelectionDialogComponent } from '../../form-selection-dialog/form-selection-dialog.component';
 import { UserShareableFormQueryBuilder } from '../../form-users-shared';
 import { CeFormEditorOwnerService } from '../form-editor-owner.service';
 

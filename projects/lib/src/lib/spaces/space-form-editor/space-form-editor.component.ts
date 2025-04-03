@@ -5,11 +5,9 @@ import {
     CeFormUpdaterService,
     CeGridModule, CeListModule, CeNavigationModule, 
     FormInfo,
-    SpaceFormPathService
-} from '@codeffekt/ce-core';
+    SpaceFormContextService} from '@codeffekt/ce-core';
 import { SpaceFormRouteResolver } from './space-form-route-resolver.service';
 import { SpaceNavMenuComponent } from '../space-nav-menu/space-nav-menu.component';
-import { tap } from 'rxjs';
 
 @Component({
     selector: 'app-form-editor',
@@ -32,7 +30,7 @@ import { tap } from 'rxjs';
 })
 export class SpaceFormEditorComponent {
 
-    private formService = inject(SpaceFormPathService);
+    private formService = inject(SpaceFormContextService);
     private formRouteResolver = inject(CeFormRouteResolver);
     private formUpdaterService = inject(CeFormUpdaterService);
     currentForm$ = this.formService.onCurrentForm();

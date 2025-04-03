@@ -1,19 +1,27 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { CeFormQueryService, CeFormsService, LayoutService } from '@codeffekt/ce-core';
-import { FormAccountWrapper, FormInstance, FormSharingWrapper, IndexType } from '@codeffekt/ce-core-data';
+import { CeFormQueryService, CeFormsService, CeListModule, CeNgReallyModule, FormSelectionDialogComponent, LayoutService } from '@codeffekt/ce-core';
+import { FormAccountWrapper, FormInstance, FormSharingWrapper } from '@codeffekt/ce-core-data';
 import { filter, Observable } from 'rxjs';
 import { FormSharingService } from '../../services/form-sharing.service';
-import { FormSelectionDialogComponent } from '../form-selection-dialog/form-selection-dialog.component';
 import { FormSharingDatasource } from './form-sharing-datasource';
 import { UserShareableFormQueryBuilder } from './user-shareable-formquery-builder';
+import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
 
 @Component({
-    selector: 'ce-admin-form-users-shared',
-    templateUrl: './form-users-shared.component.html',
-    styleUrls: ['./form-users-shared.component.scss'],
-    providers: [CeFormQueryService],
-    standalone: false
+  selector: 'ce-admin-form-users-shared',
+  templateUrl: './form-users-shared.component.html',
+  styleUrls: ['./form-users-shared.component.scss'],
+  imports: [
+    CommonModule,
+    CeListModule,
+    MatButtonModule,
+    CeNgReallyModule,
+    MatMenuModule,
+  ],
+  providers: [CeFormQueryService],
 })
 export class FormUsersSharedComponent implements OnInit {
 
@@ -33,11 +41,11 @@ export class FormUsersSharedComponent implements OnInit {
     this.initDataSource();
   }
 
-  openUsersSelectionDialog() {    
+  openUsersSelectionDialog() {
     const ref = this.dialog.open(
       FormSelectionDialogComponent,
       FormSelectionDialogComponent.createDialog({
-        filterForms : [],
+        filterForms: [],
         mainTitle: "Sélection des utilisateurs à ajouter",
         listTitle: "Liste des utilisateurs",
         queryBuilder: UserShareableFormQueryBuilder.forForm(this.form),
@@ -75,7 +83,7 @@ export class FormUsersSharedComponent implements OnInit {
       this.formSharingService.createFormQueryBuilderForForm(this.form)
     );
     this.queryService.setDatasource(new FormSharingDatasource(this.formsService));
-    this.formsSharing$ = this.queryService.connect();   
+    this.formsSharing$ = this.queryService.connect();
     this.queryService.load();
   }
 

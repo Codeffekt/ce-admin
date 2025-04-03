@@ -3,8 +3,7 @@ import { FormEditorComponent } from "./form-editor.component";
 import { CommonModule } from "@angular/common";
 import { CeEditTimeModule, CeFeatureBarModule, CeFormEditorModule, CeFormModule, CeLayoutModule, CeNavigationModule, CeNgReallyModule, CePipesModule } from "@codeffekt/ce-core";
 import { MatIconModule } from "@angular/material/icon";
-import { FormUserOwnerModule } from "../form-user-owner";
-import { FormUsersSharedModule } from "../form-users-shared/form-users-shared.module";
+import { FormUserOwnerComponent } from "../form-user-owner";
 import { FormEditorRoutingModule } from "./form-editor-routing.module";
 import { FormEditorDetailsComponent } from './form-editor-details/form-editor-details.component';
 import { DetailsPropComponent } from './form-editor-details/details-prop/details-prop.component';
@@ -18,6 +17,7 @@ import { MatTooltipModule } from "@angular/material/tooltip";
 import { MatChipsModule } from '@angular/material/chips';
 import { CeBarcodeModule } from "@codeffekt/ce-barcode";
 import { CeFormSharingDialogModule } from "./form-sharing-dialog/form-sharing-dialog.module";
+import { FormUsersSharedComponent } from "../form-users-shared/form-users-shared.component";
 
 @NgModule({
     declarations: [
@@ -38,8 +38,8 @@ import { CeFormSharingDialogModule } from "./form-sharing-dialog/form-sharing-di
         MatTabsModule,
         MatButtonModule,
         MatMenuModule,
-        FormUserOwnerModule,
-        FormUsersSharedModule,
+        FormUserOwnerComponent,
+        FormUsersSharedComponent,
         CeFormSharingDialogModule,
         CeLayoutModule,
         CeFormEditorModule,

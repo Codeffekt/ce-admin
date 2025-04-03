@@ -1,16 +1,23 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { CeFormsService, LayoutService } from '@codeffekt/ce-core';
+import { CeFormsService, CeListModule, FormSelectionDialogComponent, LayoutService } from '@codeffekt/ce-core';
 import { FormAccountWrapper, FormInstance, IndexType } from '@codeffekt/ce-core-data';
 import { filter, map, Observable, startWith, Subject, switchMap } from 'rxjs';
-import { FormSelectionDialogComponent } from '../form-selection-dialog/form-selection-dialog.component';
 import { UserShareableFormQueryBuilder } from '../form-users-shared';
+import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
 
 @Component({
-    selector: 'ce-admin-form-user-owner',
-    templateUrl: './form-user-owner.component.html',
-    styleUrls: ['./form-user-owner.component.scss'],
-    standalone: false
+  selector: 'ce-admin-form-user-owner',
+  templateUrl: './form-user-owner.component.html',
+  styleUrls: ['./form-user-owner.component.scss'],
+  imports: [
+    CommonModule,
+    CeListModule,
+    MatButtonModule,
+    MatMenuModule,
+  ]
 })
 export class FormUserOwnerComponent implements OnInit {
 
@@ -29,7 +36,7 @@ export class FormUserOwnerComponent implements OnInit {
 
   ngOnInit(): void {
     this.listenToOwner();
-  }  
+  }
 
   changeOwner() {
     const ref = this.dialog.open(
