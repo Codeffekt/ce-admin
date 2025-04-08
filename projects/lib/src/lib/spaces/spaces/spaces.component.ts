@@ -3,21 +3,19 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import {
   CeBreadcrumbsService, 
-  CeFormDataService, 
   CeFormQueryService, CeFormQueryWrapperModule,
   CeFormsPipesModule,
   CeFormsService, CeListModule,
   CeNavigationModule, CeNgReallyModule,
+  FormWrappersDataSource,
   LayoutService,
-  SpacesEditorFormatDatasource,
   SpacesEditorFormatQueryBuilder
 } from '@codeffekt/ce-core';
-import { FormSpaceEditorFormat, FormSpaceEditorFormatWrapper, FormUtils, FormWrapper } from '@codeffekt/ce-core-data';
+import { FormSpaceEditorFormat, FormUtils, FormWrapper } from '@codeffekt/ce-core-data';
 import { Observable } from 'rxjs';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
-import { FormDataService } from '../../services/form-data.service';
 
 @Component({
     imports: [
@@ -42,11 +40,11 @@ export class SpacesComponent {
   @Input() formWrapper!: FormWrapper;
   @Output() formChanges = new EventEmitter<FormWrapper>();
 
-  projectsDataSource!: SpacesEditorFormatDatasource;
-  projects$!: Observable<readonly FormSpaceEditorFormatWrapper[]>;
+  projectsDataSource!: FormWrappersDataSource;
+  projects$!: Observable<readonly FormWrapper[]>;
 
   constructor(
-    private readonly queryService: CeFormQueryService<FormSpaceEditorFormatWrapper>,
+    private readonly queryService: CeFormQueryService<FormWrapper>,
     private router: Router,
     private route: ActivatedRoute,
     private layout: LayoutService,
@@ -54,7 +52,7 @@ export class SpacesComponent {
     private bcService: CeBreadcrumbsService,
   ) {
     this.bcService.setItems([]);
-    this.projectsDataSource = new SpacesEditorFormatDatasource(formsService);
+    this.projectsDataSource = new FormWrappersDataSource(formsService);
     this.queryService.setDatasource(this.projectsDataSource);
   }
 
@@ -70,16 +68,16 @@ export class SpacesComponent {
     this.queryService.load();
   }
 
-  onEdit(space: FormSpaceEditorFormatWrapper) {
+  onEdit(space: FormWrapper) {
     this.router.navigate(['editor', space.core.id], { relativeTo: this.route });
   }
 
-  onNavigate(space: FormSpaceEditorFormatWrapper) {
+  onNavigate(space: FormWrapper) {
     const entryPoint = this.retrieveEntryPoint(space);
     this.router.navigate(['entries', space.core.id], { relativeTo: this.route });
   }
 
-  idTrackBy(index: number, item: FormSpaceEditorFormatWrapper){
+  idTrackBy(index: number, item: FormWrapper){
     return item.core.id; 
  }
 
@@ -94,7 +92,7 @@ export class SpacesComponent {
     }
   }
 
-  async delete(project: FormSpaceEditorFormatWrapper) {
+  async delete(project: FormWrapper) {
     try {
       await this.formsService.deleteForm(project.core.id);
       this.layout.showSingleMessage(`L'espace ${project.core.id} à été supprimé.`);
@@ -112,7 +110,7 @@ export class SpacesComponent {
     this.queryService.load();
   }
 
-  private retrieveEntryPoint(project: FormSpaceEditorFormatWrapper) {
+  private retrieveEntryPoint(project: FormWrapper) {
     const contextForm = FormUtils.getFormField("context", project.core);
     return FormWrapper.getFormValue("entryPoint", contextForm);
   }
