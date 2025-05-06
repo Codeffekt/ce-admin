@@ -2,12 +2,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
-  CeAuthModule,
   CeCoreModule,
   FormActionDefault
 } from '@codeffekt/ce-core';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import {
   CeAdminModule
 } from '@codeffekt/ce-admin';
@@ -18,13 +15,9 @@ import { NgxsModule } from '@ngxs/store';
 import { HomeActionDefaultService } from './home/home-action-default.service';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
   imports: [
     CommonModule,
-    BrowserModule,
-    AppRoutingModule,
+    BrowserModule,    
     BrowserAnimationsModule,
     MatSnackBarModule,
     NgxsModule.forRoot([], {
@@ -34,8 +27,7 @@ import { HomeActionDefaultService } from './home/home-action-default.service';
       }
     }),
     NgxsReduxDevtoolsPluginModule.forRoot(),
-    CeAuthModule,
-    CeCoreModule,
+    CeCoreModule.forRoot(),
     CeAdminModule.forRoot(),
   ],
   providers: [
@@ -44,6 +36,5 @@ import { HomeActionDefaultService } from './home/home-action-default.service';
       useClass: HomeActionDefaultService,
     },
   ],
-  bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,9 +1,8 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 import { LogoutComponent } from '@codeffekt/ce-core';
 import { AdminGuard } from '@codeffekt/ce-admin';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: '',
     redirectTo: 'home',
@@ -23,9 +22,3 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
   }
 ];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes/* , { bindToComponentInputs: true } */)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
