@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { ProjectsComponent } from './projects.component';
 import { ProjectCreatorDialogComponent } from './project-creator-dialog/project-creator-dialog.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ProjectEditorComponent } from './project-editor/project-editor.component';
 import { ProjectAccountsComponent } from './project-accounts/project-accounts.component';
 import {
   CeFormDataService, CeFormQueryWrapperModule,
@@ -19,7 +18,6 @@ import { ProjectNewComponent } from './project-new/project-new.component';
 import { CeAdminAuthZModule } from '../authz/authz.module';
 import { ListItemProjectComponent } from '../list-item-project/list-item-project/list-item-project.component';
 import { FormProject } from '@codeffekt/ce-core-data';
-import { FormRouteResolver } from '../services/form-route.resolver';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -39,7 +37,6 @@ import { ProjectsRoutingModule } from './projects-routing.module';
   declarations: [
     ProjectsComponent,
     ProjectCreatorDialogComponent,
-    ProjectEditorComponent,
     ProjectAccountsComponent,
     ProjectNewComponent,
     ProjectTopbarComponent
@@ -75,7 +72,6 @@ import { ProjectsRoutingModule } from './projects-routing.module';
   exports: [
     ProjectsComponent,
     ProjectCreatorDialogComponent,
-    ProjectEditorComponent,
     ProjectAccountsComponent,
     ProjectTopbarComponent,
   ],

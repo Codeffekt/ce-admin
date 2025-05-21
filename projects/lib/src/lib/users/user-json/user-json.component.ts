@@ -2,12 +2,17 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormAccountWrapper, FormInstance } from '@codeffekt/ce-core-data';
 import { AccountEditorService } from '../../services/account-editor.service';
+import { CommonModule } from '@angular/common';
+import { CeCodeEditorComponent } from '@codeffekt/ce-code-editor';
 
 @Component({
     selector: 'ce-admin-user-json',
     templateUrl: './user-json.component.html',
     styleUrls: ['./user-json.component.scss'],
-    standalone: false
+    imports: [
+      CommonModule,
+      CeCodeEditorComponent,
+    ]
 })
 export class UserJsonComponent implements OnInit {
 

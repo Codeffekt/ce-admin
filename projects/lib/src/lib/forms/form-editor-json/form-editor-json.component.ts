@@ -1,5 +1,7 @@
+import { CommonModule } from '@angular/common';
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
-import { MatDialogConfig, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogConfig, MAT_DIALOG_DATA, MatDialogRef, MatDialogModule } from '@angular/material/dialog';
 import { CeCodeEditorComponent } from '@codeffekt/ce-code-editor';
 import { FormInstance } from '@codeffekt/ce-core-data';
 
@@ -11,7 +13,12 @@ export interface FormEditorJsonConfig {
     selector: 'ce-form-editor-json',
     templateUrl: './form-editor-json.component.html',
     styleUrls: ['./form-editor-json.component.scss'],
-    standalone: false
+    imports: [
+      CommonModule,
+      MatDialogModule,
+      CeCodeEditorComponent,
+      MatButtonModule,
+    ]
 })
 export class FormEditorJsonDialogComponent implements OnInit {
 

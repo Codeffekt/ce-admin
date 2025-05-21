@@ -1,9 +1,13 @@
 import { Component, Injectable, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ActivatedRoute } from '@angular/router';
-import { CeFormRouteParams, CeFormRouteResolver, CeProjectsService, ICeFormRouteResolver } from '@codeffekt/ce-core';
+import { ActivatedRoute, RouterModule } from '@angular/router';
+import { CeFormRouteParams, CeFormRouteResolver, CeFormsModule, CeNavigationModule, CeProjectsService, ICeFormRouteResolver } from '@codeffekt/ce-core';
 import { FormInstance, IndexType, FormProjectWrapper, FormWrapper } from '@codeffekt/ce-core-data';
 import { ConfigurationService } from '../../services/configuration.service';
+import { CommonModule } from '@angular/common';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatButtonModule } from '@angular/material/button';
+import { CeCodeEditorComponent } from '@codeffekt/ce-code-editor';
 
 @Injectable()
 class FormProjectEditorFormRouteResolver implements ICeFormRouteResolver {
@@ -16,24 +20,32 @@ class FormProjectEditorFormRouteResolver implements ICeFormRouteResolver {
 }
 
 @Component({
-    selector: 'lib-project-editor',
-    templateUrl: './project-editor.component.html',
-    styleUrls: ['./project-editor.component.scss'],
-    providers: [{
-            provide: CeFormRouteResolver,
-            useClass: FormProjectEditorFormRouteResolver
-        }],
-    standalone: false
+  selector: 'lib-project-editor',
+  templateUrl: './project-editor.component.html',
+  styleUrls: ['./project-editor.component.scss'],
+  providers: [{
+    provide: CeFormRouteResolver,
+    useClass: FormProjectEditorFormRouteResolver
+  }],
+  imports: [
+    CommonModule,
+    CeNavigationModule,
+    MatTabsModule,
+    CeFormsModule,
+    MatButtonModule,
+    RouterModule,
+    CeCodeEditorComponent,
+  ]
 })
 export class ProjectEditorComponent implements OnInit {
 
   project!: FormProjectWrapper;
-  projectStr!: string;  
+  projectStr!: string;
   canSave!: boolean;
 
   constructor(
     private route: ActivatedRoute,
-    private snackBar: MatSnackBar,    
+    private snackBar: MatSnackBar,
     private projectService: CeProjectsService,
     private configurationService: ConfigurationService
   ) { }
@@ -50,32 +62,32 @@ export class ProjectEditorComponent implements OnInit {
     this.updateCodeEditor();
   }
 
-  async saveCode(project: FormProjectWrapper) {      
-    this.project = project;    
+  async saveCode(project: FormProjectWrapper) {
+    this.project = project;
     this.doSave();
-    this.updateForm();    
+    this.updateForm();
   }
 
   private async doSave() {
     // await this.projectService.updateProject(this.project);    
     this.projectService.setCurrentProject(this.project);
-    this.toast("Modifications sauvegardées");    
+    this.toast("Modifications sauvegardées");
   }
 
-  formChanges(formWrapper: FormWrapper) {    
+  formChanges(formWrapper: FormWrapper) {
     this.canSave =
-      formWrapper.props.name !== this.project.props.name; 
+      formWrapper.props.name !== this.project.props.name;
   }
 
-  private updateCodeEditor() {    
-    this.projectStr = JSON.stringify(this.project, null, 2);      
+  private updateCodeEditor() {
+    this.projectStr = JSON.stringify(this.project, null, 2);
   }
 
   private updateForm() {
     // const projectFacade = new ProjectFormFacade(this.configurationService);    
   }
 
-  private updateProject() {    
+  private updateProject() {
   }
 
   private toast(msg: string) {
