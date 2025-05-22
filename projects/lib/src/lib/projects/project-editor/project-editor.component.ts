@@ -1,7 +1,7 @@
 import { Component, Injectable, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, RouterModule } from '@angular/router';
-import { CeFormRouteParams, CeFormRouteResolver, CeFormsModule, CeNavigationModule, CeProjectsService, ICeFormRouteResolver } from '@codeffekt/ce-core';
+import { CeFormComponent, CeFormRouteParams, CeFormRouteResolver, CeFormsModule, CeNavigationModule, CeProjectsService, ICeFormRouteResolver } from '@codeffekt/ce-core';
 import { FormInstance, IndexType, FormProjectWrapper, FormWrapper } from '@codeffekt/ce-core-data';
 import { ConfigurationService } from '../../services/configuration.service';
 import { CommonModule } from '@angular/common';
@@ -31,7 +31,7 @@ class FormProjectEditorFormRouteResolver implements ICeFormRouteResolver {
     CommonModule,
     CeNavigationModule,
     MatTabsModule,
-    CeFormsModule,
+    CeFormComponent,
     MatButtonModule,
     RouterModule,
     CeCodeEditorComponent,

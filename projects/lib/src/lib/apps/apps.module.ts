@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core";
 import { ReactiveFormsModule } from "@angular/forms";
 import { MatButtonModule } from "@angular/material/button"
 import {
+  CeFormComponent,
   CeFormsModule, CeFormsPipesModule, CeListModule,
   CeNavigationModule,
   CePipesModule,
@@ -59,6 +60,7 @@ import { MatTooltipModule } from "@angular/material/tooltip";
     MatSidenavModule,
     CeSideMenuModule,
     CeFormsModule,
+    CeFormComponent,
     CeNavigationModule,
     CeListModule,
     CePipesModule,

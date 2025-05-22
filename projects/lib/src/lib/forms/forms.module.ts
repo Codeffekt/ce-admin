@@ -6,7 +6,8 @@ import {
   FormActionBuilder,
   FormActionService,
   FormsLocalDatabaseService,
-  ListItemStoreService
+  ListItemStoreService,
+  FormStoreService,
 } from '@codeffekt/ce-core';
 import { FormDataService } from '../services/form-data.service';
 import { ListItemProjectModule } from '../list-item-project/list-item-project.module';
@@ -59,6 +60,7 @@ export class CeAdminFormsModule {
 
   constructor(
     listItemStore: ListItemStoreService,
+    formStoreService: FormStoreService,
     formActions: FormActionService,
     localDatabase: FormsLocalDatabaseService
   ) {
@@ -69,11 +71,14 @@ export class CeAdminFormsModule {
       }
     });
 
+    formStoreService.setComponents({
+      'form-forms': FormsComponent,
+    })
+
     formActions.setActions({      
-      'form-forms': FormActionBuilder
-        .withRender(FormsComponent)        
-        .setTopbar(FormsTopbarComponent)
-        .setToolbar(FormsToolbarComponent),                           
+      'form-forms': FormActionBuilder                  
+        .withToolbar(FormsToolbarComponent)
+        .setTopbar(FormsTopbarComponent),                           
     });
 
     localDatabase.setForms({            

@@ -1,6 +1,5 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
-import { ProcessingComponent } from './processing.component';
 import {
     CeFormModule, CeFormsPipesModule,
     CeGridModule, CeNavigationModule,
@@ -10,10 +9,7 @@ import { RouterModule } from "@angular/router";
 import { MatButtonModule } from "@angular/material/button";
 import { ProcessingDialogModule } from "../processing-dialog";
 
-@NgModule({
-    declarations: [
-        ProcessingComponent,
-    ],
+@NgModule({   
     imports: [
         CommonModule,
         RouterModule,
@@ -24,10 +20,7 @@ import { ProcessingDialogModule } from "../processing-dialog";
         CeFormModule,        
         MatButtonModule,
         ProcessingDialogModule,
-    ],
-    exports: [
-        ProcessingComponent,
-    ]
+    ],    
 })
 export class ProcessingModule {
 

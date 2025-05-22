@@ -1,17 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { CeFormEditorService, FormInfo, CeProcessingService } from '@codeffekt/ce-core';
+import { CeFormEditorService, FormInfo, CeProcessingService, CeNavigationModule, CeFormFactoryComponent, CeRowModule, CeFormsPipesModule } from '@codeffekt/ce-core';
 import { FormInstance, FormInstanceMaskWrapper, FormWrapper } from '@codeffekt/ce-core-data';
 import { ProcessingCommandInterface, ProcessingDialogComponent } from '../processing-dialog/processing-dialog.component';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { filter, firstValueFrom, interval } from 'rxjs';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
 
 @UntilDestroy()
 @Component({
     selector: 'lib-processing',
     templateUrl: './processing.component.html',
-    styleUrls: ['./processing.component.css'],
-    standalone: false
+    styleUrls: ['./processing.component.css'],    
+    imports: [
+      CommonModule,
+      CeNavigationModule,
+      RouterModule,
+      CeFormFactoryComponent,
+      CeRowModule,
+      MatButtonModule,
+      CeFormsPipesModule,
+    ]
 })
 export class ProcessingComponent implements OnInit {
 

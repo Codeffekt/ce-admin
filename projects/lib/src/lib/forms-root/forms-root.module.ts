@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core";
 import { MatIconModule } from "@angular/material/icon";
 import { CeCodeEditorModule } from "@codeffekt/ce-code-editor";
 import {
+  CeFormComponent,
   CeFormDataService, CeFormQueryWrapperModule, CeFormRouteResolver,
   CeFormsModule,
   CeLayoutModule,
@@ -49,6 +50,7 @@ import { FormRootCreatorDialogComponent } from "./form-root-creator-dialog/form-
     ReactiveFormsModule,
     CeCodeEditorModule,
     CeFormsModule,
+    CeFormComponent,
     CeNavigationModule,
     CeFormQueryWrapperModule,
     CeNgReallyModule,

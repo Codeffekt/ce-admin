@@ -4,6 +4,7 @@ import { FormsVersionRoutingModule } from "./forms-version-routing.module";
 import { FormsVersionComponent } from "./forms-version/forms-version.component";
 import { FormsVersionEditorComponent } from "./forms-version-editor/forms-version-editor.component";
 import { 
+    CeFormComponent,
     CeFormQueryWrapperModule,
     CeFormsModule, CeListModule, CeNavigationModule, CeNgReallyModule, CePipesModule, CeTableModule, ListItemStoreService, 
 } from "@codeffekt/ce-core";
@@ -23,7 +24,8 @@ import { MatButtonModule } from "@angular/material/button";
         CeNavigationModule,
         CeFormQueryWrapperModule,
         CeTableModule,
-        CeFormsModule,        
+        CeFormsModule,
+        CeFormComponent,        
         CePipesModule,
         CeListModule,
         CeNgReallyModule,

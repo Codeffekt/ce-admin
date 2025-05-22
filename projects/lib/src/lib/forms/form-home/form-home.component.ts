@@ -4,14 +4,21 @@ import {
   Component, OnDestroy,
   OnInit, ViewChild
 } from '@angular/core';
-import { MatDrawer } from '@angular/material/sidenav';
-import { LayoutService } from '@codeffekt/ce-core';
+import { MatDrawer, MatSidenavModule } from '@angular/material/sidenav';
+import { RouterModule } from '@angular/router';
+import { CeFormEditorMenuComponent, CeFormEditorTopbarComponent, CeGridModule, LayoutService } from '@codeffekt/ce-core';
 
 @Component({
     selector: 'ce-admin-form-home',
     templateUrl: './form-home.component.html',
-    styleUrls: ['./form-home.component.css'],
-    standalone: false
+    styleUrls: ['./form-home.component.css'], 
+    imports: [
+      MatSidenavModule,
+      CeGridModule,
+      CeFormEditorTopbarComponent,
+      RouterModule,
+      CeFormEditorMenuComponent,
+    ]   
 })
 export class FormHomeComponent implements OnInit, AfterViewInit, OnDestroy {
 

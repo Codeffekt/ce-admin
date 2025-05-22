@@ -1,11 +1,13 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
-    CeFormModule, CeFormRouteResolver,
+    CeFormRouteResolver,
     CeFormUpdaterService,
+    CeFormFactoryComponent,
     CeGridModule, CeListModule, CeNavigationModule, 
     FormInfo,
-    SpaceFormContextService} from '@codeffekt/ce-core';
+    SpaceFormContextService
+} from '@codeffekt/ce-core';
 import { SpaceFormRouteResolver } from './space-form-route-resolver.service';
 import { SpaceNavMenuComponent } from '../space-nav-menu/space-nav-menu.component';
 
@@ -14,10 +16,10 @@ import { SpaceNavMenuComponent } from '../space-nav-menu/space-nav-menu.componen
     imports: [
         CommonModule,
         CeNavigationModule,
-        CeGridModule,
-        CeFormModule,
+        CeGridModule,        
         CeListModule,
         SpaceNavMenuComponent,
+        CeFormFactoryComponent,
     ],
     templateUrl: './space-form-editor.component.html',
     styleUrls: ['./space-form-editor.component.scss'],
