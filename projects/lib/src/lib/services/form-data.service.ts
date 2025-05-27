@@ -15,12 +15,13 @@ export class FormDataService implements ICeFormDataService {
         return this.apiService.getRawFormsQuery(formQuery);
     }
 
-    createFormArrayElt(formArrayField: string, formIndex: IndexType): Promise<FormInstance> {
+    createFormArrayElt(formArrayField: string, formIndex: IndexType, root?: IndexType): Promise<FormInstance> {
         return this.apiService.rawFormMutation({
             type: "formArray",
             op: "create",
             indices: [formIndex],
             formArrayField: formArrayField,
+            root,
         });
     }
 
