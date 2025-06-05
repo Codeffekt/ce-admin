@@ -1,3 +1,6 @@
+## [19.1.0]
+ - CeFormsModule and CeFormComponent 
+
 ## [19.0.1]
  - Form space context
 
