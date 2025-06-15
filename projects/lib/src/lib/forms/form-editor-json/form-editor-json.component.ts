@@ -10,33 +10,35 @@ export interface FormEditorJsonConfig {
 }
 
 @Component({
-    selector: 'ce-form-editor-json',
-    templateUrl: './form-editor-json.component.html',
-    styleUrls: ['./form-editor-json.component.scss'],
-    imports: [
-      CommonModule,
-      MatDialogModule,
-      CeCodeEditorComponent,
-      MatButtonModule,
-    ]
+  selector: 'ce-form-editor-json',
+  templateUrl: './form-editor-json.component.html',
+  styleUrls: ['./form-editor-json.component.scss'],
+  imports: [
+    CommonModule,
+    MatDialogModule,
+    CeCodeEditorComponent,
+    MatButtonModule,
+  ]
 })
 export class FormEditorJsonDialogComponent implements OnInit {
 
   @ViewChild(CeCodeEditorComponent) codeEditor!: CeCodeEditorComponent;
   canSave: boolean = false;
+  dialogOpened = false;
 
   static createDialog(data: FormEditorJsonConfig): MatDialogConfig {
     return {
-      width: "800px",
-      maxHeight: "80%",
-      height: '1000px',
       data
     };
   }
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: FormEditorJsonConfig,
-    private dialogRef: MatDialogRef<FormEditorJsonDialogComponent>) { }
+    private dialogRef: MatDialogRef<FormEditorJsonDialogComponent>) {
+
+      this.dialogRef.afterOpened().subscribe(() => setTimeout(() => this.dialogOpened = true, 0));
+
+  }
 
   ngOnInit(): void {
   }
