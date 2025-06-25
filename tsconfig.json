@@ -9,6 +9,9 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "paths": {
+      "@codeffekt/ce-code-editor": [
+        "../ce-code-editor/projects/ce-code-editor/src/lib/index.ts"
+      ],
       "@codeffekt/ce-admin": [
         "projects/lib/src/index.ts"
       ],
