@@ -10,16 +10,16 @@
     "noFallthroughCasesInSwitch": true,
     "paths": {
       "@codeffekt/ce-code-editor": [
-        "../ce-code-editor/projects/ce-code-editor/src/lib/index.ts"
+        "../../packages/ce-code-editor/projects/ce-code-editor/src/lib/index.ts"
       ],
       "@codeffekt/ce-admin": [
         "projects/lib/src/index.ts"
       ],
       "@codeffekt/ce-form-creator": [
-        "@codeffekt/ce-form-creator/index.ts"
+        "../../packages/ce-form-creator/projects/ce-form-creator/src/lib/index.ts"
       ],
       "@codeffekt/ce-core": [
-        "@codeffekt/ce-core/index.ts"
+        "../../packages/ce-core/projects/lib/src/lib/index.ts"
       ],
       "lib": [
         "dist/lib/lib",
