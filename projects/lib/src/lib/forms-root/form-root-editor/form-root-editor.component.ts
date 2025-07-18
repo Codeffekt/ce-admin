@@ -6,7 +6,7 @@ import { Subscription, filter } from 'rxjs';
 import { CeAdminRouteResolver, CE_ADMIN_ROUTE_RESOLVER } from '../../ce-admin-route.resolver';
 import { MatDialog } from '@angular/material/dialog';
 import { FormEditorDialogWrapperComponent } from '../form-editor-dialog-wrapper/form-editor-dialog-wrapper.component';
-import { FormEditorJsonDialogComponent } from '../../forms/form-editor-json/form-editor-json.component';
+import { FormEditorDialogComponent } from '@codeffekt/ce-code-editor';
 
 @Injectable()
 class FormRootEditorFormRouteResolver implements ICeFormRouteResolver {
@@ -63,8 +63,8 @@ export class FormRootEditorComponent implements OnInit {
   openJSONEditor() {
 
     const ref = this.dialog.open(
-      FormEditorJsonDialogComponent,
-      FormEditorJsonDialogComponent.createDialog({ form: this.formWrapper.core })
+      FormEditorDialogComponent,
+      { data: { form: this.formWrapper.core } }
     );
 
     ref.afterClosed()

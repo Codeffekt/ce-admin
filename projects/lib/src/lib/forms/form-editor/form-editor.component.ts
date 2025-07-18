@@ -6,10 +6,10 @@ import { FormInstance, FormInstanceMaskWrapper, FormWrapper, IndexType } from '@
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { Observable, filter, map, merge } from 'rxjs';
 import { CE_ADMIN_ROUTE_RESOLVER, CeAdminRouteResolver } from '../../ce-admin-route.resolver';
-import { FormEditorJsonDialogComponent } from '../form-editor-json/form-editor-json.component';
 import { FormEditorLayoutConfig, FormEditorLayoutService } from './form-editor-layout.service';
 import { FormEditorOperationsService } from './form-editor-operation.service';
 import { FormsQrcodeDialogComponent } from '@codeffekt/ce-barcode';
+import { FormEditorDialogComponent } from '@codeffekt/ce-code-editor';
 
 @Injectable()
 class FormEditorFormRouteResolver implements ICeFormRouteResolver {
@@ -23,18 +23,18 @@ class FormEditorFormRouteResolver implements ICeFormRouteResolver {
 
 @UntilDestroy()
 @Component({
-    selector: 'ce-admin-form-editor',
-    templateUrl: './form-editor.component.html',
-    styleUrls: ['./form-editor.component.scss'],
-    providers: [
-        FormEditorLayoutService,
-        FormEditorOperationsService,
-        {
-            provide: CeFormRouteResolver,
-            useClass: FormEditorFormRouteResolver
-        }
-    ],
-    standalone: false
+  selector: 'ce-admin-form-editor',
+  templateUrl: './form-editor.component.html',
+  styleUrls: ['./form-editor.component.scss'],
+  providers: [
+    FormEditorLayoutService,
+    FormEditorOperationsService,
+    {
+      provide: CeFormRouteResolver,
+      useClass: FormEditorFormRouteResolver
+    }
+  ],
+  standalone: false
 })
 export class FormEditorComponent implements OnInit {
 
@@ -76,8 +76,8 @@ export class FormEditorComponent implements OnInit {
   openJSONEditor() {
 
     const ref = this.dialog.open(
-      FormEditorJsonDialogComponent,
-      FormEditorJsonDialogComponent.createDialog({ form: this.formWrapper.core })
+      FormEditorDialogComponent,
+      { data: { form: this.formWrapper.core } }
     );
 
     ref.afterClosed()
@@ -93,7 +93,7 @@ export class FormEditorComponent implements OnInit {
         formIds: [
           this.form.id
         ]
-      });  
+      });
   }
 
   private updateFormInfo(formInfo: FormInfo) {

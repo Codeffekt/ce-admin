@@ -3,7 +3,6 @@ export * from './form-users-shared';
 export * from './form-editor';
 export * from './form-user-owner';
 export * from './form-creator-dialog';
-export * from './form-editor-json';
 export * from './forms-topbar';
 export * from './forms-toolbar';
 export * from './form-toolbar';
