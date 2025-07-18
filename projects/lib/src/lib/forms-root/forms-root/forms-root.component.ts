@@ -89,8 +89,16 @@ export class FormsRootComponent implements OnInit {
   }
 
   private async createNewRoot(root: IndexType) {
-    const existingRoot = await firstValueFrom(this.formsService.getFormRoot(root));
-    if (existingRoot?.id) {
+    const existingRootRes = await firstValueFrom(this.formsService.getRawFormsRootQuery({
+      limit: 1,
+      queryFields: [{
+        field: "id",
+        op: "=",
+        value: root,
+        onMeta: true
+      }]
+    }));
+    if (existingRootRes.elts.length) {
       this.layout.showErrorMessage(`Root ${root} id already exists.`);
       return;
     }

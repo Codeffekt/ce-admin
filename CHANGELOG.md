@@ -1,3 +1,6 @@
+## [19.1.4]
+ - fix: correct error when creating new root
+
 ## [19.1.1]
  - patch: @codeffekt/ce-code-editor@19.1.1
  - replace the admin form editor with the form editor dialog from ce-code-editor
